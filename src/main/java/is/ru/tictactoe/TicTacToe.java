@@ -38,10 +38,10 @@ public class TicTacToe {
 		return newBoard;
 	}
 
-	public char[] changeBoard(char[] board) {
+	public char[] changeBoard() {
 		int rowCounter = 0;
 		char[] newBoard = new char[9];
-		newBoard = printBoard(board);
+		newBoard = printBoard();
 
 		newBoard[0] = 'X';
 
