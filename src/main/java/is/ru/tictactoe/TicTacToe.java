@@ -48,7 +48,7 @@ public class TicTacToe {
 		char[] myNewBoard = boardString.toCharArray();
 		myNewBoard[0] = 'X';
 
-		for(int i = 1; i <= 9; i++) {
+		for(int i = 0; i < myNewBoard.length(); i++) {
 			System.out.print(myNewBoard[i] + " ");
 			rowCounter++;
 			if(rowCounter % 3 == 0) {
