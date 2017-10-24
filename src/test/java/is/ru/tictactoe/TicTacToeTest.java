@@ -11,8 +11,7 @@ public class TicTacToeTest {
     public void testBoardString() {
     	TicTacToe toe = new TicTacToe();
 
-    	char[] testBoard = new char[9];
-    	testBoard = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    	char[] testBoard = new String("123456789").toCharArray();
     	assertEquals(testBoard, toe.printBoard(testBoard));
     }
 
@@ -20,8 +19,7 @@ public class TicTacToeTest {
     public void changeCharToX() {
     	TicTacToe toe = new TicTacToe();
 
-    	char [] testBoard = new char[9];
-    	testBoard = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    	char [] testBoard = new String("X23456789").toCharArray();
     	assertEquals(testBoard, toe.changeBoard(testBoard));
     }
 }
