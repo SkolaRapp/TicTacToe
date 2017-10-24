@@ -11,7 +11,7 @@ public class TicTacToeTest {
     public void testBoardString() {
     	TicTacToe toe = new TicTacToe();
     	
-    	char[] arr = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    	char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
     	assertEquals(testBoard, toe.printBoard());
     }
 
