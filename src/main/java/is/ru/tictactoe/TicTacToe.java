@@ -18,7 +18,7 @@ public class TicTacToe {
 		
 	}
 
-	public char[] printBoard(char[] board) {
+	public char[] printBoard() {
 
 		String boardString = "";
 		char[] newBoard = new char[9];
