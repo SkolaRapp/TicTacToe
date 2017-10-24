@@ -1,0 +1,42 @@
+Github commands guide
+
+git checkout <branchname> - Skoða branch
+git checkout -b <branchname> búa til nýtt branch
+git branch - skoða þau branch sem eru til
+git branch -d <branchname> - eyða branchi
+
+1. git checkout -b <branchname> og pusha 
+	 git push --set-upstream origin gitguide
+
+2. git add .
+3. git commit -m "comment"
+4. git pull
+5. git push
+
+6.
+Þegar á að merga við develop þá þarf að fara inn á github.com
+og inn á verkefnið.
+
+7.
+Velja branchið sem þú ert að vinna í og smella
+á Compare & pull request.
+
+8.
+Þar inni þarf að velja base:develop og svo
+compare:<branchname>. 
+
+9.
+Velja þann sem á að reviewa commitið
+
+9.
+Smella á create pull request
+
+10.
+Reviewer þarf svo að taka við og samþýkkja commitið áður en það 
+fer inn á develop branchið
+
+11.
+Reviwer þarf að eyða branchi
+
+12.
+Eyða branchi hjá þér
