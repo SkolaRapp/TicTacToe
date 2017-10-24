@@ -24,8 +24,9 @@ public class TicTacToe {
 		int rowCounter = 0;
 
 		for(int i = 1; i <= 9; i++) {
-			System.out.print('$' + " ");
-			boardString += ('$' + " ");
+			char number = (char)(i + '0');
+			System.out.print(number + " ");
+			boardString += (number + " ");
 			rowCounter++;
 
 			if(rowCounter % 3 == 0) {
