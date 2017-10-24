@@ -2,30 +2,39 @@ package is.ru.tictactoe;
 
 public class TicTacToe {
 	
-	public static void main(String[] args){
-	
-		int[] board = new int[9];
-		int turn = 0;
+	private int[] board;
+
+	//constructor
+	public TicTacToe() {
+		board = new int[9];
 
 		//fill the board
 		for(int i = 0; i < board.length; i++) {
 			board[i] = i + 1;
 		}
+	}
 
-		System.out.println("TicTacToe");
+	public static void main(String[] args){
+		
+	}
 
-		//display board
+	public String printBoard(int[] board) {
+
+		String boardString = "";
 		int rowCounter = 0;
-		for(int i = 0; i < 9; i++) {
-			System.out.print(board[i] + " ");
+
+		for(int i = 1; i <= 9; i++) {
+			System.out.print(i + " ");
+			boardString += (i + " ");
 			rowCounter++;
 
 			if(rowCounter % 3 == 0) {
 				System.out.println();
+				boardString += Character.toString('\n');
 			}
 		}
 
-		
+		return boardString;
 	}
 
 }
