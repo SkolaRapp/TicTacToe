@@ -1,4 +1,5 @@
 What is needed and how to get the project to build on a fresh machine, source control client and access to source control build enviroment, other necessary dependencies for development
+
 - Coding rules and tools:
 	- Naming conventions:
 		- Classes: PascalCase.
@@ -13,13 +14,21 @@ What is needed and how to get the project to build on a fresh machine, source co
 		- Git and Github for version control and issue tracking.
 
 - github link
-	https://github.com/SkolaRapp/TicTacToe/	
+	We are using git for our source control. To ge the project to build on a fresh machine you clone the github repository from https://github.com/SkolaRapp/TicTacToe/. !!!Within it is a build script!!!
+
 - útskýra github ferlið
-	There are two main branches, master and develop. When a new feature is m	ade, a new feature branch is made from the develop branch. When a featur	e is completed the feature branch is merged into the develop branch. 
+	There are two main branches, master and develop. When a new feature is 
+	made, a new feature branch is made from the develop branch. When a feature
+	is completed the feature branch is merged into the develop branch. 
 	When it has merged successfully the feature branch should be deleted.
-	- travis
-	- heroku
+	Before the develop branch can be merged into the master branch it has 
+	to pass unit testing.
+
+- Selenium tests
+	Selenium tests are done before a feature branch is merged into the develop branch. Selenium tests are also done on the test server.
+
+- Travis
+- Heroku
 - útskýra business logic
 - fjalla um UI
-- útskýra selenium testing
 
