@@ -49,7 +49,7 @@ public class TicTacToe {
 		myNewBoard[0] = 'X';
 
 		for(int i = 1; i <= 9; i++) {
-			System.out.print(myNewBoard[0] + " ");
+			System.out.print(myNewBoard[i] + " ");
 			rowCounter++;
 			if(rowCounter % 3 == 0) {
 				System.out.println();
