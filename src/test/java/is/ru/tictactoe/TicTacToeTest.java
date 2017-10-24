@@ -12,8 +12,8 @@ public class TicTacToeTest {
     	TicTacToe toe = new TicTacToe();
 
     	char[] testBoard = new char[9];
-    	String testString = "1 2 3 \n4 5 6 \n7 8 9 \n";
-    	assertEquals(testString, toe.printBoard(testBoard));
+    	testBoard = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    	assertEquals(testBoard, toe.printBoard(testBoard));
     }
 
     @Test
@@ -21,7 +21,7 @@ public class TicTacToeTest {
     	TicTacToe toe = new TicTacToe();
 
     	char [] testBoard = new char[9];
-    	String testString = "X 2 3 \n4 5 6 \n7 8 9 \n";
-    	assertEquals(testString, toe.changeBoard(testBoard));
+    	testBoard = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    	assertEquals(testBoard, toe.changeBoard(testBoard));
     }
 }
