@@ -18,47 +18,41 @@ public class TicTacToe {
 		
 	}
 
-	public String printBoard(char[] board) {
+	public char[] printBoard(char[] board) {
 
 		String boardString = "";
+		char newBoard = new char[9];
 		int rowCounter = 0;
 
-		for(int i = 1; i <= 9; i++) {
+		for(int i = 0; i < 9; i++) {
 			char number = (char)(i + '0');
 			//System.out.print(number + " ");
-			boardString += (number + " ");
+			newBoard[i] = number;
 			rowCounter++;
 
 			if(rowCounter % 3 == 0) {
-				System.out.println();
-				boardString += Character.toString('\n');
+				//System.out.println();
 			}
 		}
 
-		return boardString;
+		return newBoard;
 	}
 
-	public String changeBoard(char[] board) {
-		String boardString = "";
+	public char[] changeBoard(char[] board) {
 		int rowCounter = 0;
+		char newBoard = new char[9];
+		newBoard = printBoard(board);
 
-		System.out.println();
-		System.out.println();
+		//System.out.println();
+		//System.out.println();
 		boardString = printBoard(board);
-		char[] myNewBoard = boardString.toCharArray();
 		myNewBoard[0] = 'X';
 
 		for(int i = 0; i < myNewBoard.length; i++) {
-			System.out.print(myNewBoard[i] + " ");
-			rowCounter++;
-			if(rowCounter % 3 == 0) {
-				System.out.println();
-			}
+			
 		}
 
-		boardString = String.valueOf(myNewBoard);
-
-		return boardString;
+		return newBoard;
 	}
 
 }
