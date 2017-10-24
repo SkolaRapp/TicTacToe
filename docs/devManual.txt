@@ -28,7 +28,13 @@ What is needed and how to get the project to build on a fresh machine, source co
 	Selenium tests are done before a feature branch is merged into the develop branch. Selenium tests are also done on the test server.
 
 - Travis
+	Work in processs
 - Heroku
+	Work in process
+
 - útskýra business logic
+	Work in process
+
 - fjalla um UI
+	Work in prociess
 
