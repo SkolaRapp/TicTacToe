@@ -21,7 +21,7 @@ public class TicTacToe {
 	public char[] printBoard(char[] board) {
 
 		String boardString = "";
-		char newBoard = new char[9];
+		char[] newBoard = new char[9];
 		int rowCounter = 0;
 
 		for(int i = 0; i < 9; i++) {
@@ -40,7 +40,7 @@ public class TicTacToe {
 
 	public char[] changeBoard(char[] board) {
 		int rowCounter = 0;
-		char newBoard = new char[9];
+		char[] newBoard = new char[9];
 		newBoard = printBoard(board);
 
 		//System.out.println();
