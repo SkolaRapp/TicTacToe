@@ -1,5 +1,25 @@
 What is needed and how to get the project to build on a fresh machine, source control client and access to source control build enviroment, other necessary dependencies for development
 
+- Getting started
+	
+	To download the project go to https://github.com/SkolaRapp/TicTacToe/.
+	To clone the project using gitbash: 
+
+		git clone git@github.com:SkolaRapp/TicTacToe.git
+
+	To build and test the project:
+
+		gradle build
+
+	To run the project:
+
+		gradle run
+
+	The port to run the game is currently:
+
+		4567
+
+
 - Coding rules and tools:
 	- Naming conventions:
 		- Classes: PascalCase.
@@ -12,6 +32,8 @@ What is needed and how to get the project to build on a fresh machine, source co
 	- Tools
 		- Eclipse Java Oxygen
 		- Git and Github for version control and issue tracking.
+
+
 
 - github link
 	We are using git for our source control. To ge the project to build on a fresh machine you clone the github repository from https://github.com/SkolaRapp/TicTacToe/. !!!Within it is a build script!!!

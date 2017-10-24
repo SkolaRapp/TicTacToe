@@ -1,2 +1,11 @@
-bluhhh
-This is just a test, don't worry aboot it, eh?
+To set up Travis
+
+		1. 	Fork the calcApi repository: github.com/arnlaugsson/stringCalcWeb
+			Note: since this is a public repo, you can't fork is as a private repo
+			(directly at least).
+
+		2.	Go to Travis-ci.org
+			a.	Sign in with GitHub
+			b.	Give GitHub access to this repository (note you might need to 		"sync" repos to Travis CI, using a button).
+
+		3.	Clone the repo to your local environment and make the following 		changes:
