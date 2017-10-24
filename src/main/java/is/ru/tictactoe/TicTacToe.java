@@ -26,12 +26,12 @@ public class TicTacToe {
 
 		for(int i = 0; i < 9; i++) {
 			char number = (char)(i + '0');
-			//System.out.print(number + " ");
+			System.out.print(number + " ");
 			newBoard[i] = number;
 			rowCounter++;
 
 			if(rowCounter % 3 == 0) {
-				//System.out.println();
+				System.out.println();
 			}
 		}
 

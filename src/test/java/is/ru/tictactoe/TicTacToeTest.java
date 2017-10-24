@@ -10,16 +10,16 @@ public class TicTacToeTest {
     @Test
     public void testBoardString() {
     	TicTacToe toe = new TicTacToe();
-
-    	char[] testBoard = new String("123456789").toCharArray();
+    	
+    	char[] arr = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
     	assertEquals(testBoard, toe.printBoard(testBoard));
     }
 
-    @Test
-    public void changeCharToX() {
-    	TicTacToe toe = new TicTacToe();
+    //@Test
+    //public void changeCharToX() {
+    //	TicTacToe toe = new TicTacToe();
 
-    	char [] testBoard = new String("X23456789").toCharArray();
-    	assertEquals(testBoard, toe.changeBoard(testBoard));
-    }
+    //	char [] testBoard = new String("X23456789").toCharArray();
+    //	assertEquals(testBoard, toe.changeBoard(testBoard));
+    //}
 }
