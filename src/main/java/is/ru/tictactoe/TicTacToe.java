@@ -9,33 +9,77 @@ public class TicTacToe {
 		board = new char[9];
 
 		//fill the board
-		for(int i = 0; i < board.length; i++) {
-			board[i] = '$';
-		}
+		//for(int i = 0; i < board.length; i++) {
+			//board[i] = '$';
+		//}
 	}
 
 	public static void main(String[] args){
 		
 	}
 
-	public String printBoard(char[] board) {
+	public void justForPrinting(char[] testBoard){
+		for (int i = 0; i < 3; i++){
+			System.out.print(testBoard[i] + " ");
+		}
+		System.out.println();
+		for (int i = 3; i < 6; i++){
+			System.out.print(testBoard[i] + " ");
+		}
+		System.out.println();
+		for (int i = 6; i < 9; i++){
+			System.out.print(testBoard[i] + " ");
+		}
+	}
 
-		String boardString = "";
+	public char[] printBoard() {
+
+		char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		int rowCounter = 0;
 
-		for(int i = 1; i <= 9; i++) {
-			char number = (char)(i + '0');
-			System.out.print(number + " ");
-			boardString += (number + " ");
-			rowCounter++;
+		//justForPrinting(testBoard);
+		return testBoard;
+	}
 
-			if(rowCounter % 3 == 0) {
-				System.out.println();
-				boardString += Character.toString('\n');
-			}
-		}
+	public char[] changeBoard() {
+		int rowCounter = 0;
+		char[] newBoard = printBoard();
 
-		return boardString;
+		justForPrinting(newBoard);
+		
+		newBoard[0] = 'X';
+		System.out.println();
+		System.out.println();
+		System.out.println("User makes his first move");
+		justForPrinting(newBoard);
+
+		newBoard[1] = 'O';
+		System.out.println();
+		System.out.println();
+		System.out.println("Next the computer makes his move");
+		justForPrinting(newBoard);
+
+		newBoard[4] = 'X';
+		System.out.println();
+		System.out.println();
+		System.out.println("User makes his move");
+		justForPrinting(newBoard);
+
+		newBoard[2] = 'O';
+		System.out.println();
+		System.out.println();
+		System.out.println("Computer makes his move");
+		justForPrinting(newBoard);
+
+		newBoard[8] = 'X';
+		System.out.println();
+		System.out.println();
+		System.out.println("User makes his move");
+		justForPrinting(newBoard);
+		System.out.println();
+		System.out.print("Woo hoo, the user won");
+
+		return newBoard;
 	}
 
 }
