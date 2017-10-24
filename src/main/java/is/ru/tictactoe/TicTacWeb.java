@@ -20,12 +20,12 @@ public class TicTacWeb {
         static int getHerokuPort() {
             ProcessBuilder psb = new ProcessBuilder();
             if (psb.environment().get("PORT") != null) {
-               return Integer.parseInt(psb.environment().get("PORT"));
-           }
-           return 4567;
-       }
+             return Integer.parseInt(psb.environment().get("PORT"));
+         }
+         return 4567;
+     }
 
-       private static String runGame() {
+     private static String runGame() {
         TicTacToe game = new TicTacToe();
         char[] inputStrings = new char[9];
 
@@ -37,13 +37,20 @@ public class TicTacWeb {
 
     private static String printHtml(String body){
         String html = "<!DOCTYPE html><html><head><title>Tic Tac Wolfes</title></head>"
-        +"<body> " + body + "</body>" +
+        +"<body> " + body + printForm() + "</body>" +
         "</html>";
         return html;
     }
+    private static String printForm(){
+        String userForm = "<form action=\"/game/\">"+
+        "Enter number for next value: <input type=\"number\" name=\"uservalue\"  min=\"1\" max=\"9\"><br>" +
+        "<input type=\"submit\" value=\"Submit\">" +
+        "</form>";
+        return userForm;
+    }
     private static String printGameBoard(char[] gameBoard){
-
-        String table = "<table style=\"width:50%; height:200px; border: 1px solid black;\"><tr>";
+        String tableCSS = "width:50%; height:200px; border: 1px solid black;text-align: center;";
+        String table = "<table style=\" "+ tableCSS +" \"><tr>";
 
         for(int i = 1; i <= 9; i++){
             //table += "<td>" + Character.toString(gameBoard[i]) + "</td>";
