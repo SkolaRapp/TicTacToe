@@ -53,8 +53,7 @@ public class TicTacWeb {
         String table = "<table style=\" "+ tableCSS +" \"><tr>";
 
         for(int i = 1; i <= 9; i++){
-            //table += "<td>" + Character.toString(gameBoard[i]) + "</td>";
-            table += "<td>" + i + "</td>";
+            table += "<td>" + Character.toString(gameBoard[i-1]) + "</td>";
 
             if(i % 3 == 0){
                 table += "</tr><tr>";
@@ -64,8 +63,8 @@ public class TicTacWeb {
         return table;
     }
     private static char[] fillTempArray(char[] board){
-        for(int i = 0; i < 9; i++){
-            board[i] = (char)i;
+        for(int i = 1; i <= 9; i++){
+            board[i-1] = (char)(i + '0');
         }
         return board;
     } 
