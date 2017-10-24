@@ -23,11 +23,11 @@ public class TicTacToe {
 		char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		int rowCounter = 0;
 
-		for (int i = 0; i < 3; í++){
+		for (int i = 0; i < 3; i++){
 			System.out.print(testBoard[i] + " ");
 		}
 		System.out.println();
-		for (int i = 3; i < 6; í++){
+		for (int i = 3; i < 6; i++){
 			System.out.print(testBoard[i] + " ");
 		}
 		System.out.println();
