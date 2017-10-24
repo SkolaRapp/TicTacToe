@@ -6,11 +6,11 @@ public class TicTacToe {
 
 	//constructor
 	public TicTacToe() {
-		board = new int[9];
+		board = new char[9];
 
 		//fill the board
 		for(int i = 0; i < board.length; i++) {
-			board[i] = i + 1;
+			board[i] = char(i + 1);
 		}
 	}
 
