@@ -1,4 +1,9 @@
-What is needed and how to get the project to build on a fresh machine, source control client and access to source control build enviroment, other necessary dependencies for development
+Development manual: what is needed and how to get the project to
+build on a fresh machine, Source control client and access to source
+control Build environment, Other necessary dependencies for
+development.
+
+What a developer needs to work on the project
 
 - Getting started
 	
