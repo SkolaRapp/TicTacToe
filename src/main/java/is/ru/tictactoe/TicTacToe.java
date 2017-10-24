@@ -42,8 +42,8 @@ public class TicTacToe {
 		String boardString = "";
 
 		boardString = printBoard(board);
-		StringBuilder board = new StringBuilder(boardString); 
-		board.charAt(0, 'X');
+		StringBuilder newBoard = new StringBuilder(boardString); 
+		newBoard.charAt(0, 'X');
 
 		return boardString;
 	}
