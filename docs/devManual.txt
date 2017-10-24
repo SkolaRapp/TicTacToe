@@ -29,6 +29,7 @@ What is needed and how to get the project to build on a fresh machine, source co
 
 - Travis
 	Work in processs
+	
 - Heroku
 	Work in process
 
