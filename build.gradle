@@ -5,12 +5,14 @@
  * For more details take a look at the Java Libraries chapter in the Gradle
  * user guide available at https://docs.gradle.org/4.2.1/userguide/java_library_plugin.html
  */
+plugins {
+   id "io.ratpack.ratpack-groovy" version 1.4.5"
+}
 
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
 apply plugin: 'application'
 //apply plugin: "io.ratpack.ratpack-java"
-
 
 mainClassName = 'is.ru.tictactoe.TicTacToe'
 
