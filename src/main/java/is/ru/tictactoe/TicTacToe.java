@@ -19,22 +19,21 @@ public class TicTacToe {
 	}
 
 	public char[] printBoard() {
-
-		String boardString = "";
-		char[] newBoard = new char[9];
+		
+		char[] newBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		int rowCounter = 0;
 
-		for(int i = 0; i < 9; i++) {
-			int numberAbove = i + 1;
-			char number = (char)(numberAbove + '0');
+		//for(int i = 0; i < 9; i++) {
+			//int numberAbove = i + 1;
+			//char number = (char)(numberAbove + '0');
 			//System.out.print(number + " ");
-			newBoard[i] = number;
-			rowCounter++;
+			//newBoard[i] = number;
+			//rowCounter++;
 
-			if(rowCounter % 3 == 0) {
-				System.out.println();
-			}
-		}
+			//if(rowCounter % 3 == 0) {
+				//System.out.println();
+			//}
+		//}
 
 		return newBoard;
 	}
