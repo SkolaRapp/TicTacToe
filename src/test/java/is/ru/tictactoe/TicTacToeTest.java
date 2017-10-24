@@ -12,7 +12,11 @@ public class TicTacToeTest {
     	TicTacToe toe = new TicTacToe();
     	
     	char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
-    	assertEquals(testBoard, toe.printBoard());
+    	String str = String.valueOf(testBoard);
+    	char[] newBoard = toe.printBoard();
+    	String newString =  String.valueOf(newBoard);
+
+    	assertEquals(str, newString);
     }
 
     //@Test

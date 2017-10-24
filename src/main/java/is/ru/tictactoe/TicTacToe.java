@@ -19,8 +19,8 @@ public class TicTacToe {
 	}
 
 	public char[] printBoard() {
-		
-		char[] newBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+
+		char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		int rowCounter = 0;
 
 		//for(int i = 0; i < 9; i++) {
@@ -35,7 +35,7 @@ public class TicTacToe {
 			//}
 		//}
 
-		return newBoard;
+		return testBoard;
 	}
 
 	public char[] changeBoard() {
