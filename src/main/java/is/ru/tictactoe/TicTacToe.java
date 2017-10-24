@@ -18,7 +18,7 @@ public class TicTacToe {
 		
 	}
 
-	public String printBoard(int[] board) {
+	public String printBoard(char[] board) {
 
 		String boardString = "";
 		int rowCounter = 0;
