@@ -1,1 +1,25 @@
-bleeehhh
+What is needed and how to get the project to build on a fresh machine, source control client and access to source control build enviroment, other necessary dependencies for development
+- Coding rules and tools:
+	- Naming conventions:
+		- Classes: PascalCase.
+		- Functions and variables: camelCase.
+		- Global variables: UPPER_CASE.
+	- Tabs used over spaces.
+	- Code and comments in English.
+	- Comments above functions.
+	- Newline between functions and before return statements.
+	- Tools
+		- Eclipse Java Oxygen
+		- Git and Github for version control and issue tracking.
+
+- github link
+	https://github.com/SkolaRapp/TicTacToe/	
+- útskýra github ferlið
+	There are two main branches, master and develop. When a new feature is m	ade, a new feature branch is made from the develop branch. When a featur	e is completed the feature branch is merged into the develop branch. 
+	When it has merged successfully the feature branch should be deleted.
+	- travis
+	- heroku
+- útskýra business logic
+- fjalla um UI
+- útskýra selenium testing
+
