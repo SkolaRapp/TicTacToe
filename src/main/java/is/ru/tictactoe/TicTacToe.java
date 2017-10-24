@@ -7,7 +7,6 @@ public class TicTacToe {
 	//constructor
 	public TicTacToe() {
 		board = new char[9];
-		String theBoard = "";
 
 		//fill the board
 		//for(int i = 0; i < board.length; i++) {
@@ -40,8 +39,10 @@ public class TicTacToe {
 	}
 
 	public String changeBoard(char[] board) {
-		theBoard = printBoard(board);
-		theBoard[0] = 'X';
+		String boardString = "";
+
+		boardString = printBoard(board);
+		boardString[0] = 'X';
 
 		return theBoard;
 	}
