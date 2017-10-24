@@ -44,15 +44,40 @@ public class TicTacToe {
 	public char[] changeBoard() {
 		int rowCounter = 0;
 		char[] newBoard = printBoard();
-		
-		justForPrinting(newBoard);
-		newBoard[0] = 'X';
 
+		justForPrinting(newBoard);
+		
+		newBoard[0] = 'X';
 		System.out.println();
 		System.out.println();
-		System.out.println("First character becomes X");
+		System.out.println("User makes his first move");
+		justForPrinting(newBoard);
+
+		newBoard[1] = 'O';
+		System.out.println();
+		System.out.println();
+		System.out.println("Next the computer makes his move");
+		justForPrinting(newBoard);
+
+		newBoard[4] = 'X';
+		System.out.println();
+		System.out.println();
+		System.out.println("User´s move");
+		justForPrinting(newBoard);
+
+		newBoard[2] = 'O';
+		System.out.println();
+		System.out.println();
+		System.out.println("Computer´s move");
+		justForPrinting(newBoard);
+
+		newBoard[8] = 'X';
+		System.out.println();
+		System.out.println();
+		System.out.println("User´s move");
 		justForPrinting(newBoard);
 		System.out.println();
+		System.out.print("Woo hoo, the user won");
 
 		return newBoard;
 	}

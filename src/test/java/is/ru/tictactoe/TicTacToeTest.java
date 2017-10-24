@@ -23,7 +23,7 @@ public class TicTacToeTest {
     public void changeCharToX() {
     	TicTacToe toe = new TicTacToe();
 
-    	char[] testBoard = {'X', '2', '3', '4', '5', '6', '7', '8', '9'};
+    	char[] testBoard = {'X', 'O', 'O', '4', 'X', '6', '7', '8', 'X'};
     	String str = String.valueOf(testBoard);
     	char[] newBoard = toe.changeBoard();
     	String newString =  String.valueOf(newBoard);
