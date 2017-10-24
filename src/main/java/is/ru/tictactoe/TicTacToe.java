@@ -44,7 +44,7 @@ public class TicTacToe {
 		boardString = printBoard(board);
 		boardString[0] = 'X';
 
-		return theBoard;
+		return boardString;
 	}
 
 }
