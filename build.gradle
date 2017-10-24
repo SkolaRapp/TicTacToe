@@ -9,7 +9,8 @@
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
 apply plugin: 'application'
-apply plugin: "io.ratpack.ratpack-java"
+//apply plugin: "io.ratpack.ratpack-java"
+
 
 mainClassName = 'is.ru.tictactoe.TicTacToe'
 
@@ -36,7 +37,7 @@ dependencies {
     compile "com.heroku.sdk:heroku-jdbc:0.1.1"
     compile "org.postgresql:postgresql:9.4-1201-jdbc4"
     testCompile 'junit:junit:4.11'
-    classpath "io.ratpack:ratpack-gradle:1.5.0"
+    //classpath "io.ratpack:ratpack-gradle:1.5.0"
 }
 
 task stage {
