@@ -42,7 +42,7 @@ public class TicTacToe {
 		String boardString = "";
 
 		boardString = printBoard(board);
-		boardString[0] = 'X';
+		boardString.get(0) = 'X';
 
 		return boardString;
 	}
