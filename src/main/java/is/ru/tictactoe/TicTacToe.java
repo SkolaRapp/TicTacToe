@@ -37,20 +37,22 @@ public class TicTacToe {
 		char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		int rowCounter = 0;
 
-		justForPrinting(testBoard);
+		//justForPrinting(testBoard);
 		return testBoard;
 	}
 
 	public char[] changeBoard() {
 		int rowCounter = 0;
 		char[] newBoard = printBoard();
-
+		
+		justForPrinting(newBoard);
 		newBoard[0] = 'X';
 
 		System.out.println();
 		System.out.println();
 		System.out.println("First character becomes X");
 		justForPrinting(newBoard);
+		System.out.println();
 
 		return newBoard;
 	}
