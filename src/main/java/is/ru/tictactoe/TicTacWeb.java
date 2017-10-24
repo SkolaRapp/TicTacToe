@@ -41,6 +41,7 @@ public class TicTacWeb {
         }
 
 
-        return game.printBoard(inputStrings);
+        //return game.printBoard(inputStrings);
+        return "Some fanzy game stuff here!";
     }
 }
