@@ -43,7 +43,7 @@ public class TicTacToe {
 
 		boardString = printBoard(board);
 		char[] myNewBoard = boardString.toCharArray();
-		myNewBoard[4] = 'X';
+		myNewBoard[0] = 'X';
 		boardString = String.valueOf(myNewBoard);
 
 		return boardString;
