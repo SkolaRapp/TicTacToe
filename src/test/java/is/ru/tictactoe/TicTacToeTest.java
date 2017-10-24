@@ -19,11 +19,15 @@ public class TicTacToeTest {
     	assertEquals(str, newString);
     }
 
-    //@Test
-    //public void changeCharToX() {
-    //	TicTacToe toe = new TicTacToe();
+    @Test
+    public void changeCharToX() {
+    	TicTacToe toe = new TicTacToe();
 
-    //	char [] testBoard = new String("X23456789").toCharArray();
-    //	assertEquals(testBoard, toe.changeBoard(testBoard));
-    //}
+    	char[] testBoard = {'X', '2', '3', '4', '5', '6', '7', '8', '9'};
+    	String str = String.valueOf(testBoard);
+    	char[] newBoard = toe.changeBoard();
+    	String newString =  String.valueOf(newBoard);
+
+    	assertEquals(str, newString);
+   	}
 }

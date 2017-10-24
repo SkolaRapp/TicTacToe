@@ -18,11 +18,7 @@ public class TicTacToe {
 		
 	}
 
-	public char[] printBoard() {
-
-		char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
-		int rowCounter = 0;
-
+	public void justForPrinting(char[] testBoard){
 		for (int i = 0; i < 3; i++){
 			System.out.print(testBoard[i] + " ");
 		}
@@ -34,17 +30,27 @@ public class TicTacToe {
 		for (int i = 6; i < 9; i++){
 			System.out.print(testBoard[i] + " ");
 		}
-		System.out.println();
+	}
 
+	public char[] printBoard() {
+
+		char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+		int rowCounter = 0;
+
+		justForPrinting(testBoard);
 		return testBoard;
 	}
 
 	public char[] changeBoard() {
 		int rowCounter = 0;
-		char[] newBoard = new char[9];
-		newBoard = printBoard();
+		char[] newBoard = printBoard();
 
 		newBoard[0] = 'X';
+
+		System.out.println();
+		System.out.println();
+		System.out.println("First character becomes X");
+		justForPrinting(newBoard);
 
 		return newBoard;
 	}
