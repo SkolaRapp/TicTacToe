@@ -7,11 +7,12 @@ public class TicTacToe {
 	//constructor
 	public TicTacToe() {
 		board = new char[9];
+		String theBoard = "";
 
 		//fill the board
-		for(int i = 0; i < board.length; i++) {
-			board[i] = '$';
-		}
+		//for(int i = 0; i < board.length; i++) {
+			//board[i] = '$';
+		//}
 	}
 
 	public static void main(String[] args){
@@ -25,7 +26,7 @@ public class TicTacToe {
 
 		for(int i = 1; i <= 9; i++) {
 			char number = (char)(i + '0');
-			System.out.print(number + " ");
+			//System.out.print(number + " ");
 			boardString += (number + " ");
 			rowCounter++;
 
@@ -36,6 +37,13 @@ public class TicTacToe {
 		}
 
 		return boardString;
+	}
+
+	public String changeBoard(char[] board) {
+		theBoard = printBoard(board);
+		theBoard[0] = 'X';
+
+		return theBoard;
 	}
 
 }
