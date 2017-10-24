@@ -37,7 +37,11 @@ public class TicTacWeb {
 
     private static String printHtml(String body){
         String html = "<!DOCTYPE html><html><head><title>Tic Tac Wolfes</title></head>"
-        +"<body> " + body + printForm() + "</body>" +
+        +"<body> " +
+        "<h2>Welcome to our simple TicTacToe game</h2>";
+        body + 
+        printForm() + 
+        "</body>" +
         "</html>";
         return html;
     }
