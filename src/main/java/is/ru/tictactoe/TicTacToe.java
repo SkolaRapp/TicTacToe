@@ -31,7 +31,7 @@ public class TicTacToe {
 			System.out.print(testBoard[i] + " ");
 		}
 		System.out.println();
-		for (int i = 6; i < 8; í++){
+		for (int i = 6; i < 9; i++){
 			System.out.print(testBoard[i] + " ");
 		}
 		System.out.println();
