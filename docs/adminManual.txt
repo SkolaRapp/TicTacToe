@@ -9,15 +9,16 @@ Admin needs to:
 
 Set up Travis
 
-		1. 	Fork the TicTacToe repository: https://github.com/SkolaRapp/TicTacToe
-			Note: since this is a public repo, you can't fork is as a private repo
-			(directly at least).
+	1. 	Fork the TicTacToe repository: https://github.com/SkolaRapp/TicTacToe
+		Note: since this is a public repo, you can't fork is as a private repo
+		(directly at least).
 
-		2.	Go to Travis-ci.org
-			a.	Sign in with GitHub
-			b.	Give GitHub access to this repository (note you might need to 		"sync" repos to Travis CI, using a button).
+	2.	Go to Travis-ci.org
 
-		3.	Clone the repo to your local environment
+		a.	Sign in with GitHub
+		b.	Give GitHub access to this repository (note you might need to 			"sync" repos to Travis CI, using a button).
+
+	3.	Clone the repo to your local environment
 
 Set up Heroku
 
@@ -39,3 +40,20 @@ Set up Heroku
 	8.	You should now have a running application somewhere on herokuapp.
 
 Putting Travis CI & Heroku together
+
+	Disclaimer: This is where things get tricker, and we'll only help move you in the right direction.
+
+	To move from a simple Continuous integration cycle, to something more
+	complicated continuous delivery, you will need to define a staging server. This
+	can easily be a Heroku app server. How would you go about setting the
+	following up:
+
+	1.	Code changes are made to a feature branch as a part of a pull request
+
+	2.	Travis runs all unit and integration tests on commit and push to GitHub
+
+		a.	If there are failures, GitHub would show this on the pull request.
+		b.	If the tests pass and other checks pass.
+
+			1.	Travis CI will deploy the application to a staging server.
+			2.	That can be used for manual testing, or later some functional 		tests like Selenium tests.
