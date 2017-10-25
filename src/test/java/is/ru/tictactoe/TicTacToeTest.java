@@ -29,13 +29,13 @@ public class TicTacToeTest {
     	assertEquals(str, newString);
    	}
 
+   	//to test that the initial board string is as expected
    	@Test
    	public void testBoard() {
    		TicTacToe tic = new TicTacToe();
    		
    		char[] expectedArray = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
    		String expected = String.valueOf(expectedArray);
-
     	char[] boardTest = tic.getBoard();
     	String returned =  String.valueOf(boardTest);
 

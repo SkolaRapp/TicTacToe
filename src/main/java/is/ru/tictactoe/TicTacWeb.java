@@ -25,10 +25,12 @@ public class TicTacWeb {
          return 4567;
      }
 
+     //this is where the shit happens
      private static String runGame() {
         TicTacToe game = new TicTacToe();
         char[] inputStrings = new char[9];
 
+        //calls getBoard to access the char array for the board
         inputStrings = game.getBoard();
         //inputStrings = fillTempArray(inputStrings);
 
@@ -70,6 +72,7 @@ public class TicTacWeb {
         return table;
     }
 
+    //redundant??
     private static char[] fillTempArray(char[] board){
         /*for(int i = 1; i <= 9; i++){
             board[i-1] = (char)(i + '0');

@@ -16,6 +16,7 @@ public class TicTacToe {
 		//}
 	}
 
+	//because newboard is private
 	public char[] getBoard() {
 		return newboard;
 	}
