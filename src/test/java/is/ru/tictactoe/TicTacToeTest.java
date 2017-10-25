@@ -3,9 +3,7 @@ package is.ru.tictactoe;
 import static org.junit.Assert.*;
 import org.junit.*;
 
-
 public class TicTacToeTest {
-
 
     @Test
     public void testBoardString() {
@@ -29,5 +27,18 @@ public class TicTacToeTest {
     	String newString =  String.valueOf(newBoard);
 
     	assertEquals(str, newString);
+   	}
+
+   	@Test
+   	public void testBoard() {
+   		TicTacToe tic = new TicTacToe();
+   		
+   		char[] expectedArray = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+   		String expected = String.valueOf(expectedArray);
+
+    	char[] boardTest = tic.getBoard();
+    	String returned =  String.valueOf(boardTest);
+
+    	assertEquals(expected, returned);
    	}
 }

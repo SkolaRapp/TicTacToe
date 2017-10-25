@@ -3,7 +3,7 @@ package is.ru.tictactoe;
 public class TicTacToe {
 	
 	//private char[] board;
-	private char[] newboard = {'#', 'y', '3', '4', '5', '6', '7', '8', '9'};
+	private char[] newboard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 	
 	//constructor
 	public TicTacToe() {
