@@ -20,16 +20,19 @@ public class TicTacWeb {
         static int getHerokuPort() {
             ProcessBuilder psb = new ProcessBuilder();
             if (psb.environment().get("PORT") != null) {
-             return Integer.parseInt(psb.environment().get("PORT"));
+                return Integer.parseInt(psb.environment().get("PORT"));
          }
          return 4567;
      }
 
+     //this is where the shit happens
      private static String runGame() {
         TicTacToe game = new TicTacToe();
         char[] inputStrings = new char[9];
 
-        inputStrings = fillTempArray(inputStrings);
+        //calls getBoard to access the char array for the board
+        inputStrings = game.getBoard();
+        //inputStrings = fillTempArray(inputStrings);
 
         return printHtml(printGameBoard(inputStrings));
         //return printHtml(printGameBoard(game.printBoard(inputStrings)));
@@ -45,6 +48,7 @@ public class TicTacWeb {
         "</html>";
         return html;
     }
+
     private static String printForm(){
         String userForm = "<form action=\"/game/\">"+
         "Enter number for next value: <input type=\"number\" name=\"uservalue\"  min=\"1\" max=\"9\"><br>" +
@@ -52,6 +56,7 @@ public class TicTacWeb {
         "</form>";
         return userForm;
     }
+
     private static String printGameBoard(char[] gameBoard){
         String tableCSS = "width:50%; height:200px; border: 1px solid black;text-align: center;";
         String table = "<table style=\" "+ tableCSS +" \"><tr>";
@@ -66,10 +71,13 @@ public class TicTacWeb {
         table += "</table>";
         return table;
     }
+
+    //redundant??
     private static char[] fillTempArray(char[] board){
-        for(int i = 1; i <= 9; i++){
+        /*for(int i = 1; i <= 9; i++){
             board[i-1] = (char)(i + '0');
-        }
-        return board;
+        }*/
+        char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        return testBoard;
     } 
 }
