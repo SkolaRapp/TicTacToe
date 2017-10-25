@@ -1,1 +1,4 @@
-blaaah
+Design report: Document describing the initial design.
+1-2 pages.
+
+This TicTacToe project is an assigment for T-303-HUGB class in Reykjavik University Autumn 2017.
