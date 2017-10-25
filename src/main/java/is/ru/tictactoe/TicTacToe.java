@@ -2,16 +2,22 @@ package is.ru.tictactoe;
 
 public class TicTacToe {
 	
-	private char[] board;
-
+	//private char[] board;
+	private char[] newboard = {'#', 'y', '3', '4', '5', '6', '7', '8', '9'};
+	
 	//constructor
 	public TicTacToe() {
-		board = new char[9];
+		//board = new char[9];
+		
 
 		//fill the board
 		//for(int i = 0; i < board.length; i++) {
 			//board[i] = '$';
 		//}
+	}
+
+	public char[] getBoard() {
+		return newboard;
 	}
 
 	public static void main(String[] args){
