@@ -27,7 +27,7 @@ public class TicTacToe {
 
 	public char[] getInput(String input) {
 		//check the input - is it int between 1 and 9
-		if(Integer.parseInt(input) < 1 || Integer.parseInt(input) > 9) {
+		if(!isDigit(input)) {
 			//TODO ERROR
 		}
 
@@ -41,7 +41,18 @@ public class TicTacToe {
 
 	public char[] computersTurn() {
 
-	} 
+	}
+
+	//check to see if input is a number, something else
+	boolean isDigit(String str) {
+		try{
+			int num = Integer.parseInt(str);
+			return true;
+		}
+		catch(NumberFormatException e){
+			return false;
+		}
+	}
 
 /*	public void justForPrinting(char[] testBoard){
 		for (int i = 0; i < 3; i++){
