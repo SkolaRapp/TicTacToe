@@ -91,7 +91,34 @@ public class TicTacToe {
 
 	//WINNER - mod 3, sama lina med sama signali, tha winner, 
 		//checka ser a horna linum, bera stokin saman med AND
-
+	public boolean isWinner(char[] board) {
+		
+		//check for vertical winner
+		for(int i = 0; i < 9; i++) {
+			if(board[i % 3] == 'X') {
+				return true;
+			}
+		}
+		//check for horizontal winners
+		if(board[0] == 'X' && board[1] == 'X' && board[2] == 'X') {
+			return true;
+		}
+		if(board[3] == 'X' && board[4] == 'X' && board[5] == 'X') {
+			return true;
+		}
+		if(board[6] == 'X' && board[7] == 'X' && board[8] == 'X') {
+			return true;
+		}
+		//check for diogonal winner
+		if(board[0] == 'X' && board[4] == 'X' && board[8] == 'X') {
+			return true;
+		}
+		if(board[2] == 'X' && board[4] == 'X' && board[6] == 'X') {
+			return true;
+		}
+		
+		return false;
+	}
 
 	//DRAW - if all is taken - counter
 	public boolean isDraw() {
