@@ -3,7 +3,6 @@ import java.util.Random;
 
 public class TicTacToe {
 	
-	//private char[] board;
 	private char[] newBoard;
 	private int count;
 	
@@ -13,7 +12,7 @@ public class TicTacToe {
 		count = 0;
 	}
 
-	//because newboard is private
+	//because newBoard is private
 	public char[] getBoard() {
 		return newBoard;
 	}
@@ -22,17 +21,18 @@ public class TicTacToe {
 		
 	}
 
+	//get the placement the user wants to put her 'X' into
 	public char[] getInput(String input) {
-		//check the input - is it int between 1 and 9
+		//TODO: check the input - is it int between 1 and 9
 		if(!isDigit(input)) {
-			//error message if not a digit
+			//TODO: error message if not a digit
 			return newBoard;
 		}
 
 		int inputNum = Integer.parseInt(input);
 
 		if(!isTaken(inputNum)) {
-			//if not, put in the X
+			//if not, put in the 'X'
 			updateBoard(inputNum, 'X');
 		}
 
@@ -45,8 +45,9 @@ public class TicTacToe {
 		return newBoard;
 	}
 
+	//computer inputs 'O' into a random empty place on the board
 	public boolean computersTurnHelper() {
-		//Randomiza - ef spot isTaken, randomiza aftur.
+		//Randomiza - if spot isTaken, randomize again
 		Random rand = new Random();
 		int randNum = rand.nextInt(9) + 1;
 
@@ -63,7 +64,7 @@ public class TicTacToe {
 		return true;
 	}
 
-	//check to see if input is a number, something else
+	//check to see if input is a number, and not something strange
 	public boolean isDigit(String input) {
 		try {
 			int num = Integer.parseInt(input);
@@ -74,8 +75,8 @@ public class TicTacToe {
 		}
 	}
 
+	//check if the spot is taken
 	public boolean isTaken(int place) {
-		//check if the spot is taken
 		if(newBoard[place - 1] == 'X' || newBoard[place - 1] == 'O') {
 			return true;
 		}
@@ -84,6 +85,7 @@ public class TicTacToe {
 		}
 	}
 
+	//input character 'X' or 'O' into the board array
 	public void updateBoard(int input, char placement) {
 		newBoard[input - 1] = placement;
 		count++;
@@ -120,7 +122,8 @@ public class TicTacToe {
 		return false;
 	}
 
-	//DRAW - if all is taken - counter
+	//if all the spots are taken there is a draw
+	//TODO: must we also check if there is no possible winner with spots left??
 	public boolean isDraw() {
 		return (count == 9);
 	}
