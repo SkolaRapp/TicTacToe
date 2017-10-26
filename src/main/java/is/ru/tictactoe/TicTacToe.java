@@ -31,11 +31,11 @@ public class TicTacToe {
 			return newBoard;
 		}
 
-		int moron = Integer.parseInt(input);
+		int inputNum = Integer.parseInt(input);
 
-		if(!isTaken(moron)) {
+		if(!isTaken(inputNum)) {
 			//if not, put in the X
-			updateBoard(moron);
+			updateBoard(inputNum, 'X');
 		}
 
 		return newBoard;
@@ -51,14 +51,14 @@ public class TicTacToe {
 			int num = Integer.parseInt(input);
 			return true;
 		}
-		catch(NumberFormatException e){
+		catch(NumberFormatException e) {
 			return false;
 		}
 	}
 
-	public boolean isTaken(int idjit) {
+	public boolean isTaken(int place) {
 		//check if the spot is taken
-		if(newBoard[idjit - 1] == 'X' || newBoard[idjit - 1] == 'O') {
+		if(newBoard[place - 1] == 'X' || newBoard[place - 1] == 'O') {
 			return true;
 		}
 		else {
@@ -66,9 +66,9 @@ public class TicTacToe {
 		}
 	}
 
-	public void updateBoard(int input) {
+	public void updateBoard(int input, char placement) {
 		//TODO FOR O TOO
-		newBoard[input - 1] = 'X';
+		newBoard[input - 1] = placement;
 	}
 
 /*	public void justForPrinting(char[] testBoard){

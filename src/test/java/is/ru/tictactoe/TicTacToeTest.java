@@ -55,7 +55,7 @@ public class TicTacToeTest {
         TicTacToe tic = new TicTacToe();
 
         char[] expectedArray = {'1', '2', '3', '4', '5', '6', 'X', '8', '9'};
-        tic.updateBoard(7);
+        tic.updateBoard(7, 'X');
 
         assertArrayEquals(expectedArray, tic.getBoard());
     }
@@ -64,7 +64,7 @@ public class TicTacToeTest {
     public void testIsTaken() {
         TicTacToe tic = new TicTacToe();
 
-        tic.updateBoard(5);
+        tic.updateBoard(5, 'O');
 
         assertTrue(tic.isTaken(5));
     }
