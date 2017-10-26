@@ -1,13 +1,13 @@
-language: java
-before_cache:
+jobs:
+  language: java
+  before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-cache:
-  directories:
+  cache:
+    directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 
-jobs:
   include:
     - stage: unit tests
       script: "Running unit tests (1)"
