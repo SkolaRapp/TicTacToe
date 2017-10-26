@@ -5,16 +5,22 @@ public class TicTacToe {
 	
 	private char[] newBoard;
 	private int count;
+	private char winner;
 	
 	//constructor
 	public TicTacToe() {
 		newBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		count = 0;
+		winner = 'b';
 	}
 
 	//because newBoard is private
 	public char[] getBoard() {
 		return newBoard;
+	}
+
+	public char getWinner() {
+		return winner;
 	}
 
 	public static void main(String[] args) {
@@ -88,6 +94,9 @@ public class TicTacToe {
 	//input character 'X' or 'O' into the board array
 	public void updateBoard(int input, char placement) {
 		newBoard[input - 1] = placement;
+		if(isWinner(newBoard)) {
+			//
+		}
 		count++;
 	}
 
@@ -98,27 +107,33 @@ public class TicTacToe {
 		//check for vertical winner
 		for(int i = 0; i < 9; i++) {
 			if(board[i % 3] == 'X') {
+				winner = 'X';
 				return true;
 			}
 		}
 		//check for horizontal winners
 		if(board[0] == 'X' && board[1] == 'X' && board[2] == 'X') {
+			winner = 'X';
 			return true;
 		}
 		if(board[3] == 'X' && board[4] == 'X' && board[5] == 'X') {
+			winner = 'X';
 			return true;
 		}
 		if(board[6] == 'X' && board[7] == 'X' && board[8] == 'X') {
+			winner = 'X';
 			return true;
 		}
-		//check for diogonal winner
+		//check for diogonal winners
 		if(board[0] == 'X' && board[4] == 'X' && board[8] == 'X') {
+			winner = 'X';			
 			return true;
 		}
 		if(board[2] == 'X' && board[4] == 'X' && board[6] == 'X') {
+			winner = 'X';
 			return true;
 		}
-		
+
 		return false;
 	}
 

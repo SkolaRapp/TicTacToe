@@ -216,4 +216,26 @@ public class TicTacToeTest {
 
         assertTrue(diogTest.isWinner(diogTest.getBoard()));
     }
+
+    @Test
+    public void checkIfXisTheWinner() {
+    	TicTacToe whosTheWinner = new TicTacToe();
+
+		whosTheWinner.updateBoard(1, 'O');
+        whosTheWinner.updateBoard(2, '2');
+        whosTheWinner.updateBoard(3, 'X');
+        whosTheWinner.updateBoard(4, '4');
+        whosTheWinner.updateBoard(5, 'X');
+        whosTheWinner.updateBoard(6, '6');
+        whosTheWinner.updateBoard(7, 'X');
+        whosTheWinner.updateBoard(8, 'O');
+        whosTheWinner.updateBoard(9, '9');   
+        try {
+	        assertEquals('X', whosTheWinner.getWinner());        	
+        }
+        catch(AssertionError e) {
+        	fail("Error winner is: " + whosTheWinner.getWinner());
+        }
+ 	
+    }
 }
