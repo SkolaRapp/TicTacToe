@@ -5,10 +5,14 @@ git checkout -b <branchname> búa til nýtt branch
 git branch - skoða þau branch sem eru til
 git branch -d <branchname> - eyða branchi
 
+For total fuckups:
+git reset --hard
+
 1. git checkout -b <branchname> og pusha 
 	 git push --set-upstream origin gitguide
 
 2. git add .
+	git add -u (to delete from github deleted files)
 3. git commit -m "comment"
 4. git pull
 5. git push
