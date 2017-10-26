@@ -17,7 +17,7 @@ public class TicTacToeTest {
     	assertEquals(str, newString);
     }
 
-    @Test
+/*    @Test
     public void changeCharToX() {
     	TicTacToe toe = new TicTacToe();
 
@@ -28,7 +28,7 @@ public class TicTacToeTest {
 
     	assertEquals(str, newString);
    	}
-
+*/
    	//to test that the initial board string is as expected
    	@Test
    	public void testBoard() {

@@ -3,7 +3,7 @@ package is.ru.tictactoe;
 public class TicTacToe {
 	
 	//private char[] board;
-	private char[] newboard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+	private char[] newBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 	
 	//constructor
 	public TicTacToe() {
@@ -18,14 +18,32 @@ public class TicTacToe {
 
 	//because newboard is private
 	public char[] getBoard() {
-		return newboard;
+		return newBoard;
 	}
 
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		
 	}
 
-	public void justForPrinting(char[] testBoard){
+	public char[] getInput(String input) {
+		//check the input - is it int between 1 and 9
+		if(Integer.parseInt(input) < 1 || Integer.parseInt(input) > 9) {
+			//TODO ERROR
+		}
+
+		//check if the spot is taken - return an error message?
+
+		//if not, put in the X
+		newBoard[input - 1] = 'X';
+
+		return newBoard;
+	}
+
+	public char[] computersTurn() {
+
+	} 
+
+/*	public void justForPrinting(char[] testBoard){
 		for (int i = 0; i < 3; i++){
 			System.out.print(testBoard[i] + " ");
 		}
@@ -38,8 +56,8 @@ public class TicTacToe {
 			System.out.print(testBoard[i] + " ");
 		}
 	}
-
-	public char[] printBoard() {
+*/
+/*	public char[] printBoard() {
 
 		char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		int rowCounter = 0;
@@ -47,8 +65,8 @@ public class TicTacToe {
 		//justForPrinting(testBoard);
 		return testBoard;
 	}
-
-	public char[] changeBoard() {
+*/
+/*	public char[] changeBoard() {
 		int rowCounter = 0;
 		char[] newBoard = printBoard();
 
@@ -88,5 +106,5 @@ public class TicTacToe {
 
 		return newBoard;
 	}
-
+*/
 }
