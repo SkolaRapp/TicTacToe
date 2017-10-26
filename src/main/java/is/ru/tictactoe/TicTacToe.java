@@ -25,6 +25,7 @@ public class TicTacToe {
 	public char[] getInput(String input) {
 		//check the input - is it int between 1 and 9
 		if(!isDigit(input)) {
+			//error message if not a digit
 			return newBoard;
 		}
 
@@ -93,6 +94,9 @@ public class TicTacToe {
 
 
 	//DRAW - if all is taken - counter
+	public boolean isDraw() {
+		return (count == 9);
+	}
 
 /*	public void justForPrinting(char[] testBoard){
 		for (int i = 0; i < 3; i++){

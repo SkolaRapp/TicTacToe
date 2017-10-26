@@ -94,4 +94,21 @@ public class TicTacToeTest {
 
         assertFalse(tic.computersTurnHelper());
     }
+
+    @Test
+    public void testDraw() {
+    	TicTacToe drawTest = new TicTacToe();
+
+    	drawTest.updateBoard(1, 'X');
+        drawTest.updateBoard(2, 'O');
+        drawTest.updateBoard(3, 'X');
+        drawTest.updateBoard(4, 'O');
+        drawTest.updateBoard(5, 'O');
+        drawTest.updateBoard(6, 'X');
+        drawTest.updateBoard(7, 'X');
+        drawTest.updateBoard(8, 'X');
+        drawTest.updateBoard(9, 'O');
+
+        assertTrue(drawTest.isDraw());
+    }
 }
