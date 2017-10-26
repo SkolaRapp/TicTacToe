@@ -1,8 +1,30 @@
 language: java
-deploy:
-  provider: heroku
-  api_key:
-    secure: 28NVfNmCtg+tFqOGgmuJambp0gOrXybP3yyRk9fw3SrqHgzdVlD+rkuso+eJvNZJonjWbXZz8NQOm1WveRFpA1Ypg5VXY3zEwb2/QtHdYyj60E3/uw3yKNphEUhYb/9lMCb8FwpLRMRbumHhcvCUMykN/IipPqsW/S9sJg1Er8MaBAqabKoDyGVKZ6+IwgSu8eUYUeeavyb29b/SGaMx6qkKF4m19C6jGblLK38ZJjoY9l3gdybebdGaR6HJ7wjQ7K1J1jDRd7X4tRIdETVFP99/EyZ2o2zqf2NXHb1552Z+HxjstnuiPfYtRR72/IPmw6ScAzuJsV/DKdRfSkREvQwOFGSPYg2zaC2LUmJFnMn7Q4JtLCcELr+OebwfyDRABxariTK9xVI9v+IaHpc8OBAZvw4ihqF9WYY0J/M5RxSmnl/hdjL/iZ/n9NfPX9TfIlwEuDphhsmpd2tfwjVwBf+GKfORkaHkh6t7nhziUYUtgrGkVojs26ZOxy+pX4A1qEg5NA1rKxMt6Xkmkmpvvsj2l2ldRvph/F5Pj4mHGzvs1P1Dcn6m+tKJE+yck9gsH5BRD0PnWVGNGkXLz4EZA6IeUN1DCZZ+k+awKwVy+IxLhF9FuKVxqe+jIloqL2ggVKFy7erZjubbY8F0YxOHo+2Ck1wD8MF/Q2WMXekgW30=
-  app:
-    master: skolarapp-live
-    develop: skolarapp-dev
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+jobs:
+  include:
+    - stage: unit tests
+      script: "Running unit tests (1)"
+    - stage: unit tests
+      script: "Running unit tests (2)"
+    - stage: deploy to staging
+      script: skip
+      deploy: &heroku
+        provider: heroku
+        app: skolarapp-dev
+        api_key: 28NVfNmCtg+tFqOGgmuJambp0gOrXybP3yyRk9fw3SrqHgzdVlD+rkuso+eJvNZJonjWbXZz8NQOm1WveRFpA1Ypg5VXY3zEwb2/QtHdYyj60E3/uw3yKNphEUhYb/9lMCb8FwpLRMRbumHhcvCUMykN/IipPqsW/S9sJg1Er8MaBAqabKoDyGVKZ6+IwgSu8eUYUeeavyb29b/SGaMx6qkKF4m19C6jGblLK38ZJjoY9l3gdybebdGaR6HJ7wjQ7K1J1jDRd7X4tRIdETVFP99/EyZ2o2zqf2NXHb1552Z+HxjstnuiPfYtRR72/IPmw6ScAzuJsV/DKdRfSkREvQwOFGSPYg2zaC2LUmJFnMn7Q4JtLCcELr+OebwfyDRABxariTK9xVI9v+IaHpc8OBAZvw4ihqF9WYY0J/M5RxSmnl/hdjL/iZ/n9NfPX9TfIlwEuDphhsmpd2tfwjVwBf+GKfORkaHkh6t7nhziUYUtgrGkVojs26ZOxy+pX4A1qEg5NA1rKxMt6Xkmkmpvvsj2l2ldRvph/F5Pj4mHGzvs1P1Dcn6m+tKJE+yck9gsH5BRD0PnWVGNGkXLz4EZA6IeUN1DCZZ+k+awKwVy+IxLhF9FuKVxqe+jIloqL2ggVKFy7erZjubbY8F0YxOHo+2Ck1wD8MF/Q2WMXekgW30=
+    - stage: test staging
+      script: 'curl http://skolarapp-dev.herokuapp.com/'
+    - stage: deploy to production
+      script: skip
+      deploy:
+        <<: *heroku
+        app: skolarapp-live
+    - stage: test production
+      script: 'curl http://skolarapp-live.herokuapp.com/'
