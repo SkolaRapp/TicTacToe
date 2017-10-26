@@ -28,18 +28,24 @@ public class TicTacToe {
 	public char[] getInput(String input) {
 		//check the input - is it int between 1 and 9
 		if(!isDigit(input)) {
-			//TODO ERROR
+			return newBoard;
 		}
 
-		//check if the spot is taken - return an error message?
+		int moron = Integer.parseInt(input);
 
-		//if not, put in the X
-		newBoard[input - 1] = 'X';
+		//check if the spot is taken
+		if(newBoard[moron - 1] == 'X' || newBoard[moron - 1] == 'O') {
+			//ERROR?
+		}
+		else {
+			//if not, put in the X
+			newBoard[moron - 1] = 'X';
+		}
 
 		return newBoard;
 	}
 
-	public char[] computersTurn() {
+	public void computersTurn() {
 
 	}
 
@@ -68,7 +74,7 @@ public class TicTacToe {
 		}
 	}
 */
-/*	public char[] printBoard() {
+	public char[] printBoard() {
 
 		char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		int rowCounter = 0;
@@ -76,7 +82,7 @@ public class TicTacToe {
 		//justForPrinting(testBoard);
 		return testBoard;
 	}
-*/
+
 /*	public char[] changeBoard() {
 		int rowCounter = 0;
 		char[] newBoard = printBoard();

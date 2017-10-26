@@ -7,7 +7,7 @@ public class TicTacToeTest {
 
     @Test
     public void testBoardString() {
-    	TicTacToe toe = new TicTacToe();
+        TicTacToe toe = new TicTacToe();
     	
     	char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
     	String str = String.valueOf(testBoard);
@@ -41,4 +41,12 @@ public class TicTacToeTest {
 
     	assertEquals(expected, returned);
    	}
+
+    @Test
+    public void testIsDigit() {
+        TicTacToe tic = new TicTacToe();
+
+        String ten = "10";
+        assertTrue(tic.isDigit(ten));
+    }
 }
