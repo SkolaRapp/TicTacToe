@@ -39,10 +39,19 @@ public class TicTacToe {
 	}
 
 	public char[] computersTurn() {
+		computersTurnHelper();
+
+		return newBoard;
+	}
+
+	public boolean computersTurnHelper() {
 		//Randomiza - ef spot isTaken, randomiza aftur.
 		Random rand = new Random();
 		int randNum = rand.nextInt(9) + 1;
 
+		if(count == 9) {
+			return false;
+		}
 
 		while(isTaken(randNum)) {
 			randNum = rand.nextInt(9) + 1;
@@ -50,12 +59,12 @@ public class TicTacToe {
 
 		updateBoard(randNum, 'O');
 
-		return newBoard;
+		return true;
 	}
 
 	//check to see if input is a number, something else
 	public boolean isDigit(String input) {
-		try{
+		try {
 			int num = Integer.parseInt(input);
 			return true;
 		}
@@ -75,8 +84,8 @@ public class TicTacToe {
 	}
 
 	public void updateBoard(int input, char placement) {
-		//TODO FOR O TOO
 		newBoard[input - 1] = placement;
+		count++;
 	}
 
 	//WINNER - mod 3, sama lina med sama signali, tha winner, 

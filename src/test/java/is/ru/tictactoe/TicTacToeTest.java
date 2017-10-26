@@ -68,4 +68,30 @@ public class TicTacToeTest {
 
         assertTrue(tic.isTaken(5));
     }
+
+    @Test
+    public void testComputersTurn() {
+        TicTacToe tic = new TicTacToe();
+
+        tic.updateBoard(2, 'X');
+
+        assertTrue(tic.computersTurnHelper());
+    }
+
+    @Test
+    public void testComputersTurn2() {
+        TicTacToe tic = new TicTacToe();
+
+        tic.updateBoard(1, 'X');
+        tic.updateBoard(2, 'O');
+        tic.updateBoard(3, 'X');
+        tic.updateBoard(4, 'O');
+        tic.updateBoard(5, 'O');
+        tic.updateBoard(6, 'X');
+        tic.updateBoard(7, 'X');
+        tic.updateBoard(8, 'X');
+        tic.updateBoard(9, 'O');
+
+        assertFalse(tic.computersTurnHelper());
+    }
 }
