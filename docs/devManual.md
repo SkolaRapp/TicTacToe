@@ -33,3 +33,6 @@ What a developer needs to work on the project
 * Tools
 	* Eclipse Java Oxygen
 	* Git and Github for version control and issue tracking.
+	
+Print file:
+https://gitprint.com/SkolaRapp/TicTacToe/blob/design/docs/devManual.md
