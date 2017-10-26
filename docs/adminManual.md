@@ -17,6 +17,7 @@ Admin needs to:
 2.	Go to Travis-ci.org
 
 	a.	Sign in with GitHub
+	
 	b.	Give GitHub access to this repository (note you might need to "sync" repos to Travis CI, using a button).
 
 3.	Clone the repo to your local environment
@@ -50,6 +51,7 @@ To move from a simple Continuous integration cycle, to something more complicate
 2.	Travis runs all unit and integration tests on commit and push to GitHub
 
 	a.	If there are failures, GitHub would show this on the pull request.
+	
 	b.	If the tests pass and other checks pass.
 
 		1.	Travis CI will deploy the application to a staging server.
