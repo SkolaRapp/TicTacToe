@@ -12,3 +12,6 @@ made, a new feature branch is made from the develop branch. When a feature
 is completed the feature branch it goes through selenium and unity testing before it is merged into the develop branch.  When it has merged successfully then the feature branch should be deleted. Before the develop branch can be merged automatically into the master branch it has go through Travis for testing, to Heroku testing server, and if it builds without errors it will let Travis know it has which will allow the merge to Master branch happen. From the Master branch it will be deployd to the Heroku master server after a Travis Test.
 
 <img src="https://github.com/SkolaRapp/TicTacToe/blob/design/docs/images/git.jpg" alt="classDiagram" width="600" />
+
+
+[Click here to save/print file](https://gitprint.com/SkolaRapp/TicTacToe/blob/design/docs/designReport.md)

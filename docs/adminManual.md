@@ -56,3 +56,6 @@ To move from a simple Continuous integration cycle, to something more complicate
 
 		1.	Travis CI will deploy the application to a staging server.
 		2.	That can be used for manual testing, or later some functional tests like Selenium tests.
+
+		
+[Click here to save/print file](https://gitprint.com/SkolaRapp/TicTacToe/blob/design/docs/adminManual.md)
