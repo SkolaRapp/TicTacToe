@@ -17,7 +17,7 @@ public class TicTacWeb {
             get("/", (req, res) -> runGame());
 
             get("/test", (request, response) -> {
-              return new ModelAndView(new HashMap(), "templates/hello.vtl");
+              return new ModelAndView(new HashMap(), "templates/ourTable.vtl");
             }, new VelocityTemplateEngine());
         }
 
