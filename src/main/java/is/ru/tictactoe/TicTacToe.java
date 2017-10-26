@@ -1,19 +1,16 @@
 package is.ru.tictactoe;
+import java.util.Random;
 
 public class TicTacToe {
 	
 	//private char[] board;
-	private char[] newBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+	private char[] newBoard;
+	private int count;
 	
 	//constructor
 	public TicTacToe() {
-		//board = new char[9];
-		
-
-		//fill the board
-		//for(int i = 0; i < board.length; i++) {
-			//board[i] = '$';
-		//}
+		newBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+		count = 0;
 	}
 
 	//because newboard is private
@@ -41,8 +38,19 @@ public class TicTacToe {
 		return newBoard;
 	}
 
-	public void computersTurn() {
+	public char[] computersTurn() {
+		//Randomiza - ef spot isTaken, randomiza aftur.
+		Random rand = new Random();
+		int randNum = rand.nextInt(9) + 1;
 
+
+		while(isTaken(randNum)) {
+			randNum = rand.nextInt(9) + 1;
+		}
+
+		updateBoard(randNum, 'O');
+
+		return newBoard;
 	}
 
 	//check to see if input is a number, something else
@@ -70,6 +78,12 @@ public class TicTacToe {
 		//TODO FOR O TOO
 		newBoard[input - 1] = placement;
 	}
+
+	//WINNER - mod 3, sama lina med sama signali, tha winner, 
+		//checka ser a horna linum, bera stokin saman med AND
+
+
+	//DRAW - if all is taken - counter
 
 /*	public void justForPrinting(char[] testBoard){
 		for (int i = 0; i < 3; i++){
