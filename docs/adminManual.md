@@ -10,16 +10,16 @@ Admin needs to:
 
 ## Set up Travis
 
-	1. 	Fork the TicTacToe repository: https://github.com/SkolaRapp/TicTacToe
-		Note: since this is a public repo, you can't fork is as a private repo
-		(directly at least).
+1. 	Fork the TicTacToe repository: https://github.com/SkolaRapp/TicTacToe
+	Note: since this is a public repo, you can't fork is as a private repo
+	(directly at least).
 
-	2.	Go to Travis-ci.org
+2.	Go to Travis-ci.org
 
-		a.	Sign in with GitHub
-		b.	Give GitHub access to this repository (note you might need to "sync" repos to Travis CI, using a button).
+	a.	Sign in with GitHub
+	b.	Give GitHub access to this repository (note you might need to "sync" repos to Travis CI, using a button).
 
-	3.	Clone the repo to your local environment
+3.	Clone the repo to your local environment
 
 ## Set up Heroku
 
