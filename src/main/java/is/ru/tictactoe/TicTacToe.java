@@ -33,13 +33,9 @@ public class TicTacToe {
 
 		int moron = Integer.parseInt(input);
 
-		//check if the spot is taken
-		if(newBoard[moron - 1] == 'X' || newBoard[moron - 1] == 'O') {
-			//ERROR?
-		}
-		else {
+		if(!isTaken(moron)) {
 			//if not, put in the X
-			newBoard[moron - 1] = 'X';
+			updateBoard(moron);
 		}
 
 		return newBoard;
@@ -50,14 +46,31 @@ public class TicTacToe {
 	}
 
 	//check to see if input is a number, something else
-	boolean isDigit(String str) {
+	public boolean isDigit(String input) {
 		try{
-			int num = Integer.parseInt(str);
+			int num = Integer.parseInt(input);
 			return true;
 		}
 		catch(NumberFormatException e){
 			return false;
 		}
+	}
+
+	public boolean isTaken(int idjit) {
+		//check if the spot is taken
+		if(newBoard[idjit - 1] == 'X' || newBoard[idjit - 1] == 'O') {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	public char[] updateBoard(int input) {
+		//TODO FOR O TOO
+		newBoard[input - 1] = 'X';
+
+		return newBoard;
 	}
 
 /*	public void justForPrinting(char[] testBoard){

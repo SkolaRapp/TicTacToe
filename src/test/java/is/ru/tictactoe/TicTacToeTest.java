@@ -49,4 +49,22 @@ public class TicTacToeTest {
         String ten = "10";
         assertTrue(tic.isDigit(ten));
     }
+
+    @Test
+    public void testUpdateBoard() {
+        TicTacToe tic = new TicTacToe();
+
+        char[] expectedArray = {'1', '2', '3', '4', '5', '6', 'X', '8', '9'};
+
+        assertArrayEquals(expectedArray, tic.updateBoard(7));
+    }
+
+    @Test
+    public void testIsTaken() {
+        TicTacToe tic = new TicTacToe();
+
+        tic.updateBoard(5);
+
+        assertTrue(tic.isTaken(5));
+    }
 }
