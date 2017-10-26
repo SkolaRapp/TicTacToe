@@ -1,68 +1,36 @@
-Development manual: what is needed and how to get the project to
-build on a fresh machine, Source control client and access to source
-control Build environment, Other necessary dependencies for
-development.
-
+# Development Manual
 What a developer needs to work on the project
 
-- Getting started
+## Getting started
 	
-	To download the project go to https://github.com/SkolaRapp/TicTacToe/.
-	To clone the project using gitbash: 
+	* To download the project go to https://github.com/SkolaRapp/TicTacToe/.
+		*To clone the project using gitbash: 
 
 		git clone git@github.com:SkolaRapp/TicTacToe.git
 
-	To build and test the project:
+	* To build and test the project:
 
 		gradle build
 
-	To run the project:
+	* To run the project:
 
 		gradle run
 
-	The port to run the game is currently:
+	* The port to run the game is currently:
 
 		4567
 
 
-- Coding rules and tools:
-	- Naming conventions:
-		- Classes: PascalCase.
-		- Functions and variables: camelCase.
-		- Global variables: UPPER_CASE.
-	- Tabs used over spaces.
-	- Code and comments in English.
-	- Comments above functions.
-	- Newline between functions and before return statements.
-	- Tools
-		- Eclipse Java Oxygen
-		- Git and Github for version control and issue tracking.
-
-
-
-- github link
-	We are using git for our source control. To ge the project to build on a fresh machine you clone the github repository from https://github.com/SkolaRapp/TicTacToe/. !!!Within it is a build script!!!
-
-- útskýra github ferlið
-	There are two main branches, master and develop. When a new feature is 
-	made, a new feature branch is made from the develop branch. When a feature
-	is completed the feature branch is merged into the develop branch. 
-	When it has merged successfully the feature branch should be deleted.
-	Before the develop branch can be merged into the master branch it has 
-	to pass unit testing.
-
-- Selenium tests
-	Selenium tests are done before a feature branch is merged into the develop branch. Selenium tests are also done on the test server.
-
-- Travis
-	Work in processs
-	
-- Heroku
-	Work in process
-
-- útskýra business logic
-	Work in process
-
-- fjalla um UI
-	Work in prociess
+## Coding rules and tools:
+	* Naming conventions:
+		* Classes: PascalCase.
+		* Functions and variables: camelCase.
+		* Global variables: UPPER_CASE.
+	* Tabs used over spaces.
+	* Code and comments in English.
+	* Comments above functions.
+	* Newline between functions and before return statements.
+	* Tools
+		* Eclipse Java Oxygen
+		* Git and Github for version control and issue tracking.
 

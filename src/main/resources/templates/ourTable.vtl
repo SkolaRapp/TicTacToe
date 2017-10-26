@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello Friend!</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  </head>
+  <body>
+  	<table class="theTable">
+	  <tr>
+	    <td onclick="myFunction()">1</td>
+	    <td onclick="myFunction()">2</td>
+	    <td onclick="myFunction()">3</td>
+	  </tr>
+	  <tr>
+	    <td onclick="myFunction()">4</td>
+	    <td onclick="myFunction()">5</td>
+	    <td onclick="myFunction()">6</td>
+	  </tr>
+	  <tr>
+	    <td onclick="myFunction()">7</td>
+	    <td onclick="myFunction()">8</td>
+	    <td onclick="myFunction()">9</td>
+	  </tr>
+	</table>
+  </body>
+
+  	<style>
+  		.theTable{
+  			width: 50%;
+  			border: 1px solid black;
+  			height: 300px;
+  			margin-left: auto;
+  			margin-right: auto;
+  			cursor: pointer;
+  		}
+
+  		.theTable tr td {
+  			text-align: center;
+  		}
+	</style>
+
+	<script>
+		function myFunction(){
+			window.alert("hello");
+		}
+	</script>
+</html>
