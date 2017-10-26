@@ -6,3 +6,4 @@ deploy:
   app:
     master: skolarapp-staging
     develop: skolarapp-production
+    
