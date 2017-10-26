@@ -66,11 +66,9 @@ public class TicTacToe {
 		}
 	}
 
-	public char[] updateBoard(int input) {
+	public void updateBoard(int input) {
 		//TODO FOR O TOO
 		newBoard[input - 1] = 'X';
-
-		return newBoard;
 	}
 
 /*	public void justForPrinting(char[] testBoard){
