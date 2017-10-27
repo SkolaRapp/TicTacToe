@@ -252,8 +252,6 @@ public class TicTacToe {
 		return false;
 	}
 
-
-
 	public String updateString(String str) {
 		char character = str.charAt(0);
 		char[] array = getBoard();
@@ -263,14 +261,15 @@ public class TicTacToe {
 			String sameString = String.copyValueOf(array);
 			return sameString;
 		}
-		if (countMoves % 2 == 0){
-			array[number - 1] = 'X';
-			countMoves++;
-		}
-		else {
-			array[number - 1] = 'O';
-			countMoves++;
-		}
+		array[number - 1] = 'X';
+		//if (countMoves % 2 == 0){
+			//array[number - 1] = 'X';
+			//countMoves++;
+		//}
+		//else {
+			//array[number - 1] = 'O';
+			//countMoves++;
+		//}
 		String newString = String.copyValueOf(array);
 		return newString;
 	}

@@ -2,19 +2,19 @@
 </div>
 <table class="theTable">
   <tr>
-    <td id="one"></td>
-    <td id="two"></td>
-    <td id="three"></td>
+    <td id=0></td>
+    <td id=1></td>
+    <td id=2></td>
   </tr>
   <tr>
-    <td id="four"></td>
-    <td id="five"></td>
-    <td id="six"></td>
+    <td id=3></td>
+    <td id=4></td>
+    <td id=5></td>
   </tr>
   <tr>
-    <td id="seven"></td>
-    <td id="eight"></td>
-    <td id="nine"></td>
+    <td id=6></td>
+    <td id=7></td>
+    <td id=8></td>
   </tr>
 </table>
 
@@ -26,7 +26,7 @@
   <form action='/gameHasStarted' style="text-align: center">
       <div class="form-group">
         <label for="sender">Enter number for next value</label>
-        <input id="numberFromForm" name="numberFromForm" class="form-control inputBox" type="number" min="1" max="9">
+        <input id="numberFromForm" name="numberFromForm" class="form-control inputBox" type="number" min="1" max="9" autofocus>
       </div>
       <button type="submit" class="btn">Choose this number</button>
   </form>
@@ -34,27 +34,37 @@
 
 <script>
   var str = "$newString";
-  window.alert(str);
+  var computerTurn = "$computerMove";
+  window.alert(computerTurn);
 
-  var one = document.getElementById("one");
+  var one = document.getElementById(0);
   one.innerHTML = str[0];
-  var two = document.getElementById("two");
+  var two = document.getElementById(1);
   two.innerHTML = str[1];
-  var three = document.getElementById("three");
+  var three = document.getElementById(2);
   three.innerHTML = str[2];
-  var four = document.getElementById("four");
+  var four = document.getElementById(3);
   four.innerHTML = str[3];
-  var five = document.getElementById("five");
+  var five = document.getElementById(4);
   five.innerHTML = str[4];
-  var six = document.getElementById("six");
+  var six = document.getElementById(5);
   six.innerHTML = str[5];
-  var seven = document.getElementById("seven");
+  var seven = document.getElementById(6);
   seven.innerHTML = str[6];
-  var eight = document.getElementById("eight");
+  var eight = document.getElementById(7);
   eight.innerHTML = str[7];
-  var nine = document.getElementById("nine");
+  var nine = document.getElementById(8);
   nine.innerHTML = str[8];
 
+  setTimeout("testing()", 1000);
+
+  function testing(){
+    for (var i = 0; i < computerTurn.length; i++){
+      if (computerTurn[i] == 'O'){
+        window.alert("Hello");
+      }
+    }
+  }
 </script>
 
 
