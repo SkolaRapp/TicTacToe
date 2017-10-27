@@ -40,4 +40,14 @@ What a developer needs to work on the project
 
 	
 [Click here to download](https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/adminManual.md?download)
-<button type="button">Click Me!</button>
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
+
+<a href="http://google.com" class="button">Go to Google</a>
