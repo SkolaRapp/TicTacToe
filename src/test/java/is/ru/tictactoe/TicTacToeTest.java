@@ -295,7 +295,7 @@ public class TicTacToeTest {
     }
 
     @Test
-    public void checkIfOisTheWinner() {
+    public void checkIfComputerisTheWinner() {
     	TicTacToe whosTheWinner = new TicTacToe();
 
 		whosTheWinner.updateBoard(1, 'X');
