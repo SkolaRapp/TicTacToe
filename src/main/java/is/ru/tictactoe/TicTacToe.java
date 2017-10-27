@@ -217,10 +217,15 @@ public class TicTacToe {
 	}
 
 	//if all the spots are taken there is a draw
-	//TODO: must we also check if there is no possible winner with spots left??
 	public boolean isDraw() {
 		return (count == 9);
 	}
+
+	public String charToString(char[] charray) {
+		String stringFromCharArray = new String(charray);
+		return stringFromCharArray;
+	}
+
 
 /*	public void justForPrinting(char[] testBoard){
 		for (int i = 0; i < 3; i++){
