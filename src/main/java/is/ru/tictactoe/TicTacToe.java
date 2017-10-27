@@ -36,6 +36,7 @@ public class TicTacToe {
 			return newBoard;
 		}
 		if(!isValidInput(input)) {
+			//TODO: error message if not a valid input
 			return newBoard;
 		}
 
@@ -50,9 +51,20 @@ public class TicTacToe {
 		return newBoard;
 	}
 
+	//if user wants to play again we reset the variables
+	public void newGame() {
+		newBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+		count = 0;
+		winner = 'b';
+		countMoves = 0;
+	}
+
 	public char[] computersTurn() {
 		computersTurnHelper();
 		//check winner
+		if(isThereAWinner(newBoard)) {
+			//TODO: quit game
+		}
 		return newBoard;
 	}
 
@@ -113,6 +125,10 @@ public class TicTacToe {
 			//
 		}
 		count++;
+	}
+
+	public boolean isThereAWinner(char[] board) {
+		return (winnerInTheHouse(board) == 'X' || winnerInTheHouse(board) == 'O');
 	}
 
 	//calls isWinnerX and isWinnerO
