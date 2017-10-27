@@ -1,0 +1,15 @@
+{
+  "name": "stringCalcWeb",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
