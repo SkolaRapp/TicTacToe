@@ -221,6 +221,7 @@ public class TicTacToe {
 		return (count == 9);
 	}
 
+	//method to turn a character array to a string
 	public String charToString(char[] charray) {
 		String stringFromCharArray = new String(charray);
 		return stringFromCharArray;
