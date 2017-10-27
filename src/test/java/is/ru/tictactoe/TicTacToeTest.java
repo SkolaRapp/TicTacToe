@@ -186,7 +186,7 @@ public class TicTacToeTest {
         // X O 6
     	// X X O
 
-        assertTrue(verticalTest.isWinner(verticalTest.getBoard()));
+        assertTrue(verticalTest.isWinnerX(verticalTest.getBoard()));
     }
 
     @Test
@@ -207,7 +207,7 @@ public class TicTacToeTest {
         // O X O
     	// X X O
 
-        assertTrue(verticalTest.isWinner(verticalTest.getBoard()));
+        assertTrue(verticalTest.isWinnerX(verticalTest.getBoard()));
     }
 
     @Test
@@ -228,7 +228,7 @@ public class TicTacToeTest {
         // X X X
     	// 7 8 O
 
-        assertTrue(horTest.isWinner(horTest.getBoard()));
+        assertTrue(horTest.isWinnerX(horTest.getBoard()));
     }
 
     @Test
@@ -249,7 +249,7 @@ public class TicTacToeTest {
         // 4 X 6
     	// 7 8 X
 
-        assertTrue(diogTest.isWinner(diogTest.getBoard()));
+        assertTrue(diogTest.isWinnerX(diogTest.getBoard()));
     }
 
     @Test
@@ -270,7 +270,7 @@ public class TicTacToeTest {
         // 4 X 6
     	// X O 9
 
-        assertTrue(diogTest.isWinner(diogTest.getBoard()));
+        assertTrue(diogTest.isWinnerX(diogTest.getBoard()));
     }
 
     @Test
@@ -292,6 +292,28 @@ public class TicTacToeTest {
         catch(AssertionError e) {
         	fail("Error winner is: " + whosTheWinner.getWinner());
         }
- 	
     }
+
+    @Test
+    public void checkIfOisTheWinner() {
+    	TicTacToe whosTheWinner = new TicTacToe();
+
+		whosTheWinner.updateBoard(1, 'X');
+        whosTheWinner.updateBoard(2, '2');
+        whosTheWinner.updateBoard(3, 'O');
+        whosTheWinner.updateBoard(4, '4');
+        whosTheWinner.updateBoard(5, 'O');
+        whosTheWinner.updateBoard(6, '6');
+        whosTheWinner.updateBoard(7, 'O');
+        whosTheWinner.updateBoard(8, 'X');
+        whosTheWinner.updateBoard(9, '9');   
+        try {
+	        //assertEquals('O', whosTheWinner.getWinner());        	
+	        assertTrue(whosTheWinner.isWinnerO(whosTheWinner.getBoard()));
+        }
+        catch(AssertionError e) {
+        	fail("Error winner is: " + whosTheWinner.getWinner());
+        }
+    }
+
 }
