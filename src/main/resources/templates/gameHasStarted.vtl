@@ -35,7 +35,7 @@
 <script>
   var str = "$newString";
   var computerTurn = "$computerMove";
-  window.alert(computerTurn);
+  //window.alert(computerTurn);
 
   var one = document.getElementById(0);
   one.innerHTML = str[0];
@@ -56,15 +56,42 @@
   var nine = document.getElementById(8);
   nine.innerHTML = str[8];
 
+  changeCSS(one.innerHTML, one);
+  changeCSS(two.innerHTML, two);
+  changeCSS(three.innerHTML, three);
+  changeCSS(four.innerHTML, four);
+  changeCSS(five.innerHTML, five);
+  changeCSS(six.innerHTML, six);
+  changeCSS(seven.innerHTML, seven);
+  changeCSS(eight.innerHTML, eight);
+  changeCSS(nine.innerHTML, nine);
+
+
+
   setTimeout("testing()", 1000);
 
   function testing(){
     for (var i = 0; i < computerTurn.length; i++){
       if (computerTurn[i] == 'O'){
-        window.alert("Hello");
+        var number = document.getElementById(i);
+        number.innerHTML = 'O';
+        changeCSS(number.innerHTML, number);
       }
     }
   }
+
+  function changeCSS(someNumber, someVariable) {
+    if (someNumber == 'X') {
+      someVariable.style.color = "blue";
+      someVariable.style.fontSize = "15px";
+    }
+
+    if (someNumber == 'O'){
+      someVariable.style.color = "red";
+      someVariable.style.fontSize = "15px";
+    }
+  }
+
 </script>
 
 
