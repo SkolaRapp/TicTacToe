@@ -316,4 +316,27 @@ public class TicTacToeTest {
         }
     }
 
+    @Test
+    public void testWhosTheWinner() {
+    	TicTacToe whosTheWinner = new TicTacToe();
+
+		whosTheWinner.updateBoard(1, 'O');
+        whosTheWinner.updateBoard(2, 'O');
+        whosTheWinner.updateBoard(3, 'O');
+        whosTheWinner.updateBoard(4, '4');
+        whosTheWinner.updateBoard(5, 'X');
+        whosTheWinner.updateBoard(6, '6');
+        whosTheWinner.updateBoard(7, 'O');
+        whosTheWinner.updateBoard(8, 'X');
+        whosTheWinner.updateBoard(9, '9');   
+        try {
+	        //assertEquals('O', whosTheWinner.getWinner());        	
+	        //assertTrue(whosTheWinner.isWinnerO(whosTheWinner.getBoard()));
+	        assertEquals('O', whosTheWinner.winnerInTheHouse(whosTheWinner.getBoard()));
+        }
+        catch(AssertionError e) {
+        	fail("Error winner is: " + whosTheWinner.getWinner());
+        }	
+    }
+
 }
