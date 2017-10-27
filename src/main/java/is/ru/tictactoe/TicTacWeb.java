@@ -26,13 +26,12 @@ public class TicTacWeb {
 
             get("/gameHasStarted", (request, response) -> {
                 HashMap model = new HashMap();
-                //Næsta fall nær í gildið úr forminu
-                String number = request.queryParams("newNumber");
-                //Næsta fall uppfærir stringinn og returnar nýja strengnum
-                String newNumber = game.updateString(number);
-
-                //Hendi núna aftur inn strengnum í view-ið
-                model.put("newNumber", newNumber);
+                //Next function gets the string the form sends in
+                String numberFromForm = request.queryParams("numberFromForm");
+                //Next function updates the string with the number from form
+                String newString = game.updateString(numberFromForm);
+                //Throw the updated String into the html file
+                model.put("newString", newString);
                 model.put("template", "templates/gameHasStarted.vtl");
               return new ModelAndView(model, layout);
             }, new VelocityTemplateEngine());
