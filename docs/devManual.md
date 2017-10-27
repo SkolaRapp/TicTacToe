@@ -36,4 +36,4 @@ What a developer needs to work on the project
 	
 
 	
-[Click here to save/print file](https://gitprint.com/SkolaRapp/TicTacToe/blob/design/docs/devManual.md)
+[Click here to save/print file](https://gitprint.com/SkolaRapp/TicTacToe/blob/pdf/docs/adminManual.md?download)
