@@ -186,7 +186,7 @@ public class TicTacToeTest {
         // X O 6
     	// X X O
 
-        assertTrue(verticalTest.isWinner(verticalTest.getBoard()));
+        assertTrue(verticalTest.isWinnerX(verticalTest.getBoard()));
     }
 
     @Test
@@ -207,7 +207,7 @@ public class TicTacToeTest {
         // O X O
     	// X X O
 
-        assertTrue(verticalTest.isWinner(verticalTest.getBoard()));
+        assertTrue(verticalTest.isWinnerX(verticalTest.getBoard()));
     }
 
     @Test
@@ -228,7 +228,7 @@ public class TicTacToeTest {
         // X X X
     	// 7 8 O
 
-        assertTrue(horTest.isWinner(horTest.getBoard()));
+        assertTrue(horTest.isWinnerX(horTest.getBoard()));
     }
 
     @Test
@@ -249,7 +249,7 @@ public class TicTacToeTest {
         // 4 X 6
     	// 7 8 X
 
-        assertTrue(diogTest.isWinner(diogTest.getBoard()));
+        assertTrue(diogTest.isWinnerX(diogTest.getBoard()));
     }
 
     @Test
@@ -270,7 +270,7 @@ public class TicTacToeTest {
         // 4 X 6
     	// X O 9
 
-        assertTrue(diogTest.isWinner(diogTest.getBoard()));
+        assertTrue(diogTest.isWinnerX(diogTest.getBoard()));
     }
 
     @Test
@@ -292,6 +292,6 @@ public class TicTacToeTest {
         catch(AssertionError e) {
         	fail("Error winner is: " + whosTheWinner.getWinner());
         }
- 	
     }
+    
 }
