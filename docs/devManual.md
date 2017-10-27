@@ -39,4 +39,4 @@ What a developer needs to work on the project
 	
 
 	
-[Click here to save/print file](https://gitprint.com/SkolaRapp/TicTacToe/blob/pdf/docs/adminManual.md?download)
+[Click here to download](https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/adminManual.md?download)

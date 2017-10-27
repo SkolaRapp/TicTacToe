@@ -61,23 +61,4 @@ To move from a simple Continuous integration cycle, to something more complicate
 		2.	That can be used for manual testing, or later some functional tests like Selenium tests.
 
 		
-[Click here to save/print file](https://gitprint.com/SkolaRapp/TicTacToe/blob/pdf/docs/adminManual.md?download)
-
-<a href="http://www.stackoverflow.com/">
-    <button>Click me</button>
-</a>
-
-<form>
-    <button formaction="http://stackoverflow.com">Go to Stack Overflow!</button>
-</form>
-
-<a href="http://www.google.com" target="_parent"><button>Click me !</button></a>
-
-<form>
-    <input TYPE="button" VALUE="Home Page"
-        onclick="window.location.href='http://www.wherever.com'"> 
-</form>
-
-<a class='nostyle' href='http://www.google.com/'>
-    <span class='button'>Schedule</span>
-</a>
+[Click here to download](https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/adminManual.md?download)
