@@ -40,4 +40,6 @@ What a developer needs to work on the project
 
 	
 [Click here to download](https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/adminManual.md?download)
-<button type="submit" formaction="https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/adminManual.md?download">Clcik here to download</button>
+<form action="https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/adminManual.md?download">
+    <input type="submit" value="Clik here to download" />
+</form>
