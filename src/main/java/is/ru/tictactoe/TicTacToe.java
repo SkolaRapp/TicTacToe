@@ -166,6 +166,29 @@ public class TicTacToe {
 		return testBoard;
 	}
 
+	public boolean checkIfInputHasBeenGiven(String str){
+		char character = str.charAt(0);
+		int number = Character.getNumericValue(character);
+		char[] array = getBoard();
+
+		if (array[number] == 'X' || array[number] == 'O'){
+			return true;
+		}
+		return false;
+	}
+
+	public String updateString(String str) {
+		char character = str.charAt(0);
+		int number = Character.getNumericValue(character);
+		char[] array = getBoard();
+		if (array[number - 1] == 'X' || array[number - 1] == 'O'){
+			return str;
+		}
+		array[number - 1] = 'X';
+		String newString = String.copyValueOf(array);
+		return newString;
+	}
+
 /*	public char[] changeBoard() {
 		int rowCounter = 0;
 		char[] newBoard = printBoard();

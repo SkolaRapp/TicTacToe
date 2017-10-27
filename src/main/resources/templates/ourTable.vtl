@@ -1,47 +1,35 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello Friend!</title>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-  </head>
-  <body>
-  	<table class="theTable">
-	  <tr>
-	    <td onclick="myFunction()">1</td>
-	    <td onclick="myFunction()">2</td>
-	    <td onclick="myFunction()">3</td>
-	  </tr>
-	  <tr>
-	    <td onclick="myFunction()">4</td>
-	    <td onclick="myFunction()">5</td>
-	    <td onclick="myFunction()">6</td>
-	  </tr>
-	  <tr>
-	    <td onclick="myFunction()">7</td>
-	    <td onclick="myFunction()">8</td>
-	    <td onclick="myFunction()">9</td>
-	  </tr>
-	</table>
-  </body>
+<div style="height: 50px">
+</div>
+<table class="theTable">
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+</table>
 
-  	<style>
-  		.theTable{
-  			width: 50%;
-  			border: 1px solid black;
-  			height: 300px;
-  			margin-left: auto;
-  			margin-right: auto;
-  			cursor: pointer;
-  		}
+<div style="height: 50px">
 
-  		.theTable tr td {
-  			text-align: center;
-  		}
-	</style>
+</div>
 
-	<script>
-		function myFunction(){
-			window.alert("hello");
-		}
-	</script>
-</html>
+<div class="testing">
+	<form action='/gameHasStarted' style="text-align: center">
+  		<div class="form-group">
+    		<label for="sender">Enter number for next value</label>
+    		<input id="nextNumber" name="newNumber" class="form-control inputBox" type="number" min="1" max="9">
+  		</div>
+  		<button type="submit" class="btn">Choose this number</button>
+	</form>
+</div>
+
+  

@@ -1,0 +1,59 @@
+<div style="height: 50px">
+</div>
+<table class="theTable">
+  <tr>
+    <td id="one"></td>
+    <td id="two"></td>
+    <td id="three"></td>
+  </tr>
+  <tr>
+    <td id="four"></td>
+    <td id="five"></td>
+    <td id="six"></td>
+  </tr>
+  <tr>
+    <td id="seven"></td>
+    <td id="eight"></td>
+    <td id="nine"></td>
+  </tr>
+</table>
+
+<div style="height: 50px">
+
+</div>
+
+<div class="testing">
+  <form action='/gameHasStarted' style="text-align: center">
+      <div class="form-group">
+        <label for="sender">Enter number for next value</label>
+        <input id="newNumber" name="newNumber" class="form-control inputBox" type="number" min="1" max="9">
+      </div>
+      <button type="submit" class="btn">Choose this number</button>
+  </form>
+</div>
+
+<script>
+  var str = "$newNumber";
+
+  var one = document.getElementById("one");
+  one.innerHTML = str[0];
+  var two = document.getElementById("two");
+  two.innerHTML = str[1];
+  var three = document.getElementById("three");
+  three.innerHTML = str[2];
+  var four = document.getElementById("four");
+  four.innerHTML = str[3];
+  var five = document.getElementById("five");
+  five.innerHTML = str[4];
+  var six = document.getElementById("six");
+  six.innerHTML = str[5];
+  var seven = document.getElementById("seven");
+  seven.innerHTML = str[6];
+  var eight = document.getElementById("eight");
+  eight.innerHTML = str[7];
+  var nine = document.getElementById("nine");
+  nine.innerHTML = str[8];
+
+</script>
+
+
