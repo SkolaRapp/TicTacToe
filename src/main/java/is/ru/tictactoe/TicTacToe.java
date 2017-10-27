@@ -45,12 +45,14 @@ public class TicTacToe {
 			updateBoard(inputNum, 'X');
 		}
 
+		//check for winner
+
 		return newBoard;
 	}
 
 	public char[] computersTurn() {
 		computersTurnHelper();
-
+		//check winner
 		return newBoard;
 	}
 
@@ -84,6 +86,7 @@ public class TicTacToe {
 		}
 	}
 
+	//check to see if the number inputted is between 1-9
 	public boolean isValidInput(String input) {
 		int num = Integer.parseInt(input);
 		if(num < 10 && num > 0) {
@@ -110,6 +113,19 @@ public class TicTacToe {
 			//
 		}
 		count++;
+	}
+
+	//calls isWinnerX and isWinnerO
+	public char winnerInTheHouse(char[] board) {
+		if(isWinnerX(board)) {
+			return 'X';
+		}
+		else if(isWinnerO(board)) {
+			return 'O';
+		}
+		else {
+			return 'b';
+		} 
 	}
 
 	//check if user is the winner
