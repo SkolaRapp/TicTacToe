@@ -62,3 +62,35 @@ To move from a simple Continuous integration cycle, to something more complicate
 
 		
 [Click here to save/print file](https://gitprint.com/SkolaRapp/TicTacToe/blob/pdf/docs/adminManual.md?download)
+
+.link-button-wrapper {
+    width: 200px;
+    height: 40px;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    border-radius: 4px;
+    background-color: #097BC0;
+    box-shadow: 0px 2px 4px gray;
+    display: block;
+    border:1px solid #094BC0;
+}
+.link-button-wrapper > a {
+    display: inline-table;
+    cursor: pointer;
+    text-decoration: none;
+    height: 100%;
+    width:100%;
+}
+.link-button-wrapper > a > h1 {
+    margin: 0 auto;
+    display: table-cell;
+    vertical-align: middle;
+    color: #f7f8f8;
+    font-size: 18px;
+    font-family: cabinregular;
+    text-align: center;
+}
+<div class="link-button-wrapper">
+    <a href="your/link/here">
+        <h1>Button!</h1>
+    </a>
+</div>
