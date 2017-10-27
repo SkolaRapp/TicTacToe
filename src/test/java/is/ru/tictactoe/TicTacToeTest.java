@@ -51,6 +51,62 @@ public class TicTacToeTest {
     }
 
     @Test
+    public void testIsNotDigit() {
+    	TicTacToe tik = new TicTacToe();
+
+    	String a = "a";
+    	assertFalse(tik.isDigit(a));
+    }
+
+    @Test
+    public void testAnotherNotValidInput() {
+    	TicTacToe too = new TicTacToe();
+
+    	String eleven = "11";
+    	assertFalse(too.isValidInput(eleven));
+    }
+
+    @Test
+    public void testNotValidInput() {
+    	TicTacToe too = new TicTacToe();
+
+    	String negativeNum = "-7";
+    	assertFalse(too.isValidInput(negativeNum));
+    }
+
+    @Test
+    public void testAnotherNotValidInput3() {
+    	TicTacToe too = new TicTacToe();
+
+    	String ten = "10";
+    	assertFalse(too.isValidInput(ten));
+    }
+
+    @Test
+    public void testAnotherNotValidInput4() {
+    	TicTacToe too = new TicTacToe();
+
+    	String zero = "0";
+    	assertFalse(too.isValidInput(zero));
+    }
+
+    @Test
+    public void testValidInput4() {
+    	TicTacToe too = new TicTacToe();
+
+    	String one = "1";
+    	assertTrue(too.isValidInput(one));
+    }
+
+    @Test
+    public void testValidInput5() {
+    	TicTacToe too = new TicTacToe();
+
+    	String nine = "9";
+    	assertTrue(too.isValidInput(nine));
+    }
+
+    @Test
     public void testUpdateBoard() {
         TicTacToe tic = new TicTacToe();
 
@@ -130,7 +186,7 @@ public class TicTacToeTest {
         // X O 6
     	// X X O
 
-        assertTrue(verticalTest.isWinner(verticalTest.getBoard()));
+        assertTrue(verticalTest.isWinnerX(verticalTest.getBoard()));
     }
 
     @Test
@@ -151,7 +207,7 @@ public class TicTacToeTest {
         // O X O
     	// X X O
 
-        assertTrue(verticalTest.isWinner(verticalTest.getBoard()));
+        assertTrue(verticalTest.isWinnerX(verticalTest.getBoard()));
     }
 
     @Test
@@ -172,7 +228,7 @@ public class TicTacToeTest {
         // X X X
     	// 7 8 O
 
-        assertTrue(horTest.isWinner(horTest.getBoard()));
+        assertTrue(horTest.isWinnerX(horTest.getBoard()));
     }
 
     @Test
@@ -193,7 +249,7 @@ public class TicTacToeTest {
         // 4 X 6
     	// 7 8 X
 
-        assertTrue(diogTest.isWinner(diogTest.getBoard()));
+        assertTrue(diogTest.isWinnerX(diogTest.getBoard()));
     }
 
     @Test
@@ -214,7 +270,7 @@ public class TicTacToeTest {
         // 4 X 6
     	// X O 9
 
-        assertTrue(diogTest.isWinner(diogTest.getBoard()));
+        assertTrue(diogTest.isWinnerX(diogTest.getBoard()));
     }
 
     @Test
@@ -236,6 +292,51 @@ public class TicTacToeTest {
         catch(AssertionError e) {
         	fail("Error winner is: " + whosTheWinner.getWinner());
         }
- 	
     }
+
+    @Test
+    public void checkIfComputerisTheWinner() {
+    	TicTacToe whosTheWinner = new TicTacToe();
+
+		whosTheWinner.updateBoard(1, 'X');
+        whosTheWinner.updateBoard(2, '2');
+        whosTheWinner.updateBoard(3, 'O');
+        whosTheWinner.updateBoard(4, '4');
+        whosTheWinner.updateBoard(5, 'O');
+        whosTheWinner.updateBoard(6, '6');
+        whosTheWinner.updateBoard(7, 'O');
+        whosTheWinner.updateBoard(8, 'X');
+        whosTheWinner.updateBoard(9, '9');   
+        try {
+	        //assertEquals('O', whosTheWinner.getWinner());        	
+	        assertTrue(whosTheWinner.isWinnerO(whosTheWinner.getBoard()));
+        }
+        catch(AssertionError e) {
+        	fail("Error winner is: " + whosTheWinner.getWinner());
+        }
+    }
+
+    @Test
+    public void testWhosTheWinner() {
+    	TicTacToe whosTheWinner = new TicTacToe();
+
+		whosTheWinner.updateBoard(1, 'O');
+        whosTheWinner.updateBoard(2, 'O');
+        whosTheWinner.updateBoard(3, 'O');
+        whosTheWinner.updateBoard(4, '4');
+        whosTheWinner.updateBoard(5, 'X');
+        whosTheWinner.updateBoard(6, '6');
+        whosTheWinner.updateBoard(7, 'O');
+        whosTheWinner.updateBoard(8, 'X');
+        whosTheWinner.updateBoard(9, '9');   
+        try {
+	        //assertEquals('O', whosTheWinner.getWinner());        	
+	        //assertTrue(whosTheWinner.isWinnerO(whosTheWinner.getBoard()));
+	        assertEquals('O', whosTheWinner.winnerInTheHouse(whosTheWinner.getBoard()));
+        }
+        catch(AssertionError e) {
+        	fail("Error winner is: " + whosTheWinner.getWinner());
+        }	
+    }
+
 }

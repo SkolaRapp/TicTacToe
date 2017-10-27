@@ -6,12 +6,14 @@ public class TicTacToe {
 	private char[] newBoard;
 	private int count;
 	private char winner;
+	private int countMoves;
 	
 	//constructor
 	public TicTacToe() {
 		newBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		count = 0;
 		winner = 'b';
+		countMoves = 0;
 	}
 
 	//because newBoard is private
@@ -29,31 +31,46 @@ public class TicTacToe {
 
 	//get the placement the user wants to put her 'X' into
 	public char[] getInput(String input) {
-		//TODO: check the input - is it int between 1 and 9
 		if(!isDigit(input)) {
 			//TODO: error message if not a digit
 			return newBoard;
 		}
+		if(!isValidInput(input)) {
+			//TODO: error message if not a valid input
+			return newBoard;
+		}
 
 		int inputNum = Integer.parseInt(input);
-
 		if(!isTaken(inputNum)) {
 			//if not, put in the 'X'
 			updateBoard(inputNum, 'X');
 		}
 
+		//check for winner
+
 		return newBoard;
+	}
+
+	//if user wants to play again we reset the variables
+	public void newGame() {
+		newBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+		count = 0;
+		winner = 'b';
+		countMoves = 0;
 	}
 
 	public char[] computersTurn() {
 		computersTurnHelper();
-
+		//check winner
+		if(isThereAWinner(newBoard)) {
+			//TODO: quit game
+		}
 		return newBoard;
 	}
 
 	//computer inputs 'O' into a random empty place on the board
 	public boolean computersTurnHelper() {
-		//Randomiza - if spot isTaken, randomize again
+		//Randomize - if spot isTaken, randomize again
 		Random rand = new Random();
 		int randNum = rand.nextInt(9) + 1;
 
@@ -81,6 +98,15 @@ public class TicTacToe {
 		}
 	}
 
+	//check to see if the number inputted is between 1-9
+	public boolean isValidInput(String input) {
+		int num = Integer.parseInt(input);
+		if(num < 10 && num > 0) {
+			return true;
+		}
+		return false;
+	}
+
 	//check if the spot is taken
 	public boolean isTaken(int place) {
 		if(newBoard[place - 1] == 'X' || newBoard[place - 1] == 'O') {
@@ -94,15 +120,32 @@ public class TicTacToe {
 	//input character 'X' or 'O' into the board array
 	public void updateBoard(int input, char placement) {
 		newBoard[input - 1] = placement;
-		if(isWinner(newBoard)) {
+		//TODO: change method name here:
+		if(isWinnerX(newBoard)) {
 			//
 		}
 		count++;
 	}
 
-	//WINNER - mod 3, sama lina med sama signali, tha winner, 
-		//checka ser a horna linum, bera stokin saman med AND
-	public boolean isWinner(char[] board) {
+	public boolean isThereAWinner(char[] board) {
+		return (winnerInTheHouse(board) == 'X' || winnerInTheHouse(board) == 'O');
+	}
+
+	//calls isWinnerX and isWinnerO
+	public char winnerInTheHouse(char[] board) {
+		if(isWinnerX(board)) {
+			return 'X';
+		}
+		else if(isWinnerO(board)) {
+			return 'O';
+		}
+		else {
+			return 'b';
+		} 
+	}
+
+	//check if user is the winner
+	public boolean isWinnerX(char[] board) {
 		
 		//check for vertical winner
 		for(int i = 0; i < 9; i++) {
@@ -137,6 +180,42 @@ public class TicTacToe {
 		return false;
 	}
 
+	//check if the computer is the winner
+	public boolean isWinnerO(char[] board) {
+		
+		//check for vertical winner
+		for(int i = 0; i < 9; i++) {
+			if(board[i % 3] == 'O') {
+				winner = 'O';
+				return true;
+			}
+		}
+		//check for horizontal winners
+		if(board[0] == 'O' && board[1] == 'O' && board[2] == 'O') {
+			winner = 'O';
+			return true;
+		}
+		if(board[3] == 'O' && board[4] == 'O' && board[5] == 'O') {
+			winner = 'O';
+			return true;
+		}
+		if(board[6] == 'O' && board[7] == 'O' && board[8] == 'O') {
+			winner = 'O';
+			return true;
+		}
+		//check for diogonal winners
+		if(board[0] == 'O' && board[4] == 'O' && board[8] == 'O') {
+			winner = 'O';			
+			return true;
+		}
+		if(board[2] == 'O' && board[4] == 'O' && board[6] == 'O') {
+			winner = 'O';
+			return true;
+		}
+
+		return false;
+	}
+
 	//if all the spots are taken there is a draw
 	//TODO: must we also check if there is no possible winner with spots left??
 	public boolean isDraw() {
@@ -164,6 +243,36 @@ public class TicTacToe {
 
 		//justForPrinting(testBoard);
 		return testBoard;
+	}
+
+	public boolean checkIfInputHasBeenGiven(char character, int number, char[] array){
+		if (array[number - 1] == 'X' || array[number - 1] == 'O'){
+			return true;
+		}
+		return false;
+	}
+
+
+
+	public String updateString(String str) {
+		char character = str.charAt(0);
+		char[] array = getBoard();
+		int number = Character.getNumericValue(character);
+		boolean usedOrNot = checkIfInputHasBeenGiven(character, number, array);
+		if (usedOrNot == true){
+			String sameString = String.copyValueOf(array);
+			return sameString;
+		}
+		if (countMoves % 2 == 0){
+			array[number - 1] = 'X';
+			countMoves++;
+		}
+		else {
+			array[number - 1] = 'O';
+			countMoves++;
+		}
+		String newString = String.copyValueOf(array);
+		return newString;
 	}
 
 /*	public char[] changeBoard() {

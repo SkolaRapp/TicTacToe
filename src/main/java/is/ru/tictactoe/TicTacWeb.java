@@ -11,13 +11,29 @@ import static spark.Spark.*;
 
 public class TicTacWeb {
     public static void main(String[] args) {
+        TicTacToe game = new TicTacToe();
         staticFileLocation("/public");
+        String layout = "templates/layout.vtl";
 
             port(getHerokuPort());
-            get("/", (req, res) -> runGame());
+            //get("/", (req, res) -> runGame());
 
-            get("/test", (request, response) -> {
-              return new ModelAndView(new HashMap(), "templates/ourTable.vtl");
+            get("/", (request, response) -> {
+                HashMap model = new HashMap();
+                model.put("template", "templates/ourTable.vtl" );
+              return new ModelAndView(model, layout);
+            }, new VelocityTemplateEngine());
+
+            get("/gameHasStarted", (request, response) -> {
+                HashMap model = new HashMap();
+                //Next function gets the string the form sends in
+                String numberFromForm = request.queryParams("numberFromForm");
+                //Next function updates the string with the number from form
+                String newString = game.updateString(numberFromForm);
+                //Throw the updated String into the html file
+                model.put("newString", newString);
+                model.put("template", "templates/gameHasStarted.vtl");
+              return new ModelAndView(model, layout);
             }, new VelocityTemplateEngine());
         }
 
@@ -84,26 +100,4 @@ public class TicTacWeb {
         char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
         return testBoard;
     } 
-
-    private static String temporaryFunction(){
-        String str = "<!DOCTYPE html>" +
-         "<html>" +
-         "<head>" +
-           "<title>Hello Friend!</title>" +
-           "<link rel='stylesheet' + href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>" +
-         "</head>" +
-        "<body>" +
-           "<h1>Hello From Afar</h1>" +
-           "<p>Dear Friend,</p>" +
-           "<p>How are you? I hope that you are having a nice weekend. I'm vacationing in the Iceland while I learn programming! </p>" +
-           "<p>Friend, you would not believe how cold it is here. I should have gone to Hawaii instead.</p>" +
-           "<p>But I like programming a lot, so I've got that going for me. </p>" +
-           "<p>Looking forward to seeing you soon. I'll bring you back a souvenir. </p>" +
-           "<p>Cheers,</p>" +
-           "<p>Travel Enthusiast Jane</p>" +
-         "</body>" +
-       "</html>";
-
-       return str;
-    }
 }
