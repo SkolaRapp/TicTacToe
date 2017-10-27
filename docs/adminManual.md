@@ -61,4 +61,4 @@ To move from a simple Continuous integration cycle, to something more complicate
 		2.	That can be used for manual testing, or later some functional tests like Selenium tests.
 
 		
-[Click here to save/print file](https://gitprint.com/SkolaRapp/TicTacToe/blob/design/docs/adminManual.md)
+[Click here to save/print file](https://gitprint.com/SkolaRapp/TicTacToe/blob/pdf/docs/adminManual.md?download)
