@@ -1,4 +1,7 @@
-# Administration manual 
+# TicTacToe
+This TicTacToe project is an assigment for T-303-HUGB class in Reykjavik University Autumn 2017.
+
+## Administration manual 
 How to set it up and get it to run, also on a
 fresh machine. How to install and run the program on clients machine
 (in case of simple desktop program). How to deploy, run and maintain
@@ -8,7 +11,7 @@ What an admin needs to set up the project.
 
 Admin needs to:
 
-## Set up Travis
+### Set up Travis
 
 1. 	Fork the TicTacToe repository: https://github.com/SkolaRapp/TicTacToe
 	Note: since this is a public repo, you can't fork is as a private repo
@@ -22,7 +25,7 @@ Admin needs to:
 
 3.	Clone the repo to your local environment
 
-## Set up Heroku
+### Set up Heroku
 
 1.	Sign up for free on Heroku.com.
 
@@ -40,7 +43,7 @@ Admin needs to:
 
 8.	You should now have a running application somewhere on herokuapp.
 
-## Putting Travis CI & Heroku together
+### Putting Travis CI & Heroku together
 
 Disclaimer: This is where things get tricker, and we'll only help move you in the right direction.
 
