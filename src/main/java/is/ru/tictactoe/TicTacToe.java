@@ -6,12 +6,14 @@ public class TicTacToe {
 	private char[] newBoard;
 	private int count;
 	private char winner;
+	private int countMoves;
 	
 	//constructor
 	public TicTacToe() {
 		newBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		count = 0;
 		winner = 'b';
+		countMoves = 0;
 	}
 
 	//because newBoard is private
@@ -166,25 +168,32 @@ public class TicTacToe {
 		return testBoard;
 	}
 
-	public boolean checkIfInputHasBeenGiven(String str){
-		char character = str.charAt(0);
-		int number = Character.getNumericValue(character);
-		char[] array = getBoard();
-
-		if (array[number] == 'X' || array[number] == 'O'){
+	public boolean checkIfInputHasBeenGiven(char character, int number, char[] array){
+		if (array[number - 1] == 'X' || array[number - 1] == 'O'){
 			return true;
 		}
 		return false;
 	}
 
+
+
 	public String updateString(String str) {
 		char character = str.charAt(0);
-		int number = Character.getNumericValue(character);
 		char[] array = getBoard();
-		if (array[number - 1] == 'X' || array[number - 1] == 'O'){
-			return str;
+		int number = Character.getNumericValue(character);
+		boolean usedOrNot = checkIfInputHasBeenGiven(character, number, array);
+		if (usedOrNot == true){
+			String sameString = String.copyValueOf(array);
+			return sameString;
 		}
-		array[number - 1] = 'X';
+		if (countMoves % 2 == 0){
+			array[number - 1] = 'X';
+			countMoves++;
+		}
+		else {
+			array[number - 1] = 'O';
+			countMoves++;
+		}
 		String newString = String.copyValueOf(array);
 		return newString;
 	}
