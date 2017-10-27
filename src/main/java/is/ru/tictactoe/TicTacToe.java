@@ -86,13 +86,11 @@ public class TicTacToe {
 	}
 
 	public boolean isValidInput(String input) {
-		try {
-			int num = Integer.parseInt(input);
+		int num = Integer.parseInt(input);
+		if(num < 10 && num > 0) {
 			return true;
 		}
-		catch(NumberFormatException e) {
-			return false;
-		}
+		return false;
 	}
 
 	//check if the spot is taken
