@@ -1,7 +1,10 @@
-# Development Manual
+# TicTacToe
+This TicTacToe project is an assigment for T-303-HUGB class in Reykjavik University Autumn 2017.
+
+## Development Manual
 What a developer needs to work on the project
 
-## Getting started
+### Getting started
 	
 * To download the project go to https://github.com/SkolaRapp/TicTacToe/.
 	*To clone the project using gitbash: 
@@ -21,7 +24,7 @@ What a developer needs to work on the project
 	4567
 
 
-## Coding rules and tools:
+### Coding rules and tools:
 * Naming conventions:
 	* Classes: PascalCase.
 	* Functions and variables: camelCase.
@@ -36,4 +39,4 @@ What a developer needs to work on the project
 	
 
 	
-[Click here to save/print file](https://gitprint.com/SkolaRapp/TicTacToe/blob/design/docs/devManual.md)
+[Click here to download](https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/adminManual.md?download)
