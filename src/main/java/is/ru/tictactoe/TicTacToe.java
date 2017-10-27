@@ -37,6 +37,10 @@ public class TicTacToe {
 			return newBoard;
 		}
 
+		if(!isValidInput(input)) {
+			return newBoard;
+		}
+
 		int inputNum = Integer.parseInt(input);
 
 		if(!isTaken(inputNum)) {
@@ -81,6 +85,14 @@ public class TicTacToe {
 		catch(NumberFormatException e) {
 			return false;
 		}
+	}
+
+	public boolean isValidInput(String input) {
+		int num = Integer.parseInt(input);
+		if(num < 10 && num > 0) {
+			return true;
+		}
+		return false;
 	}
 
 	//check if the spot is taken
