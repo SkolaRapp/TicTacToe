@@ -51,11 +51,59 @@ public class TicTacToeTest {
     }
 
     @Test
-    public void testNotValidInput() {
+    public void testIsNotDigit() {
+    	TicTacToe tik = new TicTacToe();
+
+    	String a = "a";
+    	assertFalse(tik.isDigit(a));
+    }
+
+    @Test
+    public void testAnotherNotValidInput() {
     	TicTacToe too = new TicTacToe();
 
     	String eleven = "11";
     	assertFalse(too.isValidInput(eleven));
+    }
+
+    @Test
+    public void testNotValidInput() {
+    	TicTacToe too = new TicTacToe();
+
+    	String negativeNum = "-7";
+    	assertFalse(too.isValidInput(negativeNum));
+    }
+
+    @Test
+    public void testAnotherNotValidInput3() {
+    	TicTacToe too = new TicTacToe();
+
+    	String ten = "10";
+    	assertFalse(too.isValidInput(ten));
+    }
+
+    @Test
+    public void testAnotherNotValidInput4() {
+    	TicTacToe too = new TicTacToe();
+
+    	String zero = "0";
+    	assertFalse(too.isValidInput(zero));
+    }
+
+    @Test
+    public void testValidInput4() {
+    	TicTacToe too = new TicTacToe();
+
+    	String one = "1";
+    	assertTrue(too.isValidInput(one));
+    }
+
+    @Test
+    public void testValidInput5() {
+    	TicTacToe too = new TicTacToe();
+
+    	String nine = "9";
+    	assertTrue(too.isValidInput(nine));
     }
 
     @Test
