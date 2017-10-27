@@ -35,6 +35,10 @@ public class TicTacToe {
 			return newBoard;
 		}
 
+		if(!isValidInput(input)) {
+			return newBoard;
+		}
+
 		int inputNum = Integer.parseInt(input);
 
 		if(!isTaken(inputNum)) {
@@ -72,6 +76,16 @@ public class TicTacToe {
 
 	//check to see if input is a number, and not something strange
 	public boolean isDigit(String input) {
+		try {
+			int num = Integer.parseInt(input);
+			return true;
+		}
+		catch(NumberFormatException e) {
+			return false;
+		}
+	}
+
+	public boolean isValidInput(String input) {
 		try {
 			int num = Integer.parseInt(input);
 			return true;
