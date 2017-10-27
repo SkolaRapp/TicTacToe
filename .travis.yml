@@ -6,3 +6,11 @@ deploy:
   app:
     master: skolarapp-live
     develop: skolarapp-dev
+notifications:
+  email: false
+  irc:     
+    channels:
+    - "chat.freenode.net#skolarapp"
+    on_success: change # default: always ... change
+    on_failure: always # default: always
+    use_notice: true
