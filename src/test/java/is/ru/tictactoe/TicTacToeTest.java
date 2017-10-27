@@ -51,6 +51,14 @@ public class TicTacToeTest {
     }
 
     @Test
+    public void testNotValidInput() {
+    	TicTacToe too = new TicTacToe();
+
+    	String eleven = "11";
+    	assertFalse(too.isValidInput(eleven));
+    }
+
+    @Test
     public void testUpdateBoard() {
         TicTacToe tic = new TicTacToe();
 
