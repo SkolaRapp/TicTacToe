@@ -22,13 +22,13 @@
 
 </div>
 
-<div class="testing">
+<div class="testing" id="theFormDiv">
   <form action='/gameHasStarted' style="text-align: center">
       <div class="form-group">
         <label for="sender">Enter number for next value</label>
         <input id="numberFromForm" name="numberFromForm" class="form-control inputBox" type="number" min="1" max="9" autofocus>
       </div>
-      <button type="submit" class="btn">Choose this number</button>
+      <button id="theButton" type="submit" class="btn">Choose this number</button>
   </form>
 </div>
 
@@ -36,6 +36,8 @@
   var str = "$newString";
   var computerTurn = "$computerMove";
   //window.alert(computerTurn);
+  var form = document.getElementById("theFormDiv");
+  form.style.display = "none";
 
   var one = document.getElementById(0);
   one.innerHTML = str[0];
@@ -67,10 +69,8 @@
   changeCSS(nine.innerHTML, nine);
 
 
-
-  setTimeout("testing()", 1000);
-
-  function testing(){
+  setTimeout("makeComputerTurn()", 1000);
+  function makeComputerTurn(){
     for (var i = 0; i < computerTurn.length; i++){
       if (computerTurn[i] == 'O'){
         var number = document.getElementById(i);
@@ -78,17 +78,18 @@
         changeCSS(number.innerHTML, number);
       }
     }
+    form.style.display = "block";
   }
 
   function changeCSS(someNumber, someVariable) {
     if (someNumber == 'X') {
-      someVariable.style.color = "blue";
-      someVariable.style.fontSize = "15px";
+      someVariable.style.backgroundColor = "#2289ff";
+      someVariable.style.fontSize = "29px";
     }
 
     if (someNumber == 'O'){
-      someVariable.style.color = "red";
-      someVariable.style.fontSize = "15px";
+      someVariable.style.backgroundColor = "red";
+      someVariable.style.fontSize = "29px";
     }
   }
 

@@ -41,6 +41,10 @@ public class TicTacWeb {
             }, new VelocityTemplateEngine());
     }
 
+    public static void testing(){
+        
+    }
+
     static int getHerokuPort() {
         ProcessBuilder psb = new ProcessBuilder();
         if (psb.environment().get("PORT") != null) {
