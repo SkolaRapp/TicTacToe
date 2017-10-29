@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TicTacToe.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TicTacToe</a> &gt; <a href="index.source.html" class="el_package">is.ru.tictactoe</a> &gt; <span class="el_source">TicTacToe.java</span></div><h1>TicTacToe.java</h1><pre class="source lang-java linenums">package is.ru.tictactoe;
+import java.util.Random;
+
+public class TicTacToe {
+	
+	private char[] newBoard;
+	private int count;
+	private char winner;
+	
+	//constructor
+<span class="fc" id="L11">	public TicTacToe() {</span>
+<span class="fc" id="L12">		newBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};</span>
+<span class="fc" id="L13">		count = 0;</span>
+<span class="fc" id="L14">		winner = 'b';</span>
+<span class="fc" id="L15">	}</span>
+
+	//because newBoard is private
+	public char[] getBoard() {
+<span class="fc" id="L19">		return newBoard;</span>
+	}
+
+	public char getWinner() {
+<span class="fc" id="L23">		return winner;</span>
+	}
+
+	public int getCount() {
+<span class="fc" id="L27">		return count;</span>
+	}
+
+	public static void main(String[] args) {
+		
+<span class="nc" id="L32">	}</span>
+
+	//get the placement the user wants to put her 'X' into
+	public char[] getInput(String input) {
+<span class="nc bnc" id="L36" title="All 2 branches missed.">		if(!isDigit(input)) {</span>
+			//TODO: error message if not a digit
+<span class="nc" id="L38">			return newBoard;</span>
+		}
+<span class="nc bnc" id="L40" title="All 2 branches missed.">		if(!isValidInput(input)) {</span>
+			//TODO: error message if not a valid input
+<span class="nc" id="L42">			return newBoard;</span>
+		}
+
+<span class="nc" id="L45">		int inputNum = Integer.parseInt(input);</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">		if(!isTaken(inputNum)) {</span>
+			//if not, put in the 'X'
+<span class="nc" id="L48">			updateBoard(inputNum, 'X');</span>
+		}
+
+<span class="nc" id="L51">		return newBoard;</span>
+	}
+
+	//if user wants to play again we reset the variables
+	public void newGame() {
+<span class="fc" id="L56">		newBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};</span>
+<span class="fc" id="L57">		count = 0;</span>
+<span class="fc" id="L58">		winner = 'b';</span>
+<span class="fc" id="L59">	}</span>
+
+	public char[] computersTurn() {
+<span class="fc" id="L62">		computersTurnHelper();</span>
+<span class="fc" id="L63">		return newBoard;</span>
+	}
+
+	//computer inputs 'O' into a random empty place on the board
+	public boolean computersTurnHelper() {
+		//Randomize - if spot isTaken, randomize again
+<span class="fc" id="L69">		Random rand = new Random();</span>
+<span class="fc" id="L70">		int randNum = rand.nextInt(9) + 1;</span>
+
+<span class="fc bfc" id="L72" title="All 2 branches covered.">		if(count == 9) {</span>
+<span class="fc" id="L73">			return false;</span>
+		}
+
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">		while(isTaken(randNum)) {</span>
+<span class="nc" id="L77">			randNum = rand.nextInt(9) + 1;</span>
+		}
+
+<span class="fc" id="L80">		updateBoard(randNum, 'O');</span>
+
+<span class="fc" id="L82">		return true;</span>
+	}
+
+	//check to see if input is a number, and not something strange
+	public boolean isDigit(String input) {
+		try {
+<span class="fc" id="L88">			int num = Integer.parseInt(input);</span>
+<span class="fc" id="L89">			return true;</span>
+		}
+<span class="fc" id="L91">		catch(NumberFormatException e) {</span>
+<span class="fc" id="L92">			return false;</span>
+		}
+	}
+
+	//check to see if the number inputted is between 1-9
+	public boolean isValidInput(String input) {
+<span class="fc" id="L98">		int num = Integer.parseInt(input);</span>
+<span class="fc bfc" id="L99" title="All 4 branches covered.">		if(num &lt; 10 &amp;&amp; num &gt; 0) {</span>
+<span class="fc" id="L100">			return true;</span>
+		}
+<span class="fc" id="L102">		return false;</span>
+	}
+
+	//check if the spot is taken
+	public boolean isTaken(int place) {
+<span class="pc bpc" id="L107" title="1 of 4 branches missed.">		if(newBoard[place - 1] == 'X' || newBoard[place - 1] == 'O') {</span>
+<span class="fc" id="L108">			return true;</span>
+		}
+		else {
+<span class="fc" id="L111">			return false;</span>
+		}
+	}
+
+	//input character 'X' or 'O' into the board array
+	public void updateBoard(int input, char placement) {
+<span class="fc" id="L117">		newBoard[input - 1] = placement;</span>
+		//TODO: change method name here:
+<span class="fc bfc" id="L119" title="All 2 branches covered.">		if(isWinnerX(newBoard)) {</span>
+			//
+		}
+<span class="fc" id="L122">		count++;</span>
+<span class="fc" id="L123">	}</span>
+
+	public boolean isThereAWinner(String strBoard) {
+<span class="nc" id="L126">		char[] board = strBoard.toCharArray();</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">		if (checkIfBoardIsFull() == false) {</span>
+<span class="nc" id="L128">			return true;</span>
+		}
+
+<span class="nc bnc" id="L131" title="All 4 branches missed.">		return (winnerInTheHouse(board) == 'X' || winnerInTheHouse(board) == 'O');</span>
+	}
+
+	//calls isWinnerX and isWinnerO
+	public char winnerInTheHouse(char[] board) {
+<span class="fc bfc" id="L136" title="All 2 branches covered.">		if(isWinnerX(board) == true) {</span>
+<span class="fc" id="L137">			return 'X';</span>
+		}
+<span class="pc bpc" id="L139" title="1 of 2 branches missed.">		else if(isWinnerO(board) == true) {</span>
+<span class="fc" id="L140">			return 'O';</span>
+		}
+		else {
+<span class="nc" id="L143">			return 'd';</span>
+		} 
+	}
+
+	//check if user is the winner
+	public boolean isWinnerX(char[] board) {
+		
+		//check for vertical winner
+<span class="fc bfc" id="L151" title="All 6 branches covered.">		if(board[0] == 'X' &amp;&amp; board[3] == 'X' &amp;&amp; board[6] == 'X') {</span>
+<span class="fc" id="L152">			winner = 'X';</span>
+<span class="fc" id="L153">			return true;</span>
+		}
+
+<span class="fc bfc" id="L156" title="All 6 branches covered.">		if(board[1] == 'X' &amp;&amp; board[4] == 'X' &amp;&amp; board[7] == 'X') {</span>
+<span class="fc" id="L157">			winner = 'X';</span>
+<span class="fc" id="L158">			return true;</span>
+		}
+
+<span class="pc bpc" id="L161" title="1 of 6 branches missed.">		if(board[2] == 'X' &amp;&amp; board[5] == 'X' &amp;&amp; board[8] == 'X') {</span>
+<span class="nc" id="L162">			winner = 'X';</span>
+<span class="nc" id="L163">			return true;</span>
+		}
+
+		//check for horizontal winners
+<span class="pc bpc" id="L167" title="1 of 6 branches missed.">		if(board[0] == 'X' &amp;&amp; board[1] == 'X' &amp;&amp; board[2] == 'X') {</span>
+<span class="fc" id="L168">			winner = 'X';</span>
+<span class="fc" id="L169">			return true;</span>
+		}
+<span class="fc bfc" id="L171" title="All 6 branches covered.">		if(board[3] == 'X' &amp;&amp; board[4] == 'X' &amp;&amp; board[5] == 'X') {</span>
+<span class="fc" id="L172">			winner = 'X';</span>
+<span class="fc" id="L173">			return true;</span>
+		}
+<span class="pc bpc" id="L175" title="1 of 6 branches missed.">		if(board[6] == 'X' &amp;&amp; board[7] == 'X' &amp;&amp; board[8] == 'X') {</span>
+<span class="nc" id="L176">			winner = 'X';</span>
+<span class="nc" id="L177">			return true;</span>
+		}
+		//check for diogonal winners
+<span class="fc bfc" id="L180" title="All 6 branches covered.">		if(board[0] == 'X' &amp;&amp; board[4] == 'X' &amp;&amp; board[8] == 'X') {</span>
+<span class="fc" id="L181">			winner = 'X';			</span>
+<span class="fc" id="L182">			return true;</span>
+		}
+<span class="fc bfc" id="L184" title="All 6 branches covered.">		if(board[2] == 'X' &amp;&amp; board[4] == 'X' &amp;&amp; board[6] == 'X') {</span>
+<span class="fc" id="L185">			winner = 'X';</span>
+<span class="fc" id="L186">			return true;</span>
+		}
+
+<span class="fc" id="L189">		return false;</span>
+	}
+
+	//check if the computer is the winner
+	public boolean isWinnerO(char[] board) {
+		
+		//check for vertical winner
+<span class="pc bpc" id="L196" title="3 of 6 branches missed.">		if(board[0] == 'O' &amp;&amp; board[3] == 'O' &amp;&amp; board[6] == 'O') {</span>
+<span class="nc" id="L197">			winner = 'O';</span>
+<span class="nc" id="L198">			return true;</span>
+		}
+
+<span class="pc bpc" id="L201" title="3 of 6 branches missed.">		if(board[1] == 'O' &amp;&amp; board[4] == 'O' &amp;&amp; board[7] == 'O') {</span>
+<span class="nc" id="L202">			winner = 'O';</span>
+<span class="nc" id="L203">			return true;</span>
+		}
+
+<span class="pc bpc" id="L206" title="4 of 6 branches missed.">		if(board[2] == 'O' &amp;&amp; board[5] == 'O' &amp;&amp; board[8] == 'O') {</span>
+<span class="nc" id="L207">			winner = 'O';</span>
+<span class="nc" id="L208">			return true;</span>
+		}
+
+		//check for horizontal winners
+<span class="pc bpc" id="L212" title="2 of 6 branches missed.">		if(board[0] == 'O' &amp;&amp; board[1] == 'O' &amp;&amp; board[2] == 'O') {</span>
+<span class="fc" id="L213">			winner = 'O';</span>
+<span class="fc" id="L214">			return true;</span>
+		}
+<span class="pc bpc" id="L216" title="5 of 6 branches missed.">		if(board[3] == 'O' &amp;&amp; board[4] == 'O' &amp;&amp; board[5] == 'O') {</span>
+<span class="nc" id="L217">			winner = 'O';</span>
+<span class="nc" id="L218">			return true;</span>
+		}
+<span class="pc bpc" id="L220" title="4 of 6 branches missed.">		if(board[6] == 'O' &amp;&amp; board[7] == 'O' &amp;&amp; board[8] == 'O') {</span>
+<span class="nc" id="L221">			winner = 'O';</span>
+<span class="nc" id="L222">			return true;</span>
+		}
+		//check for diogonal winners
+<span class="pc bpc" id="L225" title="5 of 6 branches missed.">		if(board[0] == 'O' &amp;&amp; board[4] == 'O' &amp;&amp; board[8] == 'O') {</span>
+<span class="nc" id="L226">			winner = 'O';			</span>
+<span class="nc" id="L227">			return true;</span>
+		}
+<span class="pc bpc" id="L229" title="3 of 6 branches missed.">		if(board[2] == 'O' &amp;&amp; board[4] == 'O' &amp;&amp; board[6] == 'O') {</span>
+<span class="fc" id="L230">			winner = 'O';</span>
+<span class="fc" id="L231">			return true;</span>
+		}
+
+<span class="nc" id="L234">		return false;</span>
+	}
+
+	//if all the spots are taken there is a draw
+	public boolean isDraw() {
+<span class="pc bpc" id="L239" title="1 of 2 branches missed.">		return (count == 9);</span>
+	}
+
+	public char[] printBoard() {
+
+<span class="fc" id="L244">		char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};</span>
+<span class="fc" id="L245">		int rowCounter = 0;</span>
+
+		//justForPrinting(testBoard);
+<span class="fc" id="L248">		return testBoard;</span>
+	}
+
+	public boolean checkIfInputHasBeenGiven(char character, int number, char[] array) {
+<span class="pc bpc" id="L252" title="1 of 4 branches missed.">		if (array[number - 1] == 'X' || array[number - 1] == 'O') {</span>
+<span class="fc" id="L253">			return true;</span>
+		}
+		
+<span class="fc" id="L256">		return false;</span>
+	}
+
+	public String updateString(String numberFromForm) {
+<span class="fc" id="L260">		char character = numberFromForm.charAt(0);</span>
+<span class="fc" id="L261">		char[] array = getBoard();</span>
+<span class="fc" id="L262">		int number = Character.getNumericValue(character);</span>
+<span class="fc" id="L263">		boolean usedOrNot = checkIfInputHasBeenGiven(character, number, array);</span>
+<span class="fc bfc" id="L264" title="All 2 branches covered.">		if (usedOrNot == true) {</span>
+<span class="fc" id="L265">			String sameString = String.copyValueOf(array);</span>
+<span class="fc" id="L266">			return sameString;</span>
+		}
+<span class="fc" id="L268">		array[number - 1] = 'X';</span>
+<span class="fc" id="L269">		String newString = makeStringFromCharArray(array);</span>
+		
+<span class="fc" id="L271">		return newString;</span>
+	}
+
+	public String makeStringFromCharArray(char[] array) {
+<span class="fc" id="L275">		String returnString = String.copyValueOf(array);</span>
+
+<span class="fc" id="L277">		return returnString;</span>
+	}
+
+	public boolean checkIfNoChangeWasMade(String numberFromForm) {
+<span class="fc" id="L281">		char character = numberFromForm.charAt(0);</span>
+<span class="fc" id="L282">		char[] array = getBoard();</span>
+<span class="fc" id="L283">		int number = Character.getNumericValue(character);</span>
+<span class="pc bpc" id="L284" title="1 of 4 branches missed.">		if (array[number - 1] == 'X' || array[number - 1] == 'O') {</span>
+<span class="fc" id="L285">			return true;</span>
+		}
+
+<span class="fc" id="L288">		return false;</span>
+	}
+
+	public boolean checkIfBoardIsFull() {
+<span class="fc" id="L292">		char[] array = getBoard();</span>
+<span class="fc bfc" id="L293" title="All 2 branches covered.">		for (int i = 0; i &lt; array.length; i++) {</span>
+<span class="fc bfc" id="L294" title="All 4 branches covered.">			if (array[i] != 'X' &amp;&amp; array[i] != 'O') {</span>
+<span class="fc" id="L295">				return true;</span>
+			}
+		}
+
+<span class="fc" id="L299">		return false;</span>
+	}
+
+	public String returnNewString(String numberFromForm) {
+<span class="fc" id="L303">        String newString = &quot;&quot;;</span>
+<span class="fc" id="L304">        newString = updateString(numberFromForm);</span>
+
+<span class="fc" id="L306">        return newString;</span>
+    }
+
+    public String returnComputerMove(String numberFromForm, String newString, boolean checkIfMoveIsValid) {
+<span class="fc" id="L310">        String computerMove = &quot;&quot;;</span>
+<span class="fc bfc" id="L311" title="All 2 branches covered.">        if(checkIfMoveIsValid == false) {</span>
+<span class="pc bpc" id="L312" title="1 of 2 branches missed.">            if (checkIfBoardIsFull() == true) {</span>
+<span class="fc" id="L313">                char[] array = computersTurn();</span>
+<span class="fc" id="L314">                computerMove = makeStringFromCharArray(array);</span>
+<span class="fc" id="L315">            }</span>
+        }
+        else {
+<span class="fc" id="L318">            computerMove = newString;</span>
+        }
+
+<span class="fc" id="L321">        return computerMove;</span>
+    }
+
+    public void setBoardForTestingFunctions(String board) {
+<span class="fc" id="L325">    	char[] temp = board.toCharArray();</span>
+<span class="fc" id="L326">    	newBoard = temp;</span>
+<span class="fc" id="L327">    }</span>
+
+    public char getResult(boolean isTheGameOver, String computerMove) {
+<span class="fc" id="L330">        char[] board = computerMove.toCharArray();</span>
+<span class="fc bfc" id="L331" title="All 2 branches covered.">        if (isTheGameOver == true) {</span>
+<span class="fc" id="L332">            return winnerInTheHouse(board);</span>
+        }
+<span class="fc" id="L334">        return '/'; </span>
+    }
+
+    public String returnTheStringAfterComputerMove(String numberFromForm, String newString, boolean checkIfMoveIsValid, boolean isTheGameOver) {
+<span class="fc" id="L338">    	String computerMove = &quot;&quot;;</span>
+<span class="pc bpc" id="L339" title="1 of 2 branches missed.">    	if (isTheGameOver == false) {</span>
+<span class="fc" id="L340">            computerMove = returnComputerMove(numberFromForm, newString, checkIfMoveIsValid);</span>
+        }
+        else{
+<span class="nc" id="L343">            computerMove = newString;</span>
+        }
+
+<span class="fc" id="L346">        return computerMove;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
