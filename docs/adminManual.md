@@ -32,7 +32,7 @@ Admin needs to:
 2.	Setup the Heroku Toolbelt https://devcenter.heroku.com/articles/heroku-cli
 
 3.	Sign in using the Heroku Toolbelt
-
+i
 4.	Using the same repo as in the first part of the assignment; in the root create a new Heroku app: heroku	apps:create
 
 5.	Take a look at https://devcenter.heroku.com/articles/getting-started-with-gradle-on-heroku#introduction
@@ -60,8 +60,4 @@ To move from a simple Continuous integration cycle, to something more complicate
 		1.	Travis CI will deploy the application to a staging server.
 		2.	That can be used for manual testing, or later some functional tests like Selenium tests.
 
-		
-Hello
-
-		hi, there friend
 [Click here to download](https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/adminManual.md?download)
