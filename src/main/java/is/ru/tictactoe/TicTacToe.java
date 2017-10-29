@@ -23,7 +23,7 @@ public class TicTacToe {
 		return winner;
 	}
 
-	public int getCount(){
+	public int getCount() {
 		return count;
 	}
 
@@ -124,9 +124,10 @@ public class TicTacToe {
 
 	public boolean isThereAWinner(String strBoard) {
 		char[] board = strBoard.toCharArray();
-		if (checkIfBoardIsFull() == false){
+		if (checkIfBoardIsFull() == false) {
 			return true;
 		}
+
 		return (winnerInTheHouse(board) == 'X' || winnerInTheHouse(board) == 'O');
 	}
 
@@ -247,8 +248,8 @@ public class TicTacToe {
 		return testBoard;
 	}
 
-	public boolean checkIfInputHasBeenGiven(char character, int number, char[] array){
-		if (array[number - 1] == 'X' || array[number - 1] == 'O'){
+	public boolean checkIfInputHasBeenGiven(char character, int number, char[] array) {
+		if (array[number - 1] == 'X' || array[number - 1] == 'O') {
 			return true;
 		}
 		
@@ -260,7 +261,7 @@ public class TicTacToe {
 		char[] array = getBoard();
 		int number = Character.getNumericValue(character);
 		boolean usedOrNot = checkIfInputHasBeenGiven(character, number, array);
-		if (usedOrNot == true){
+		if (usedOrNot == true) {
 			String sameString = String.copyValueOf(array);
 			return sameString;
 		}
@@ -270,27 +271,27 @@ public class TicTacToe {
 		return newString;
 	}
 
-	public String makeStringFromCharArray(char[] array){
+	public String makeStringFromCharArray(char[] array) {
 		String returnString = String.copyValueOf(array);
 
 		return returnString;
 	}
 
-	public boolean checkIfNoChangeWasMade(String numberFromForm){
+	public boolean checkIfNoChangeWasMade(String numberFromForm) {
 		char character = numberFromForm.charAt(0);
 		char[] array = getBoard();
 		int number = Character.getNumericValue(character);
-		if (array[number - 1] == 'X' || array[number - 1] == 'O'){
+		if (array[number - 1] == 'X' || array[number - 1] == 'O') {
 			return true;
 		}
 
 		return false;
 	}
 
-	public boolean checkIfBoardIsFull(){
+	public boolean checkIfBoardIsFull() {
 		char[] array = getBoard();
-		for (int i = 0; i < array.length; i++){
-			if (array[i] != 'X' && array[i] != 'O'){
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] != 'X' && array[i] != 'O') {
 				return true;
 			}
 		}
@@ -298,16 +299,16 @@ public class TicTacToe {
 		return false;
 	}
 
-	public String returnNewString(String numberFromForm){
+	public String returnNewString(String numberFromForm) {
         String newString = "";
         newString = updateString(numberFromForm);
 
         return newString;
     }
 
-    public String returnComputerMove(String numberFromForm, String newString, boolean checkIfMoveIsValid){
+    public String returnComputerMove(String numberFromForm, String newString, boolean checkIfMoveIsValid) {
         String computerMove = "";
-        if (checkIfMoveIsValid == false){
+        if(checkIfMoveIsValid == false) {
             if (checkIfBoardIsFull() == true) {
                 char[] array = computersTurn();
                 computerMove = makeStringFromCharArray(array);
@@ -320,12 +321,12 @@ public class TicTacToe {
         return computerMove;
     }
 
-    public void setBoardForTestingFunctions(String board){
+    public void setBoardForTestingFunctions(String board) {
     	char[] temp = board.toCharArray();
     	newBoard = temp;
     }
 
-    public char getResult(boolean isTheGameOver, String computerMove){
+    public char getResult(boolean isTheGameOver, String computerMove) {
         char[] board = computerMove.toCharArray();
         if (isTheGameOver == true) {
             return winnerInTheHouse(board);
@@ -333,14 +334,15 @@ public class TicTacToe {
         return '/'; 
     }
 
-    public String returnTheStringAfterComputerMove(String numberFromForm, String newString, boolean checkIfMoveIsValid, boolean isTheGameOver){
+    public String returnTheStringAfterComputerMove(String numberFromForm, String newString, boolean checkIfMoveIsValid, boolean isTheGameOver) {
     	String computerMove = "";
-    	if (isTheGameOver == false){
+    	if (isTheGameOver == false) {
             computerMove = returnComputerMove(numberFromForm, newString, checkIfMoveIsValid);
         }
         else{
             computerMove = newString;
         }
+
         return computerMove;
     }
 }
