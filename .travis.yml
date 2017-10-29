@@ -30,7 +30,7 @@ os:
 install:
 - if [ "$TRAVIS_BRANCH" == "stage" ]; then
   sudo apt-get install unzip;
-  wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip && sudo unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/; if
+  wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip && sudo unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/; fi
   
 addons:
   chrome: stable
