@@ -11,6 +11,22 @@ What an admin needs to set up the project.
 
 Admin needs to:
 
+### Set up gradle
+
+	https://gradle.org/install/
+
+* To build and test the project:
+
+		gradle build
+
+* To run the project:
+
+		gradle stage
+
+* The port to run the game is currently:
+
+		4567
+
 ### Set up Travis
 
 1. 	Fork the TicTacToe repository: https://github.com/SkolaRapp/TicTacToe
@@ -21,7 +37,7 @@ Admin needs to:
 
 	a.	Sign in with GitHub
 	
-	b.	Give GitHub access to this repository (note you might need to "sync" repos to Travis CI, using a button).
+	b.	Give GitHub access to this repository (note you might need to "sync" repos to 		Travis CI, using a button).
 
 3.	Clone the repo to your local environment
 
@@ -32,8 +48,8 @@ Admin needs to:
 2.	Setup the Heroku Toolbelt https://devcenter.heroku.com/articles/heroku-cli
 
 3.	Sign in using the Heroku Toolbelt
-i
-4.	Using the same repo as in the first part of the assignment; in the root create a new Heroku app: heroku	apps:create
+
+4.	In the root of the repo create a new Heroku app: heroku apps:create
 
 5.	Take a look at https://devcenter.heroku.com/articles/getting-started-with-gradle-on-heroku#introduction
 
@@ -43,21 +59,14 @@ i
 
 8.	You should now have a running application somewhere on herokuapp.
 
-### Putting Travis CI & Heroku together
+#### Heroku staging and deployment server
 
-Disclaimer: This is where things get tricker, and we'll only help move you in the right direction.
-
-To move from a simple Continuous integration cycle, to something more complicated continuous delivery, you will need to define a staging server. This can easily be a Heroku app server. How would you go about setting the following up:
-
-1.	Code changes are made to a feature branch as a part of a pull request
-
-2.	Travis runs all unit and integration tests on commit and push to GitHub
-
-	a.	If there are failures, GitHub would show this on the pull request.
+* Staging
 	
-	b.	If the tests pass and other checks pass.
+	https://skolarapp-stage.herokuapp.com/
 
-		1.	Travis CI will deploy the application to a staging server.
-		2.	That can be used for manual testing, or later some functional tests like Selenium tests.
+* Deployment
+
+	https://skolarapp-depl.herokuapp.com/
 
 [Click here to download](https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/adminManual.md?download)
