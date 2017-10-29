@@ -4,7 +4,7 @@ branches:
   only:
   - master
   - stage
-  - dev
+  - develop
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -42,3 +42,10 @@ after_success:
   - if [ "$TRAVIS_BRANCH" == "stage" ]; then
     echo "Merging stage into master";
     BRANCHES_TO_MERGE_REGEX='stage' BRANCH_TO_MERGE_INTO=master GITHUB_REPO=SkolaRapp/TicTacToe ./automerge; fi
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: 28NVfNmCtg+tFqOGgmuJambp0gOrXybP3yyRk9fw3SrqHgzdVlD+rkuso+eJvNZJonjWbXZz8NQOm1WveRFpA1Ypg5VXY3zEwb2/QtHdYyj60E3/uw3yKNphEUhYb/9lMCb8FwpLRMRbumHhcvCUMykN/IipPqsW/S9sJg1Er8MaBAqabKoDyGVKZ6+IwgSu8eUYUeeavyb29b/SGaMx6qkKF4m19C6jGblLK38ZJjoY9l3gdybebdGaR6HJ7wjQ7K1J1jDRd7X4tRIdETVFP99/EyZ2o2zqf2NXHb1552Z+HxjstnuiPfYtRR72/IPmw6ScAzuJsV/DKdRfSkREvQwOFGSPYg2zaC2LUmJFnMn7Q4JtLCcELr+OebwfyDRABxariTK9xVI9v+IaHpc8OBAZvw4ihqF9WYY0J/M5RxSmnl/hdjL/iZ/n9NfPX9TfIlwEuDphhsmpd2tfwjVwBf+GKfORkaHkh6t7nhziUYUtgrGkVojs26ZOxy+pX4A1qEg5NA1rKxMt6Xkmkmpvvsj2l2ldRvph/F5Pj4mHGzvs1P1Dcn6m+tKJE+yck9gsH5BRD0PnWVGNGkXLz4EZA6IeUN1DCZZ+k+awKwVy+IxLhF9FuKVxqe+jIloqL2ggVKFy7erZjubbY8F0YxOHo+2Ck1wD8MF/Q2WMXekgW30=
+  app:
+    stage: skolarapp-dev
