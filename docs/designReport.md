@@ -22,6 +22,3 @@ is completed the feature branch it goes through selenium and unity testing befor
 
 
 <a href="https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/designReport.md?download">Click here to download</a>
-
-
-[comment]: [Click here to download][https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/designReport.md?download]
