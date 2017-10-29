@@ -2,6 +2,7 @@ package is.ru.tictactoe;
 
 
 import java.util.HashMap;
+import java.lang.*;
 
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -29,9 +30,11 @@ public class TicTacWeb {
                 //Next function gets the string the form sends in
                 String numberFromForm = request.queryParams("numberFromForm");
                 //Next function updates the string with the number from form
-                String newString = game.updateString(numberFromForm);
-                char[] array = game.computersTurn();
-                String computerMove = String.copyValueOf(array);
+                String computerMove = "";
+                String newString = "";
+                boolean checkIfMoveIsValid = game.checkIfNoChangeWasMade(numberFromForm);
+                newString = game.returnNewString(numberFromForm);
+                computerMove = game.returnComputerMove(numberFromForm, newString, checkIfMoveIsValid);
                 //Throw the updated String into the html file
                 model.put("newString", newString);
                 model.put("computerMove", computerMove);
@@ -41,9 +44,6 @@ public class TicTacWeb {
             }, new VelocityTemplateEngine());
     }
 
-    public static void testing(){
-        
-    }
 
     static int getHerokuPort() {
         ProcessBuilder psb = new ProcessBuilder();

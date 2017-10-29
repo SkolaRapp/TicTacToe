@@ -222,20 +222,6 @@ public class TicTacToe {
 		return (count == 9);
 	}
 
-/*	public void justForPrinting(char[] testBoard){
-		for (int i = 0; i < 3; i++){
-			System.out.print(testBoard[i] + " ");
-		}
-		System.out.println();
-		for (int i = 3; i < 6; i++){
-			System.out.print(testBoard[i] + " ");
-		}
-		System.out.println();
-		for (int i = 6; i < 9; i++){
-			System.out.print(testBoard[i] + " ");
-		}
-	}
-*/
 	public char[] printBoard() {
 
 		char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -270,9 +256,59 @@ public class TicTacToe {
 			//array[number - 1] = 'O';
 			//countMoves++;
 		//}
-		String newString = String.copyValueOf(array);
+		String newString = makeStringFromCharArray(array);
 		return newString;
 	}
+
+	public String makeStringFromCharArray(char[] array){
+		String returnString = String.copyValueOf(array);
+
+		return returnString;
+	}
+
+	public boolean checkIfNoChangeWasMade(String numberFromForm){
+		char character = numberFromForm.charAt(0);
+		char[] array = getBoard();
+		int number = Character.getNumericValue(character);
+		if (array[number - 1] == 'X' || array[number - 1] == 'O'){
+			return true;
+		}
+
+		return false;
+	}
+
+	public boolean checkIfBoardIsFull(){
+		char[] array = getBoard();
+
+		for (int i = 0; i < array.length; i++){
+			if (array[i] != 'X' && array[i] != 'O'){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public String returnNewString(String numberFromForm){
+        String newString = "";
+        newString = updateString(numberFromForm);
+
+        return newString;
+    }
+
+    public String returnComputerMove(String numberFromForm, String newString, boolean bool){
+        String computerMove = "";
+        if (bool == false){
+            if (checkIfBoardIsFull() == true) {
+                char[] array = computersTurn();
+                computerMove = makeStringFromCharArray(array);
+            }
+        }
+        else {
+            computerMove = newString;
+        }
+
+        return computerMove;
+    }
 
 /*	public char[] changeBoard() {
 		int rowCounter = 0;
