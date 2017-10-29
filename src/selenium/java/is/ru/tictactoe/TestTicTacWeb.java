@@ -10,7 +10,7 @@ public class TestTicTacWeb extends SeleniumTestWrapper {
   @Test
   public void testTitleMatches() {
     driver.get(baseUrl);
-    assertEquals("CalcWeb", driver.getTitle());
+    assertEquals("localhost:4567", driver.getTitle());
   }
 
   @Test
