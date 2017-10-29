@@ -43,6 +43,16 @@ public class TicTacWeb {
 
               return new ModelAndView(model, layout);
             }, new VelocityTemplateEngine());
+
+            get("/newGame", (request, response) -> {
+                HashMap model = new HashMap();
+                game.newGame();
+                char[] temp = game.getBoard();
+                String newString = game.makeStringFromCharArray(temp);
+                model.put("newString", newString);
+                model.put("template", "templates/newGame.vtl" );
+              return new ModelAndView(model, layout);
+            }, new VelocityTemplateEngine());
     }
 
     static int getHerokuPort() {

@@ -29,6 +29,9 @@
         <input id="numberFromForm" name="numberFromForm" class="form-control inputBox" type="number" min="1" max="9" autofocus>
       </div>
       <button id="theButton" type="submit" class="btn">Choose this number</button>
+      <br />
+      <br />
+      <a href="/newGame" style="text-align: center">Restart</a>
   </form>
 </div>
 
@@ -42,11 +45,13 @@
   var form = document.getElementById("theFormDiv");
   form.style.display = "none";
   if (resultOfTheGame == 'X' || resultOfTheGame == 'O'){
-    form.innerHTML = "And the winner is: " + resultOfTheGame;
+    form.innerHTML = "And the winner is: " + resultOfTheGame + "<br />" + "<br />" + 
+    "<a href=\"/newGame\">Restart</a>";
     form.style.textAlign = "center";
   }
   if (resultOfTheGame == 'd'){
-    form.innerHTML = "It´s a draw";
+    form.innerHTML = "It´s a draw" + "<br />" + "<br />" + 
+    "<a href=\"/newGame\">Restart</a>";
     form.style.textAlign = "center";
   }
 
