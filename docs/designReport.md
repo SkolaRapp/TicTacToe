@@ -6,7 +6,7 @@ This TicTacToe project is an assigment for T-303-HUGB class in Reykjavik Univers
 ### Low fidality design
 Initially we decided to go with a web based TicTacToe where you would click on the space you wanted to mark with your X. The opponents O would be filled automatically at random. To begin a new game you press the reset button and a new game starts.
 
-![alt text](https://github.com/SkolaRapp/TicTacToe/blob/designreport/docs/images/lowfid.jpg)
+![alt text](https://github.com/SkolaRapp/TicTacToe/blob/develop/docs/images/lowfid.jpg)
 
 
 ### Class Diagram
@@ -22,4 +22,4 @@ is completed the feature branch it goes through selenium and unity testing befor
 <img src="https://github.com/SkolaRapp/TicTacToe/blob/develop/docs/images/git.jpg" alt="classDiagram" width="600" />
 
 
-[Click here to download](https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/designReport.md?download)
+[Click here to download](https://gitprint.com/SkolaRapp/TicTacToe/blob/designreport/docs/designReport.md?download)
