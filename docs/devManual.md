@@ -59,5 +59,4 @@ What a developer needs to work on the project.
 	
 
 	
-[Click here to download](https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/devManual.md?download)
-
+[Click here to download this document as pdf](https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/devManual.md?download)
