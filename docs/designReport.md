@@ -6,7 +6,8 @@ This TicTacToe project is an assigment for T-303-HUGB class in Reykjavik Univers
 ### Low fidality design
 Initially we decided to go with a web based TicTacToe where you would click on the space you wanted to mark with your X. The opponents O would be filled automatically at random. To begin a new game you press the reset button and a new game starts.
 
-<img src="https://github.com/SkolaRapp/TicTacToe/blob/develop/docs/images/lowfid.jpg" alt="lowFidelity" width="600">
+![alt text](https://github.com/SkolaRapp/TicTacToe/blob/develop/docs/images/lowfid.jpg)
+
 
 ### Class Diagram
 The initial design included dividing the code of the project into three different layers, UI layer, logic layer and data layer. With each layer having a different functionality. The UI layer contains all the code that represents what the user can see and the code should be stored in a class called TicTacWeb. The logic layer contains the code of the actual logic of the game and should be stored in a class called TicTacToe. The Data layer should take care of the storting a pulling information from the database and everything that is associated with it, for example the high score. Furthermore, there is an Entity class which contains the information about the player. The class diagram here below explains the initial design of the project. 
