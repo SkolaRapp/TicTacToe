@@ -20,4 +20,4 @@ is completed the feature branch it goes through selenium and unity testing befor
 
 <img src="https://github.com/SkolaRapp/TicTacToe/blob/develop/docs/images/git.jpg" alt="classDiagram" width="600" />
 
-[Click here to download][https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/designReport.md?download]
+[Click here to download](https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/designReport.md?download)
