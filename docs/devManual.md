@@ -9,19 +9,19 @@ What a developer needs to work on the project
 * To download the project go to https://github.com/SkolaRapp/TicTacToe/.
 	*To clone the project using gitbash: 
 
-	git clone git@github.com:SkolaRapp/TicTacToe.git
+		git clone git@github.com:SkolaRapp/TicTacToe.git
 
 * To build and test the project:
 
-	gradle build
+		gradle build
 
 * To run the project:
 
-	gradle run
+		gradle run
 
 * The port to run the game is currently:
 
-	4567
+		4567
 
 
 ### Coding rules and tools:
