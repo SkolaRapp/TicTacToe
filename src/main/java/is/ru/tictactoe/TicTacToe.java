@@ -6,14 +6,12 @@ public class TicTacToe {
 	private char[] newBoard;
 	private int count;
 	private char winner;
-	private int countMoves;
 	
 	//constructor
 	public TicTacToe() {
 		newBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		count = 0;
 		winner = 'b';
-		countMoves = 0;
 	}
 
 	//because newBoard is private
@@ -23,6 +21,10 @@ public class TicTacToe {
 
 	public char getWinner() {
 		return winner;
+	}
+
+	public int getCount(){
+		return count;
 	}
 
 	public static void main(String[] args) {
@@ -46,8 +48,6 @@ public class TicTacToe {
 			updateBoard(inputNum, 'X');
 		}
 
-		//check for winner
-
 		return newBoard;
 	}
 
@@ -56,15 +56,10 @@ public class TicTacToe {
 		newBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		count = 0;
 		winner = 'b';
-		countMoves = 0;
 	}
 
 	public char[] computersTurn() {
 		computersTurnHelper();
-		//check winner
-		if(isThereAWinner(newBoard)) {
-			//TODO: quit game
-		}
 		return newBoard;
 	}
 
@@ -127,20 +122,24 @@ public class TicTacToe {
 		count++;
 	}
 
-	public boolean isThereAWinner(char[] board) {
+	public boolean isThereAWinner(String strBoard) {
+		char[] board = strBoard.toCharArray();
+		if (checkIfBoardIsFull() == false){
+			return true;
+		}
 		return (winnerInTheHouse(board) == 'X' || winnerInTheHouse(board) == 'O');
 	}
 
 	//calls isWinnerX and isWinnerO
 	public char winnerInTheHouse(char[] board) {
-		if(isWinnerX(board)) {
+		if(isWinnerX(board) == true) {
 			return 'X';
 		}
-		else if(isWinnerO(board)) {
+		else if(isWinnerO(board) == true) {
 			return 'O';
 		}
 		else {
-			return 'b';
+			return 'd';
 		} 
 	}
 
@@ -148,12 +147,21 @@ public class TicTacToe {
 	public boolean isWinnerX(char[] board) {
 		
 		//check for vertical winner
-		for(int i = 0; i < 9; i++) {
-			if(board[i % 3] == 'X') {
-				winner = 'X';
-				return true;
-			}
+		if(board[0] == 'X' && board[3] == 'X' && board[6] == 'X') {
+			winner = 'X';
+			return true;
 		}
+
+		if(board[1] == 'X' && board[4] == 'X' && board[7] == 'X') {
+			winner = 'X';
+			return true;
+		}
+
+		if(board[2] == 'X' && board[5] == 'X' && board[8] == 'X') {
+			winner = 'X';
+			return true;
+		}
+
 		//check for horizontal winners
 		if(board[0] == 'X' && board[1] == 'X' && board[2] == 'X') {
 			winner = 'X';
@@ -184,12 +192,21 @@ public class TicTacToe {
 	public boolean isWinnerO(char[] board) {
 		
 		//check for vertical winner
-		for(int i = 0; i < 9; i++) {
-			if(board[i % 3] == 'O') {
-				winner = 'O';
-				return true;
-			}
+		if(board[0] == 'O' && board[3] == 'O' && board[6] == 'O') {
+			winner = 'O';
+			return true;
 		}
+
+		if(board[1] == 'O' && board[4] == 'O' && board[7] == 'O') {
+			winner = 'O';
+			return true;
+		}
+
+		if(board[2] == 'O' && board[5] == 'O' && board[8] == 'O') {
+			winner = 'O';
+			return true;
+		}
+
 		//check for horizontal winners
 		if(board[0] == 'O' && board[1] == 'O' && board[2] == 'O') {
 			winner = 'O';
@@ -221,27 +238,6 @@ public class TicTacToe {
 		return (count == 9);
 	}
 
-	//method to turn a character array to a string
-	public String charToString(char[] charray) {
-		String stringFromCharArray = new String(charray);
-		return stringFromCharArray;
-	}
-
-
-/*	public void justForPrinting(char[] testBoard){
-		for (int i = 0; i < 3; i++){
-			System.out.print(testBoard[i] + " ");
-		}
-		System.out.println();
-		for (int i = 3; i < 6; i++){
-			System.out.print(testBoard[i] + " ");
-		}
-		System.out.println();
-		for (int i = 6; i < 9; i++){
-			System.out.print(testBoard[i] + " ");
-		}
-	}
-*/
 	public char[] printBoard() {
 
 		char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -255,13 +251,12 @@ public class TicTacToe {
 		if (array[number - 1] == 'X' || array[number - 1] == 'O'){
 			return true;
 		}
+		
 		return false;
 	}
 
-
-
-	public String updateString(String str) {
-		char character = str.charAt(0);
+	public String updateString(String numberFromForm) {
+		char character = numberFromForm.charAt(0);
 		char[] array = getBoard();
 		int number = Character.getNumericValue(character);
 		boolean usedOrNot = checkIfInputHasBeenGiven(character, number, array);
@@ -269,57 +264,83 @@ public class TicTacToe {
 			String sameString = String.copyValueOf(array);
 			return sameString;
 		}
-		if (countMoves % 2 == 0){
-			array[number - 1] = 'X';
-			countMoves++;
-		}
-		else {
-			array[number - 1] = 'O';
-			countMoves++;
-		}
-		String newString = String.copyValueOf(array);
+		array[number - 1] = 'X';
+		String newString = makeStringFromCharArray(array);
+		
 		return newString;
 	}
 
-/*	public char[] changeBoard() {
-		int rowCounter = 0;
-		char[] newBoard = printBoard();
+	public String makeStringFromCharArray(char[] array){
+		String returnString = String.copyValueOf(array);
 
-		justForPrinting(newBoard);
-		
-		newBoard[0] = 'X';
-		System.out.println();
-		System.out.println();
-		System.out.println("User makes his first move");
-		justForPrinting(newBoard);
-
-		newBoard[1] = 'O';
-		System.out.println();
-		System.out.println();
-		System.out.println("Next the computer makes his move");
-		justForPrinting(newBoard);
-
-		newBoard[4] = 'X';
-		System.out.println();
-		System.out.println();
-		System.out.println("User makes his move");
-		justForPrinting(newBoard);
-
-		newBoard[2] = 'O';
-		System.out.println();
-		System.out.println();
-		System.out.println("Computer makes his move");
-		justForPrinting(newBoard);
-
-		newBoard[8] = 'X';
-		System.out.println();
-		System.out.println();
-		System.out.println("User makes his move");
-		justForPrinting(newBoard);
-		System.out.println();
-		System.out.print("Woo hoo, the user won");
-
-		return newBoard;
+		return returnString;
 	}
-*/
+
+	public boolean checkIfNoChangeWasMade(String numberFromForm){
+		char character = numberFromForm.charAt(0);
+		char[] array = getBoard();
+		int number = Character.getNumericValue(character);
+		if (array[number - 1] == 'X' || array[number - 1] == 'O'){
+			return true;
+		}
+
+		return false;
+	}
+
+	public boolean checkIfBoardIsFull(){
+		char[] array = getBoard();
+		for (int i = 0; i < array.length; i++){
+			if (array[i] != 'X' && array[i] != 'O'){
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public String returnNewString(String numberFromForm){
+        String newString = "";
+        newString = updateString(numberFromForm);
+
+        return newString;
+    }
+
+    public String returnComputerMove(String numberFromForm, String newString, boolean checkIfMoveIsValid){
+        String computerMove = "";
+        if (checkIfMoveIsValid == false){
+            if (checkIfBoardIsFull() == true) {
+                char[] array = computersTurn();
+                computerMove = makeStringFromCharArray(array);
+            }
+        }
+        else {
+            computerMove = newString;
+        }
+
+        return computerMove;
+    }
+
+    public void setBoardForTestingFunctions(String board){
+    	char[] temp = board.toCharArray();
+    	newBoard = temp;
+    }
+
+    public char getResult(boolean isTheGameOver, String computerMove){
+        char[] board = computerMove.toCharArray();
+        if (isTheGameOver == true) {
+            return winnerInTheHouse(board);
+        }
+        return '/'; 
+    }
+
+    public String returnTheStringAfterComputerMove(String numberFromForm, String newString, boolean checkIfMoveIsValid, boolean isTheGameOver){
+    	String computerMove = "";
+    	if (isTheGameOver == false){
+            computerMove = returnComputerMove(numberFromForm, newString, checkIfMoveIsValid);
+        }
+        else{
+            computerMove = newString;
+        }
+        return computerMove;
+    }
 }
