@@ -5,11 +5,17 @@ This TicTacToe project is an assigment for T-303-HUGB class in Reykjavik Univers
 What a developer needs to work on the project.
 
 ### Getting started
+
+#### Get the repository
 	
 * To download the project go to https://github.com/SkolaRapp/TicTacToe/.
 	*To clone the project using gitbash: 
 
 		git clone git@github.com:SkolaRapp/TicTacToe.git
+
+#### Get gradle
+
+	https://gradle.org/install/
 
 * To build and test the project:
 
@@ -17,11 +23,25 @@ What a developer needs to work on the project.
 
 * To run the project:
 
-		gradle run
+		gradle stage
 
 * The port to run the game is currently:
 
 		4567
+
+#### Get Heroku toolbelt
+
+	https://devcenter.heroku.com/articles/heroku-cli
+
+#### Heroku staging and deployment server
+
+* Staging
+	
+	https://skolarapp-stage.herokuapp.com/
+
+* Deployment
+
+	https://skolarapp-depl.herokuapp.com/
 
 
 ### Coding rules and tools:
@@ -39,4 +59,4 @@ What a developer needs to work on the project.
 	
 
 	
-[Click here to download](https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/adminManual.md?download)
+[Click here to download this document as pdf](https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/devManual.md?download)
