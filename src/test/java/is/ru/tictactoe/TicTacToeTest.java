@@ -534,7 +534,7 @@ public class TicTacToeTest {
         newBoard = game.returnTheStringAfterComputerMove("1", newBoard, false, false);
 
         for (int i = 0; i < newBoard.length(); i++) {
-            if (newBoard.charAt(i) == 'O') {
+            if (newBoard.charAt(i) == 'O'){
                 countNumberOfOs++;
             }
         }
