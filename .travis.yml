@@ -37,6 +37,8 @@ addons:
 script:
 - ./gradlew stage
 - ./gradlew test
+- if [ "$TRAVIS_BRANCH" == "stage" ]; then
+  ./gradlew selenium --info ;fi
 
 after_success:
   - chmod a+x automerge
