@@ -339,4 +339,20 @@ public class TicTacToeTest {
         }	
     }
 
+    @Test
+    public void testCharToString() {
+        TicTacToe ch = new TicTacToe();
+
+        char[] charray = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        String expected = "123456789";
+        String returned = ch.charToString(charray);
+
+        try {
+            assertEquals(returned, expected);
+        }
+        catch(AssertionError e) {
+            fail("returned is: " + expected);
+        }
+    }
+
 }
