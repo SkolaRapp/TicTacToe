@@ -29,19 +29,12 @@ public class TicTacWeb {
                 HashMap model = new HashMap();
                 //Next function gets the string the form sends in
                 String numberFromForm = request.queryParams("numberFromForm");
-                //Next function updates the string with the number from form
                 boolean checkIfMoveIsValid = game.checkIfNoChangeWasMade(numberFromForm);
                 String newString = game.returnNewString(numberFromForm);
-                String computerMove = "";
                 boolean isTheGameOver = game.isThereAWinner(newString);
-                if (isTheGameOver == false){
-                    computerMove = game.returnComputerMove(numberFromForm, newString, checkIfMoveIsValid);
-                }
-                else{
-                    computerMove = newString;
-                }
+                String computerMove = game.returnTheStringAfterComputerMove(numberFromForm, newString, checkIfMoveIsValid, isTheGameOver);
                 isTheGameOver = game.isThereAWinner(computerMove);
-                char resultOfTheGame = getResult(isTheGameOver, computerMove, game);
+                char resultOfTheGame = game.getResult(isTheGameOver, computerMove);
                 //Throw the updated String into the html file
                 model.put("newString", newString);
                 model.put("computerMove", computerMove);
@@ -50,15 +43,6 @@ public class TicTacWeb {
 
               return new ModelAndView(model, layout);
             }, new VelocityTemplateEngine());
-    }
-
-
-    public static char getResult(boolean isTheGameOver, String computerMove, TicTacToe game){
-        char[] board = computerMove.toCharArray();
-        if (isTheGameOver == true) {
-            return game.winnerInTheHouse(board);
-        }
-        return '/'; 
     }
 
     static int getHerokuPort() {

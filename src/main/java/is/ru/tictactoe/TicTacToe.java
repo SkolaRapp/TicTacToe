@@ -255,8 +255,8 @@ public class TicTacToe {
 		return false;
 	}
 
-	public String updateString(String str) {
-		char character = str.charAt(0);
+	public String updateString(String numberFromForm) {
+		char character = numberFromForm.charAt(0);
 		char[] array = getBoard();
 		int number = Character.getNumericValue(character);
 		boolean usedOrNot = checkIfInputHasBeenGiven(character, number, array);
@@ -323,5 +323,24 @@ public class TicTacToe {
     public void setBoardForTestingFunctions(String board){
     	char[] temp = board.toCharArray();
     	newBoard = temp;
+    }
+
+    public char getResult(boolean isTheGameOver, String computerMove){
+        char[] board = computerMove.toCharArray();
+        if (isTheGameOver == true) {
+            return winnerInTheHouse(board);
+        }
+        return '/'; 
+    }
+
+    public String returnTheStringAfterComputerMove(String numberFromForm, String newString, boolean checkIfMoveIsValid, boolean isTheGameOver){
+    	String computerMove = "";
+    	if (isTheGameOver == false){
+            computerMove = returnComputerMove(numberFromForm, newString, checkIfMoveIsValid);
+        }
+        else{
+            computerMove = newString;
+        }
+        return computerMove;
     }
 }
