@@ -68,5 +68,7 @@ Admin needs to:
 * Deployment
 
 	https://skolarapp-depl.herokuapp.com/
-
+* Code Coverage
+	url/cc
+	
 [Click here to download](https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/adminManual.md?download)
