@@ -43,6 +43,8 @@ What a developer needs to work on the project.
 
 	https://skolarapp-depl.herokuapp.com/
 
+* Code Coverage
+	url/cc
 
 ### Coding rules and tools:
 * Naming conventions:
