@@ -35,9 +35,9 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 
-    //Dependency from Heroku
-    runtime "org.slf4j:slf4j-simple:1.7.12"
-    compile "com.heroku.sdk:heroku-jdbc:0.1.1"
+    //Selenium
+    seleniumCompile 'junit:junit:4.12'
+    seleniumCompile 'org.seleniumhq.selenium:selenium-java:3.6.0'
 }
 
 task stage {
@@ -51,6 +51,6 @@ task selenium(type: Test, dependsOn: installDist) {
   classpath = sourceSets.selenium.runtimeClasspath
 
   doFirst {
-    'build/install/calcWeb/bin/calcWeb.bat'.execute()
+    'build/install/TicTacToe/bin/TicTacToe.bat'.execute()
   }
 }
