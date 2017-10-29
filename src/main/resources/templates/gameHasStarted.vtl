@@ -18,38 +18,49 @@
   </tr>
 </table>
 
-<div style="height: 50px">
-
-</div>
+<div style="height: 50px"></div>
 
 <div class="testing" id="theFormDiv">
   <form action='/gameHasStarted' style="text-align: center">
       <div class="form-group">
         <label for="sender">Enter number for next value</label>
-        <input id="numberFromForm" name="numberFromForm" class="form-control inputBox" type="number" min="1" max="9" autofocus>
+        <input id="numberFromForm" name="numberFromForm" class="form-control inputBox" type="number" min="1" max="9" autofocus required>
       </div>
-      <button id="theButton" type="submit" class="btn">Choose this number</button>
+      <button id="theButton" type="submit" class="btn" onclick="empty()">Choose this number</button>
+      <br />
+      <br />
+      <a href="/newGame" style="text-align: center">Restart</a>
   </form>
 </div>
 
 <script>
+  //Here we fetch the input we send into the file
   var str = "$newString";
   var computerTurn = "$computerMove";
   var resultOfTheGame = "$resultOfTheGame";
 
-  if (resultOfTheGame == 'X' || resultOfTheGame == 'O'){
-  }
+  //Make the form disappear while the computer makes his move
   var form = document.getElementById("theFormDiv");
   form.style.display = "none";
-  if (resultOfTheGame == 'X' || resultOfTheGame == 'O'){
-    form.innerHTML = "And the winner is: " + resultOfTheGame;
+  //Check if there is a winner
+  if (resultOfTheGame == 'X'){
+    form.innerHTML = "You won, woop woop" + "<br />" + "<br />" + 
+    "<a href=\"/newGame\">Restart</a>";
     form.style.textAlign = "center";
   }
+  if (resultOfTheGame == 'O'){
+    form.innerHTML = "Ohh you lost. Better luck next time" + "<br />" + "<br />" + 
+    "<a href=\"/newGame\">Restart</a>";
+    form.style.textAlign = "center";
+  }
+  //Check if there is a draw
   if (resultOfTheGame == 'd'){
-    form.innerHTML = "It´s a draw";
+    form.innerHTML = "It´s a draw" + "<br />" + "<br />" + 
+    "<a href=\"/newGame\">Restart</a>";
     form.style.textAlign = "center";
   }
 
+  //Put the values from the string we sent in to the right table cell
   var one = document.getElementById(0);
   one.innerHTML = str[0];
   var two = document.getElementById(1);
@@ -79,8 +90,10 @@
   changeCSS(eight.innerHTML, eight);
   changeCSS(nine.innerHTML, nine);
 
+  //We set a delay on the computers turn to let the computer make his move
+  setTimeout("makeComputerTurn()", 500);
 
-  setTimeout("makeComputerTurn()", 1000);
+  //Find the digit that was not sent in as O in $newString and make it O
   function makeComputerTurn(){
     for (var i = 0; i < computerTurn.length; i++){
       if (computerTurn[i] == 'O'){
@@ -89,9 +102,11 @@
         changeCSS(number.innerHTML, number);
       }
     }
+    //Display the form again so the user can make his move
     form.style.display = "block";
   }
 
+  //Change the css if a cell is X or O to make it look nicer
   function changeCSS(someNumber, someVariable) {
     if (someNumber == 'X') {
       someVariable.style.backgroundColor = "#2289ff";
@@ -103,7 +118,6 @@
       someVariable.style.fontSize = "29px";
     }
   }
-
 </script>
 
 
