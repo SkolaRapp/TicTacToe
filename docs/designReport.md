@@ -4,12 +4,12 @@ This TicTacToe project is an assigment for T-303-HUGB class in Reykjavik Univers
 ## Design Report
 
 ### Low fidality design
-Initially we decided to go with a web based TicTacToe where you would click on the space you wanted to mark with your X. The opponents O would be filled automatically at random. To begin a new game you could press the rest button and a new game would start.
+Initially we decided to go with a web based TicTacToe where you would click on the space you wanted to mark with your X. The opponents O would be filled automatically at random. To begin a new game you press the reset button and a new game starts.
 
 <img src="https://github.com/SkolaRapp/TicTacToe/blob/develop/docs/images/lowfid.jpg" alt="lowFidelity" width="600">
 
 ### Class Diagram
-The initial design included dividing the code of the project into three different layers, UI layer, logic layer and data layer. With each layer having a different functionality. The UI layer contains all the code that represents what the user can see and should the code be stored in a class called TicTacWeb. The logic layer contains the code of the actual logic of the game and should that be stored in a class called TicTacToe. The Data layer should take care of the storting a pulling information from the database and everything that is associated with it, for example high score. Furthermore, there is an Entity class which contains the information about the player. The class diagram here below explains the initial design of the project. 
+The initial design included dividing the code of the project into three different layers, UI layer, logic layer and data layer. With each layer having a different functionality. The UI layer contains all the code that represents what the user can see and the code should be stored in a class called TicTacWeb. The logic layer contains the code of the actual logic of the game and should be stored in a class called TicTacToe. The Data layer should take care of the storting a pulling information from the database and everything that is associated with it, for example the high score. Furthermore, there is an Entity class which contains the information about the player. The class diagram here below explains the initial design of the project. 
 
 <img src="https://github.com/SkolaRapp/TicTacToe/blob/develop/docs/images/classDiagram.jpg" alt="classDiagram" width="600" />
 
@@ -21,4 +21,5 @@ is completed the feature branch it goes through selenium and unity testing befor
 <img src="https://github.com/SkolaRapp/TicTacToe/blob/develop/docs/images/git.jpg" alt="classDiagram" width="600" />
 
 
+< a href="https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/designReport.md?download" > Click here to download < /a > 
 [Click here to download](https://gitprint.com/SkolaRapp/TicTacToe/blob/develop/docs/designReport.md?download)
