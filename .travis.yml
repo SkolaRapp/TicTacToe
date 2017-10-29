@@ -41,8 +41,8 @@ script:
   ./gradlew test; fi
 
 - if [ "$TRAVIS_BRANCH" == "stage" ]; then
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
+  export DISPLAY=:99.0
+  sh -e /etc/init.d/xvfb start
   ./gradlew selenium --info ;fi
 
 after_success:
