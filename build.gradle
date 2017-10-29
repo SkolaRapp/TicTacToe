@@ -13,7 +13,7 @@ plugins {
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
 apply plugin: 'application'
-//apply plugin: "io.ratpack.ratpack-java"
+apply plugin: "jacoco"
 
 mainClassName = 'is.ru.tictactoe.TicTacWeb'
 
@@ -44,7 +44,21 @@ task stage {
 	dependsOn installDist
 }
 
-//test.useTestNG()
+jacoco {
+    toolVersion = "0.7.6.201602180812"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        //html.destination file("${buildDir}/jacocoHtml")
+        html.destination file("src/main/resources/public/jacocoHtml")
+    }
+}
+
+check.dependsOn jacocoTestReport
 
 task selenium(type: Test, dependsOn: installDist) {
   testClassesDir = sourceSets.selenium.output.classesDir

@@ -37,6 +37,7 @@ addons:
 
 script:
 - ./gradlew stage
+- ./gradlew check
 - if [ "$TRAVIS_BRANCH" == "develop" ]; then
   ./gradlew test; fi
 
