@@ -29,16 +29,17 @@ os:
   #- osx
 
 
-script: 
-- ./gradlew stage
-- ./gradlew test
+after_success:
+  script: 
+  - ./gradlew stage
+  - ./gradlew test
 
-- chmod a+x automerge
-- if [ "$TRAVIS_BRANCH" == "develop" ]; then
-  echo "Merging develop into stage";
-  BRANCHES_TO_MERGE_REGEX='develop' BRANCH_TO_MERGE_INTO=stage GITHUB_REPO=SkolaRapp/TicTacToe ./automerge;
-  echo "All done, quitting now"; exit 0; fi
+  - chmod a+x automerge
+  - if [ "$TRAVIS_BRANCH" == "develop" ]; then
+    echo "Merging develop into stage";
+    BRANCHES_TO_MERGE_REGEX='develop' BRANCH_TO_MERGE_INTO=stage GITHUB_REPO=SkolaRapp/TicTacToe ./automerge;
+    echo "All done, quitting now"; exit 0; fi
 
-- if [ "$TRAVIS_BRANCH" == "stage" ]; then
-  echo "Merging stage into master";
-  BRANCHES_TO_MERGE_REGEX='stage' BRANCH_TO_MERGE_INTO=master GITHUB_REPO=SkolaRapp/TicTacToe ./automerge; fi
+  - if [ "$TRAVIS_BRANCH" == "stage" ]; then
+    echo "Merging stage into master";
+    BRANCHES_TO_MERGE_REGEX='stage' BRANCH_TO_MERGE_INTO=master GITHUB_REPO=SkolaRapp/TicTacToe ./automerge; fi
