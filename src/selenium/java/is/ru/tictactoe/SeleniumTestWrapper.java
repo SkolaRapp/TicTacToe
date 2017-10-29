@@ -16,13 +16,12 @@ public abstract class SeleniumTestWrapper {
   @BeforeClass
   public static void openBrowser() {
     ChromeOptions options = new ChromeOptions();
-    //options.setBinary("/tmp/google-chrome-stable_current_amd64.deb");
-    options.addArguments("--headless");
-    options.addArguments("--disable-gpu");
-    options.addArguments("headless");
-    options.addArguments("window-size=1200x600");
-    driver = new ChromeDriver(options);
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    //options.addArguments("--headless");
+    //options.addArguments("--disable-gpu");
+    //options.addArguments("--window-size=1200x600");
+    //driver = new ChromeDriver(options);
+    driver = new ChromeDriver();
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     port = System.getenv("PORT");
     if (port == null) {

@@ -28,15 +28,22 @@ os:
   - linux
 
 install:
-- sudo apt-get install unzip;
-- wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip && sudo unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/;
-
+- if [ "$TRAVIS_BRANCH" == "stage" ]; then
+  sudo apt-get install unzip;
+  wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip && sudo unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/; fi
+  
 addons:
   chrome: stable
 
 script:
 - ./gradlew stage
-- ./gradlew test
+- if [ "$TRAVIS_BRANCH" == "develop" ]; then
+  ./gradlew test; fi
+
+- if [ "$TRAVIS_BRANCH" == "stage" ]; then
+  export DISPLAY=:99.0
+  sh -e /etc/init.d/xvfb start
+  ./gradlew selenium --info ;fi
 
 after_success:
   - chmod a+x automerge
