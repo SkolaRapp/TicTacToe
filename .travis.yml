@@ -30,7 +30,6 @@ os:
 
 
 after_success:
-  script: 
   - ./gradlew stage
   - ./gradlew test
 
