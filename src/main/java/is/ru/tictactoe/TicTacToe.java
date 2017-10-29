@@ -115,10 +115,7 @@ public class TicTacToe {
 	//input character 'X' or 'O' into the board array
 	public void updateBoard(int input, char placement) {
 		newBoard[input - 1] = placement;
-		//TODO: change method name here:
-		if(isWinnerX(newBoard)) {
-			//
-		}
+		isThereAWinner(makeStringFromCharArray(newBoard));		
 		count++;
 	}
 
