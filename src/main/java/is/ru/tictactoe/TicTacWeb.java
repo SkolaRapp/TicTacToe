@@ -14,6 +14,8 @@ public class TicTacWeb {
     public static void main(String[] args) {
         TicTacToe game = new TicTacToe();
         staticFileLocation("/public");
+        staticFiles.location("/public");
+
         String layout = "templates/layout.vtl";
 
             port(getHerokuPort());
@@ -24,6 +26,11 @@ public class TicTacWeb {
                 model.put("template", "templates/ourTable.vtl" );
               return new ModelAndView(model, layout);
             }, new VelocityTemplateEngine());
+            
+            get("/cc", (request, response) -> {
+                response.redirect("jacocoHtml/index.html"); return null;
+
+            });
 
             //This is the code to run the .vtl file after the game has started
             get("/gameHasStarted", (request, response) -> {
