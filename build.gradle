@@ -24,14 +24,13 @@ repositories {
     jcenter()
 }
 
+sourceSets {
+  selenium
+}
+
 dependencies {
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    //api 'org.apache.commons:commons-math3:3.6.1'
     compile 'com.sparkjava:spark-core:2.6.0'
     compile group: 'org.apache.velocity', name: 'velocity', version: '1.7'
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    //implementation 'com.google.guava:guava:22.0'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
@@ -39,11 +38,19 @@ dependencies {
     //Dependency from Heroku
     runtime "org.slf4j:slf4j-simple:1.7.12"
     compile "com.heroku.sdk:heroku-jdbc:0.1.1"
-    //compile "org.postgresql:postgresql:9.4-1201-jdbc4"
-    //testCompile 'junit:junit:4.11'
-    //classpath "io.ratpack:ratpack-gradle:1.5.0"
 }
 
 task stage {
 	dependsOn installDist
+}
+
+test.useTestNG()
+
+task selenium(type: Test, dependsOn: installDist) {
+  testClassesDir = sourceSets.selenium.output.classesDir
+  classpath = sourceSets.selenium.runtimeClasspath
+
+  doFirst {
+    'build/install/calcWeb/bin/calcWeb.bat'.execute()
+  }
 }
