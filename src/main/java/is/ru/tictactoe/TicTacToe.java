@@ -23,6 +23,10 @@ public class TicTacToe {
 		return winner;
 	}
 
+	public int getCount(){
+		return count;
+	}
+
 	public static void main(String[] args) {
 		
 	}
@@ -43,8 +47,6 @@ public class TicTacToe {
 			//if not, put in the 'X'
 			updateBoard(inputNum, 'X');
 		}
-
-		//check for winner
 
 		return newBoard;
 	}
@@ -236,12 +238,6 @@ public class TicTacToe {
 		return (count == 9);
 	}
 
-	//method to turn a character array to a string
-	public String charToString(char[] charray) {
-		String stringFromCharArray = new String(charray);
-		return stringFromCharArray;
-	}
-
 	public char[] printBoard() {
 
 		char[] testBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -309,9 +305,9 @@ public class TicTacToe {
         return newString;
     }
 
-    public String returnComputerMove(String numberFromForm, String newString, boolean bool){
+    public String returnComputerMove(String numberFromForm, String newString, boolean checkIfMoveIsValid){
         String computerMove = "";
-        if (bool == false){
+        if (checkIfMoveIsValid == false){
             if (checkIfBoardIsFull() == true) {
                 char[] array = computersTurn();
                 computerMove = makeStringFromCharArray(array);
@@ -322,5 +318,10 @@ public class TicTacToe {
         }
 
         return computerMove;
+    }
+
+    public void setBoardForTestingFunctions(String board){
+    	char[] temp = board.toCharArray();
+    	newBoard = temp;
     }
 }

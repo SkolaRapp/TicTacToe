@@ -345,7 +345,7 @@ public class TicTacToeTest {
 
         char[] charray = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
         String expected = "123456789";
-        String returned = ch.charToString(charray);
+        String returned = ch.makeStringFromCharArray(charray);
 
         try {
             assertEquals(returned, expected);
@@ -353,6 +353,66 @@ public class TicTacToeTest {
         catch(AssertionError e) {
             fail("returned is: " + expected);
         }
+    }
+
+    @Test
+    public void testNewGame(){
+        TicTacToe game = new TicTacToe();
+        game.newGame();
+        char[] expectedArray = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        char[] actualArray = game.getBoard();
+        String expected = game.makeStringFromCharArray(expectedArray);
+        String actual = game.makeStringFromCharArray(actualArray);
+        assertEquals(expected, actual);
+
+        char expectedWinner = 'b';
+        char actualWinner = game.getWinner();
+        assertEquals(expectedWinner, actualWinner);
+
+        assertEquals(0, game.getCount());
+    }
+
+    @Test
+    public void setNewBoardForTesting() {
+        TicTacToe game = new TicTacToe();
+        String makeNewBoard = "12X4OX789";
+        game.setBoardForTestingFunctions(makeNewBoard);
+        char[] temp = game.getBoard();
+        String actualBoard = game.makeStringFromCharArray(temp);
+
+        assertEquals(makeNewBoard, actualBoard);
+    }
+
+    @Test 
+    public void testComputerMoveFunctionOnValidMove() {
+        TicTacToe game = new TicTacToe();
+        String newString = "12X4OX7O9";
+        game.setBoardForTestingFunctions(newString);
+        int countNumberOfOs = 0;
+
+        String newBoard = game.returnComputerMove("1", newString, false);
+        for (int i = 0; i < newBoard.length(); i++){
+            if (newBoard.charAt(i) == 'O'){
+                countNumberOfOs++;
+            }
+        }        
+        assertEquals(countNumberOfOs, 3);
+    }
+
+    @Test
+    public void testComputerMoveFunctionOnNotValidMove() {
+        TicTacToe game = new TicTacToe();
+        String newString = "12X4OX7O9";
+        game.setBoardForTestingFunctions(newString);
+        int countNumberOfOs = 0;
+
+        String newBoard = game.returnComputerMove("3", newString, true);
+        for (int i = 0; i < newBoard.length(); i++){
+            if (newBoard.charAt(i) == 'O'){
+                countNumberOfOs++;
+            }
+        }        
+        assertEquals(countNumberOfOs, 2);
     }
 
 }
