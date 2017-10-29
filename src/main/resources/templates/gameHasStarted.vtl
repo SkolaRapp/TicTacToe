@@ -43,8 +43,13 @@
   var form = document.getElementById("theFormDiv");
   form.style.display = "none";
   //Check if there is a winner
-  if (resultOfTheGame == 'X' || resultOfTheGame == 'O'){
-    form.innerHTML = "And the winner is: " + resultOfTheGame + "<br />" + "<br />" + 
+  if (resultOfTheGame == 'X'){
+    form.innerHTML = "You won, woop woop" + "<br />" + "<br />" + 
+    "<a href=\"/newGame\">Restart</a>";
+    form.style.textAlign = "center";
+  }
+  if (resultOfTheGame == 'O'){
+    form.innerHTML = "Ohh you lost. Better luck next time" + "<br />" + "<br />" + 
     "<a href=\"/newGame\">Restart</a>";
     form.style.textAlign = "center";
   }
