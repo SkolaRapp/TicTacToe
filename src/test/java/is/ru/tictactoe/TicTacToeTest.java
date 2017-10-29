@@ -356,7 +356,7 @@ public class TicTacToeTest {
     }
 
     @Test
-    public void testNewGame(){
+    public void testNewGame() {
         TicTacToe game = new TicTacToe();
         game.newGame();
         char[] expectedArray = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -391,8 +391,8 @@ public class TicTacToeTest {
         int countNumberOfOs = 0;
 
         String newBoard = game.returnComputerMove("1", newString, false);
-        for (int i = 0; i < newBoard.length(); i++){
-            if (newBoard.charAt(i) == 'O'){
+        for (int i = 0; i < newBoard.length(); i++) {
+            if (newBoard.charAt(i) == 'O') {
                 countNumberOfOs++;
             }
         }        
@@ -407,8 +407,8 @@ public class TicTacToeTest {
         int countNumberOfOs = 0;
 
         String newBoard = game.returnComputerMove("3", newString, true);
-        for (int i = 0; i < newBoard.length(); i++){
-            if (newBoard.charAt(i) == 'O'){
+        for (int i = 0; i < newBoard.length(); i++) {
+            if (newBoard.charAt(i) == 'O') {
                 countNumberOfOs++;
             }
         }        
@@ -436,7 +436,7 @@ public class TicTacToeTest {
     }
 
     @Test
-    public void checkIfBoardIsFullOnFalse(){
+    public void checkIfBoardIsFullOnFalse() {
         TicTacToe game = new TicTacToe();
         String newBoard = "12X456O89";
         game.setBoardForTestingFunctions(newBoard);
@@ -445,7 +445,7 @@ public class TicTacToeTest {
     }
 
     @Test
-    public void checkIfBoardIsFullOnTrue(){
+    public void checkIfBoardIsFullOnTrue() {
         TicTacToe game = new TicTacToe();
         String newBoard = "XOXOXOXOX";
         game.setBoardForTestingFunctions(newBoard);
@@ -454,7 +454,7 @@ public class TicTacToeTest {
     }
 
     @Test 
-    public void checkIfNoChangeCanBeMadeOnFalse(){
+    public void checkIfNoChangeCanBeMadeOnFalse() {
         TicTacToe game = new TicTacToe();
         String newBoard = "12X456O89";
         game.setBoardForTestingFunctions(newBoard);
@@ -464,7 +464,7 @@ public class TicTacToeTest {
     }
 
     @Test 
-    public void checkIfNoChangeCanBeMadeOnTrue(){
+    public void checkIfNoChangeCanBeMadeOnTrue() {
         TicTacToe game = new TicTacToe();
         String newBoard = "12X456O89";
         game.setBoardForTestingFunctions(newBoard);
@@ -494,7 +494,7 @@ public class TicTacToeTest {
     }
 
     @Test
-    public void testGetResultFunction1(){
+    public void testGetResultFunction1() {
         TicTacToe game = new TicTacToe();
         String newBoard = "12X456O89";
         game.setBoardForTestingFunctions(newBoard);
@@ -505,7 +505,7 @@ public class TicTacToeTest {
     }
 
     @Test
-    public void testGetResultFunction2(){
+    public void testGetResultFunction2() {
         TicTacToe game = new TicTacToe();
         String newBoard = "XXX45OO89";
         game.setBoardForTestingFunctions(newBoard);
@@ -515,7 +515,7 @@ public class TicTacToeTest {
     }
 
     @Test
-    public void testGetResultFunction3(){
+    public void testGetResultFunction3() {
         TicTacToe game = new TicTacToe();
         String newBoard = "OOO4X6X8X";
         game.setBoardForTestingFunctions(newBoard);
@@ -525,7 +525,7 @@ public class TicTacToeTest {
     }
 
     @Test 
-    public void testReturnStringAfterComputerMoveWithMove(){
+    public void testReturnStringAfterComputerMoveWithMove() {
         TicTacToe game = new TicTacToe();
         String newBoard = "12X4O6789";
         game.setBoardForTestingFunctions(newBoard);
@@ -533,8 +533,8 @@ public class TicTacToeTest {
 
         newBoard = game.returnTheStringAfterComputerMove("1", newBoard, false, false);
 
-        for (int i = 0; i < newBoard.length(); i++){
-            if (newBoard.charAt(i) == 'O'){
+        for (int i = 0; i < newBoard.length(); i++) {
+            if (newBoard.charAt(i) == 'O') {
                 countNumberOfOs++;
             }
         }
@@ -542,7 +542,7 @@ public class TicTacToeTest {
     }
 
     @Test 
-    public void testReturnStringAfterComputerMoveWithNoMove(){
+    public void testReturnStringAfterComputerMoveWithNoMove() {
         TicTacToe game = new TicTacToe();
         String newBoard = "12X4O6789";
         game.setBoardForTestingFunctions(newBoard);
@@ -550,8 +550,8 @@ public class TicTacToeTest {
 
         newBoard = game.returnTheStringAfterComputerMove("3", newBoard, true, false);
 
-        for (int i = 0; i < newBoard.length(); i++){
-            if (newBoard.charAt(i) == 'O'){
+        for (int i = 0; i < newBoard.length(); i++) {
+            if (newBoard.charAt(i) == 'O') {
                 countNumberOfOs++;
             }
         }
