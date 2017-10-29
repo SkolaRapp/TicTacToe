@@ -35,9 +35,20 @@
 <script>
   var str = "$newString";
   var computerTurn = "$computerMove";
-  //window.alert(computerTurn);
+  var resultOfTheGame = "$resultOfTheGame";
+
+  if (resultOfTheGame == 'X' || resultOfTheGame == 'O'){
+  }
   var form = document.getElementById("theFormDiv");
   form.style.display = "none";
+  if (resultOfTheGame == 'X' || resultOfTheGame == 'O'){
+    form.innerHTML = "And the winner is: " + resultOfTheGame;
+    form.style.textAlign = "center";
+  }
+  if (resultOfTheGame == 'd'){
+    form.innerHTML = "It´s a draw";
+    form.style.textAlign = "center";
+  }
 
   var one = document.getElementById(0);
   one.innerHTML = str[0];

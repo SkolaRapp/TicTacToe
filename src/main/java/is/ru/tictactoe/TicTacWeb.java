@@ -30,20 +30,36 @@ public class TicTacWeb {
                 //Next function gets the string the form sends in
                 String numberFromForm = request.queryParams("numberFromForm");
                 //Next function updates the string with the number from form
-                String computerMove = "";
-                String newString = "";
                 boolean checkIfMoveIsValid = game.checkIfNoChangeWasMade(numberFromForm);
-                newString = game.returnNewString(numberFromForm);
-                computerMove = game.returnComputerMove(numberFromForm, newString, checkIfMoveIsValid);
+                String newString = game.returnNewString(numberFromForm);
+                String computerMove = "";
+                boolean isTheGameOver = game.isThereAWinner(newString);
+                if (isTheGameOver == false){
+                    computerMove = game.returnComputerMove(numberFromForm, newString, checkIfMoveIsValid);
+                }
+                else{
+                    computerMove = newString;
+                }
+                isTheGameOver = game.isThereAWinner(computerMove);
+                char resultOfTheGame = getResult(isTheGameOver, computerMove, game);
                 //Throw the updated String into the html file
                 model.put("newString", newString);
                 model.put("computerMove", computerMove);
+                model.put("resultOfTheGame", resultOfTheGame);
                 model.put("template", "templates/gameHasStarted.vtl");
 
               return new ModelAndView(model, layout);
             }, new VelocityTemplateEngine());
     }
 
+
+    public static char getResult(boolean isTheGameOver, String computerMove, TicTacToe game){
+        char[] board = computerMove.toCharArray();
+        if (isTheGameOver == true) {
+            return game.winnerInTheHouse(board);
+        }
+        return '/'; 
+    }
 
     static int getHerokuPort() {
         ProcessBuilder psb = new ProcessBuilder();

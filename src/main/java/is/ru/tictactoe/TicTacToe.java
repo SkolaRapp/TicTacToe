@@ -6,14 +6,12 @@ public class TicTacToe {
 	private char[] newBoard;
 	private int count;
 	private char winner;
-	private int countMoves;
 	
 	//constructor
 	public TicTacToe() {
 		newBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		count = 0;
 		winner = 'b';
-		countMoves = 0;
 	}
 
 	//because newBoard is private
@@ -56,15 +54,10 @@ public class TicTacToe {
 		newBoard = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		count = 0;
 		winner = 'b';
-		countMoves = 0;
 	}
 
 	public char[] computersTurn() {
 		computersTurnHelper();
-		//check winner
-		if(isThereAWinner(newBoard)) {
-			//TODO: quit game
-		}
 		return newBoard;
 	}
 
@@ -127,20 +120,24 @@ public class TicTacToe {
 		count++;
 	}
 
-	public boolean isThereAWinner(char[] board) {
+	public boolean isThereAWinner(String strBoard) {
+		char[] board = strBoard.toCharArray();
+		if (checkIfBoardIsFull() == false){
+			return true;
+		}
 		return (winnerInTheHouse(board) == 'X' || winnerInTheHouse(board) == 'O');
 	}
 
 	//calls isWinnerX and isWinnerO
 	public char winnerInTheHouse(char[] board) {
-		if(isWinnerX(board)) {
+		if(isWinnerX(board) == true) {
 			return 'X';
 		}
-		else if(isWinnerO(board)) {
+		else if(isWinnerO(board) == true) {
 			return 'O';
 		}
 		else {
-			return 'b';
+			return 'd';
 		} 
 	}
 
@@ -148,12 +145,21 @@ public class TicTacToe {
 	public boolean isWinnerX(char[] board) {
 		
 		//check for vertical winner
-		for(int i = 0; i < 9; i++) {
-			if(board[i % 3] == 'X') {
-				winner = 'X';
-				return true;
-			}
+		if(board[0] == 'X' && board[3] == 'X' && board[6] == 'X') {
+			winner = 'X';
+			return true;
 		}
+
+		if(board[1] == 'X' && board[4] == 'X' && board[7] == 'X') {
+			winner = 'X';
+			return true;
+		}
+
+		if(board[2] == 'X' && board[5] == 'X' && board[8] == 'X') {
+			winner = 'X';
+			return true;
+		}
+
 		//check for horizontal winners
 		if(board[0] == 'X' && board[1] == 'X' && board[2] == 'X') {
 			winner = 'X';
@@ -184,12 +190,21 @@ public class TicTacToe {
 	public boolean isWinnerO(char[] board) {
 		
 		//check for vertical winner
-		for(int i = 0; i < 9; i++) {
-			if(board[i % 3] == 'O') {
-				winner = 'O';
-				return true;
-			}
+		if(board[0] == 'O' && board[3] == 'O' && board[6] == 'O') {
+			winner = 'O';
+			return true;
 		}
+
+		if(board[1] == 'O' && board[4] == 'O' && board[7] == 'O') {
+			winner = 'O';
+			return true;
+		}
+
+		if(board[2] == 'O' && board[5] == 'O' && board[8] == 'O') {
+			winner = 'O';
+			return true;
+		}
+
 		//check for horizontal winners
 		if(board[0] == 'O' && board[1] == 'O' && board[2] == 'O') {
 			winner = 'O';
@@ -235,6 +250,7 @@ public class TicTacToe {
 		if (array[number - 1] == 'X' || array[number - 1] == 'O'){
 			return true;
 		}
+		
 		return false;
 	}
 
@@ -248,15 +264,8 @@ public class TicTacToe {
 			return sameString;
 		}
 		array[number - 1] = 'X';
-		//if (countMoves % 2 == 0){
-			//array[number - 1] = 'X';
-			//countMoves++;
-		//}
-		//else {
-			//array[number - 1] = 'O';
-			//countMoves++;
-		//}
 		String newString = makeStringFromCharArray(array);
+		
 		return newString;
 	}
 
@@ -279,12 +288,12 @@ public class TicTacToe {
 
 	public boolean checkIfBoardIsFull(){
 		char[] array = getBoard();
-
 		for (int i = 0; i < array.length; i++){
 			if (array[i] != 'X' && array[i] != 'O'){
 				return true;
 			}
 		}
+
 		return false;
 	}
 
@@ -309,46 +318,4 @@ public class TicTacToe {
 
         return computerMove;
     }
-
-/*	public char[] changeBoard() {
-		int rowCounter = 0;
-		char[] newBoard = printBoard();
-
-		justForPrinting(newBoard);
-		
-		newBoard[0] = 'X';
-		System.out.println();
-		System.out.println();
-		System.out.println("User makes his first move");
-		justForPrinting(newBoard);
-
-		newBoard[1] = 'O';
-		System.out.println();
-		System.out.println();
-		System.out.println("Next the computer makes his move");
-		justForPrinting(newBoard);
-
-		newBoard[4] = 'X';
-		System.out.println();
-		System.out.println();
-		System.out.println("User makes his move");
-		justForPrinting(newBoard);
-
-		newBoard[2] = 'O';
-		System.out.println();
-		System.out.println();
-		System.out.println("Computer makes his move");
-		justForPrinting(newBoard);
-
-		newBoard[8] = 'X';
-		System.out.println();
-		System.out.println();
-		System.out.println("User makes his move");
-		justForPrinting(newBoard);
-		System.out.println();
-		System.out.print("Woo hoo, the user won");
-
-		return newBoard;
-	}
-*/
 }
