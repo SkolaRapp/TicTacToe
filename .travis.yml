@@ -37,8 +37,8 @@ addons:
 
 script:
 - ./gradlew stage
-
-- ./gradlew test
+- if [ "$TRAVIS_BRANCH" == "develop" ]; then
+  ./gradlew test; fi
 
 - if [ "$TRAVIS_BRANCH" == "stage" ]; then
 - export DISPLAY=:99.0
