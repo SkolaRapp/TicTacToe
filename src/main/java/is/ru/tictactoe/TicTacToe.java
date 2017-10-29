@@ -34,11 +34,9 @@ public class TicTacToe {
 	//get the placement the user wants to put her 'X' into
 	public char[] getInput(String input) {
 		if(!isDigit(input)) {
-			//TODO: error message if not a digit
 			return newBoard;
 		}
 		if(!isValidInput(input)) {
-			//TODO: error message if not a valid input
 			return newBoard;
 		}
 
@@ -115,10 +113,7 @@ public class TicTacToe {
 	//input character 'X' or 'O' into the board array
 	public void updateBoard(int input, char placement) {
 		newBoard[input - 1] = placement;
-		//TODO: change method name here:
-		if(isWinnerX(newBoard)) {
-			//
-		}
+		isThereAWinner(makeStringFromCharArray(newBoard));		
 		count++;
 	}
 

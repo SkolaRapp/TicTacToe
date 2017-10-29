@@ -1,9 +1,7 @@
 package is.ru.tictactoe;
 
-
 import java.util.HashMap;
 import java.lang.*;
-
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
