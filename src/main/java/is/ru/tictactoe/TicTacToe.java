@@ -2,6 +2,8 @@ package is.ru.tictactoe;
 import java.util.Random;
 
 public class TicTacToe {
+
+	//Test comment
 	
 	private char[] newBoard;
 	private int count;
