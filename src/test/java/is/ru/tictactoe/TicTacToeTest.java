@@ -34,7 +34,7 @@ public class TicTacToeTest {
    	public void testBoard() {
    		TicTacToe tic = new TicTacToe();
    		
-   		char[] expectedArray = {'99', '2', '3', '4', '5', '6', '7', '8', '9'};
+   		char[] expectedArray = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
    		String expected = String.valueOf(expectedArray);
     	char[] boardTest = tic.getBoard();
     	String returned =  String.valueOf(boardTest);
@@ -42,6 +42,7 @@ public class TicTacToeTest {
     	assertEquals(expected, returned);
    	}
 
+    //comment
     @Test
     public void testIsDigit() {
         TicTacToe tic = new TicTacToe();
