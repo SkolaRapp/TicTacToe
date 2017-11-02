@@ -56,7 +56,7 @@ public class TicTacWeb {
                 //Return the .vtl file with the VelocityTemplateEngine
               return new ModelAndView(model, layout);
             }, new VelocityTemplateEngine());
-
+ 
             //On restart we return the .vtl file with the new board
             get("/newGame", (request, response) -> {
                 HashMap model = new HashMap();
